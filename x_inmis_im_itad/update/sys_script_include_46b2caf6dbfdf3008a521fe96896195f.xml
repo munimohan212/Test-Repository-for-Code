@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.GetFacilityAddress</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>GetFacilityAddress</name>
+        <script><![CDATA[var GetFacilityAddress = Class.create();
+GetFacilityAddress.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    getvalue: function() {
+
+        var flag = this.getParameter('sysparm_flag') ? this.getParameter('sysparm_flag') : false;
+        var param1 = this.getParameter('name');
+        var result_value = '';
+        var result_value1 = '';
+        var grecord = new GlideRecord('x_inmis_im_itad_imitad_location');
+        if (flag == true || flag.toString() == 'true') {
+            grecord.addQuery('location', param1);
+        } else {
+            grecord.addQuery('sys_id', param1);
+        }
+        grecord.query();
+
+        if (grecord.next()) {
+            result_value = grecord.itad_facilityaddress.toString();
+            result_value1 = grecord.pickup_contact.toString();
+        }
+        //gs.info('result_value:'+result_value);
+        //gs.info('result_value1:'+result_value1);
+        //return result_value;
+        var object = {
+            'result_value': result_value,
+            'result_value1': result_value1
+        };
+
+        var json = new global.JSON();
+        var data = json.encode(object);
+        //gs.info('data:'+data);
+
+        return data;
+    },
+
+
+    getIMITADLocvalue: function() {
+        var data = {};
+        var locSysID = this.getParameter('sysparm_locSysID');
+        var IMITADLoc = new GlideRecord('x_inmis_im_itad_imitad_location');
+        if (IMITADLoc.get('location', locSysID)) {
+            data.IMITADLoc = IMITADLoc.getValue('sys_id');
+        }
+        var json1 = new global.JSON();
+        var data1 = json1.encode(data);
+        return data1;
+    },
+
+
+
+    type: 'GetFacilityAddress'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-06 13:18:53</sys_created_on>
+        <sys_id>46b2caf6dbfdf3008a521fe96896195f</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>GetFacilityAddress</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_46b2caf6dbfdf3008a521fe96896195f</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-29 08:07:56</sys_updated_on>
+    </sys_script_include>
+</record_update>

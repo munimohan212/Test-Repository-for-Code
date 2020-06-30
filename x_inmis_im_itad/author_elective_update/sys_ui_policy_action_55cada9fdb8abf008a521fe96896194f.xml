@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="DELETE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>x_inmis_im_itad_test_status</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-20 14:29:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>55cada9fdb8abf008a521fe96896194f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_inmis_im_itad_test_status</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_policy_action_55cada9fdb8abf008a521fe96896194f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-20 14:29:49</sys_updated_on>
+        <table>alm_hardware</table>
+        <ui_policy display_value="Readonly IM_ITAD AUDIT">ab521a1bdb8abf008a521fe968961980</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_ui_policy_action_55cada9fdb8abf008a521fe96896194f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>x_inmis_im_itad_test_status</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-20 14:29:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>55cada9fdb8abf008a521fe96896194f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_inmis_im_itad_test_status</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_policy_action_55cada9fdb8abf008a521fe96896194f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-20 14:29:49</sys_updated_on>
+        <table>alm_hardware</table>
+        <ui_policy display_value="Readonly IM_ITAD AUDIT">ab521a1bdb8abf008a521fe968961980</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>]]></payload>
+        <payload_hash>1935157713</payload_hash>
+        <record_name>x_inmis_im_itad_test_status</record_name>
+        <reverted_from/>
+        <source>68373231dbfd405067166ac2ca961955</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2019-12-19 10:39:08</sys_created_on>
+        <sys_id>37673e71dbfd405067166ac2ca96191c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16f1dbd62ec0000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-12-19 10:39:08</sys_updated_on>
+        <type>UI Policy Action</type>
+        <update_guid>73673e71a7fd4050112b1b241537be1c</update_guid>
+        <update_guid_history>73673e71a7fd4050112b1b241537be1c:0,40e632bd6bbd40506bae1ed5a5b5a528:-295055893,ec6b7df611998010437194b7de1f8136:0,9bca3536bb998010b66fa7feca12a3f3:-295055893,44a6c7b4751dc090cf032d64dabb3eb4:0,0c064fb0f01dc090e4e9518d0b7af98a:-295055893,39f022938307370041ae88da2473f781:0,1480aa9f48c3370006557ee2adc34ebf:612197958,6bdd925b02c33700c0df95aa8a844975:0,8f6d5697fdc337008bd9b436c14ffa46:-295055893,bb2a561356c33700ee78ea9c75389c34:0,33a99a1f6e8337005c2a5f961912a8e0:-295055893,5b19929b3e8337004d81fb49b46cabeb:0,6398de97d98337003a60cfe299d4c939:612197958,b6579617348337002028a187b385e727:0,b0d61a1332833700720089c76b4099cd:-295055893,6cf4561f30433700a8ea32d8c81e0fdd:0,ea64d61b0f433700794c7def35eef8cc:-295055893,5cea569f288abf003a6deec2ff41c4fc:1656752186</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-20 07:36:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_policy_action">sys_ui_policy_action</sys_db_object>
+        <sys_id>518c02d30d3741e5b10cd365df7af101</sys_id>
+        <sys_metadata>55cada9fdb8abf008a521fe96896194f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_inmis_im_itad_test_status</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent display_value="Readonly IM_ITAD AUDIT">ab521a1bdb8abf008a521fe968961980</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_ui_policy_action_55cada9fdb8abf008a521fe96896194f</sys_update_name>
+        <sys_update_version display_value="sys_ui_policy_action_55cada9fdb8abf008a521fe96896194f">37673e71dbfd405067166ac2ca96191c</sys_update_version>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-20 07:36:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

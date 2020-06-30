@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>6254a41bdbba001067166ac2ca961989</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="x_inmis_im_itad_equipment_type">
+    <x_inmis_im_itad_equipment_type action="INSERT_OR_UPDATE">
+        <equipmenttype>Monitor - LCD Monitor &gt;24"</equipmenttype>
+        <equipmenttypeid>35</equipmenttypeid>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-11 08:50:12</sys_created_on>
+        <sys_id>6254a41bdbba001067166ac2ca961989</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-11 08:50:12</sys_updated_on>
+    </x_inmis_im_itad_equipment_type>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-26 14:40:06</sys_created_on>
+        <sys_id>9a444b00db93c4108a521fe968961917</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Monitor - LCD Monitor &gt;24"</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_metadata_link_9a444b00db93c4108a521fe968961917</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-26 14:40:06</sys_updated_on>
+        <tablename>x_inmis_im_itad_equipment_type</tablename>
+    </sys_metadata_link>
+</record_update>

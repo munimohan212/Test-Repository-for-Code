@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.companyUtil</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>companyUtil</name>
+        <script><![CDATA[var companyUtil = Class.create();
+companyUtil.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+getCompanyName: function() {
+		var compName = ''; // Return value
+		var grComp   = new GlideRecord('core_company');
+		if (grComp.get(gs.getUser().getCompanyID())) {
+			compName = grComp.sys_id;
+		}
+		return compName;
+	},
+
+    type: 'companyUtil'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-24 15:30:52</sys_created_on>
+        <sys_id>98164541dbc13f0067166ac2ca9619e5</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>companyUtil</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_98164541dbc13f0067166ac2ca9619e5</sys_update_name>
+        <sys_updated_by>pmore</sys_updated_by>
+        <sys_updated_on>2020-04-06 11:51:19</sys_updated_on>
+    </sys_script_include>
+</record_update>

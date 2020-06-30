@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Inbound Scheduled" max_length="40" name="x_inmis_im_itad_inbound_scheduled" type="collection">
+        <element label="Confirmed by" max_length="1000" name="confirmed_by" type="string"/>
+        <element label="Confirmed with" max_length="1000" name="confirmed_with" type="string"/>
+        <element label="IM JobID" max_length="40" name="im_jobid" type="string"/>
+        <element label="Job Status" max_length="1000" name="job_status" type="string"/>
+        <element label="Pickup confirmed" max_length="1000" name="pickup_confirmed" type="string"/>
+        <element label="Request Number" max_length="40" name="request_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="SourceID" max_length="40" name="sourceid" type="string"/>
+        <element label="Time from" max_length="40" name="time_from" type="string"/>
+        <element label="Time to" max_length="40" name="time_to" type="string"/>
+    </element>
+</database>

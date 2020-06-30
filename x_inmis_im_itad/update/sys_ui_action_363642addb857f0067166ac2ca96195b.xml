@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>createdisposalorder</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>!RP.isRelatedList()</condition>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>true</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Create WorkOrder</name>
+        <onclick>createdisposal()</onclick>
+        <order>100</order>
+        <script><![CDATA[function createdisposal(){	
+	
+	var isvalid=true;
+	var selSysIds = g_list.getChecked();
+	var sysIdList = selSysIds.split(',');
+	if(selSysIds == null ||selSysIds==' ' ) {
+		alert('Please select assets to create a workorder.');
+		return;
+	}
+	getValueByID(sysIdList);
+	function getValueByID (sys_ids) {
+		var count=0;
+		var selecteditem=sys_ids.length;
+		var isvalid=true;
+		
+		var previousLocation='';
+		var facilityaddress='';
+		var isvalid1=true;
+		var isvalid2=true;
+		
+		for(var i = 0; i < sys_ids.length; i++) {
+			var gaa = new GlideAjax('x_inmis_im_itad.GetfieldValue');
+			gaa.addParam('sysparm_name', 'getvalue');
+			gaa.addParam('SysID', sys_ids[i]);
+			gaa.getXMLAnswer(populateField);
+		}
+		
+		function populateField(response){
+			var obj = JSON.parse(response);
+			count++;
+			if(obj.result_value=='ready_for_disposal') {
+			}
+			else {
+				isvalid=false;
+			}
+			if(obj.result_value3=='false'||obj.result_value3==false) {
+				isvalid2=false;
+			}
+			if(previousLocation=='') {
+				previousLocation=obj.result_value1.toString();
+				facilityaddress=obj.result_value2.toString();
+			}
+			else {
+				if(previousLocation==obj.result_value1.toString()) {
+				} else {
+					isvalid1=false;
+				}
+			}
+			if(count==selecteditem)
+				{
+				if(isvalid==false)
+					{
+					alert("Selected assets are not ready for disposal. Please check the assets and try again.");
+				}
+				else if(isvalid1==false)
+					{
+					alert("Workorder cannot be created as assets selected are from different disposal location. Please select assets from a single disposal location for creating a workorder");
+					
+				}
+				else if(isvalid2==false)
+					{
+					//alert("Please Select asset of disposal locations only.");
+					alert("Workorder cannot be created as assets selected are not mapped to a disposal location. Please contact ITAD administrator to mark location as disposal and then create a workorder");
+					
+				}
+				else
+					{
+					var gu = new GlideURL('x_inmis_im_itad_workorder.do');
+					gu.addParam('List',sysIdList);
+					gu.addParam('Location',previousLocation);
+					gu.addParam('facilityaddress',facilityaddress);
+					gu.addParam('Action','Insert');
+					gu.addParam('sysparm_order','sys_updated_on');
+					gu.addParam('sysparm_order_direction','desc');
+					gu.addParam('bIsFromCreateWorkOrder','1');
+					g_navigation.open(gu.getURL());
+				}
+			}
+		}
+	}
+}]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 09:33:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>363642addb857f0067166ac2ca96195b</sys_id>
+        <sys_mod_count>92</sys_mod_count>
+        <sys_name>Create WorkOrder</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_action_363642addb857f0067166ac2ca96195b</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-14 06:53:29</sys_updated_on>
+        <table>alm_hardware</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

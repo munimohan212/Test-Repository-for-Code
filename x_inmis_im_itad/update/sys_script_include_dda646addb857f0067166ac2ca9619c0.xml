@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.GetfieldValue</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to  get  field by value</description>
+        <name>GetfieldValue</name>
+        <script><![CDATA[var GetfieldValue = Class.create();
+GetfieldValue.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    getvalue: function() {
+        var param1 = this.getParameter('SysID');
+
+        var result_value = '';
+        var result_value1 = '';
+        var result_value2 = '';
+        var result_value3 = '';
+        var grecord = new GlideRecord('alm_asset');
+        grecord.addQuery('sys_id', param1);
+        grecord.query();
+
+        if (grecord.next()) {
+            result_value = grecord.substatus.toString();
+            result_value1 = grecord.location.toString();
+
+            var IMITADLocation = new GlideRecord('x_inmis_im_itad_imitad_location');
+            IMITADLocation.addQuery('location', grecord.location.toString());
+            IMITADLocation.query();
+            if (IMITADLocation.next()) {
+                result_value2 = IMITADLocation.itad_facilityaddress.toString();
+                result_value3 = IMITADLocation.disposal.toString();
+            }
+        }
+
+        var object = {
+            'result_value': result_value,
+            'result_value1': result_value1,
+            'result_value2': result_value2,
+            'result_value3': result_value3
+        };
+
+        var json = new global.JSON();
+        var data = json.encode(object);
+        gs.info('data:' + data);
+
+        return data;
+    },
+
+    type: 'GetfieldValue'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 09:31:32</sys_created_on>
+        <sys_id>dda646addb857f0067166ac2ca9619c0</sys_id>
+        <sys_mod_count>59</sys_mod_count>
+        <sys_name>GetfieldValue</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_dda646addb857f0067166ac2ca9619c0</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-18 13:17:09</sys_updated_on>
+    </sys_script_include>
+</record_update>

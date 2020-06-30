@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="532bb198dbac9c1067166ac2ca9619d9" sys_domain="global" table="x_inmis_im_itad_imitad_location" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:17:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>972bb198dbac9c1067166ac2ca9619da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_location" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">532bb198dbac9c1067166ac2ca9619d9</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">34643dd4dbac9c1067166ac2ca961909</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:17:39</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:17:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>132bb198dbac9c1067166ac2ca9619dc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_location" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">532bb198dbac9c1067166ac2ca9619d9</sys_ui_form>
+            <sys_ui_section caption="Location Details" display_value="Location Details" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">9f2bb198dbac9c1067166ac2ca9619da</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:17:39</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:18:13</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>eb4b7dd8dbac9c1067166ac2ca961985</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_location" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">532bb198dbac9c1067166ac2ca9619d9</sys_ui_form>
+            <sys_ui_section caption="Billing Details" display_value="Billing Details" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">6b4b7dd8dbac9c1067166ac2ca961983</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:18:13</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:19:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f79bfdd8dbac9c1067166ac2ca9619ee</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_location" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">532bb198dbac9c1067166ac2ca9619d9</sys_ui_form>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:19:35</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:20:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>02bbf11cdbac9c1067166ac2ca9619b5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_location" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">532bb198dbac9c1067166ac2ca9619d9</sys_ui_form>
+            <sys_ui_section caption="Contact Information" display_value="Contact Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">8abbf9d8dbac9c1067166ac2ca961995</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:20:01</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_inmis_im_itad_imitad_location</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:17:39</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>532bb198dbac9c1067166ac2ca9619d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_inmis_im_itad_imitad_location</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_form_sections_532bb198dbac9c1067166ac2ca9619d9</sys_update_name>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:17:39</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

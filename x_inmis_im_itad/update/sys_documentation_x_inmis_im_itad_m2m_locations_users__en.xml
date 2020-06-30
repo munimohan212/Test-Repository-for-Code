@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="Im Itad M2m Locations Users" language="en" table="x_inmis_im_itad_m2m_locations_users">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Im Itad M2m Locations Users</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_m2m_locations_users</name>
+            <plural>Im Itad M2m Locations Users</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-30 09:53:58</sys_created_on>
+            <sys_id>afdf7edfdb2acc9067166ac2ca961929</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Im Itad M2m Locations Users</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_documentation_x_inmis_im_itad_m2m_locations_users__en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-30 09:53:58</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>earliest_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Earliest date validation</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+  var today = new Date();
+
+ var latestdate = new Date(g_form.getValue('latest_date'));
+   var end = new Date(newValue);
+
+
+   var intToday = (today.getUTCFullYear() * 10000) + (today.getUTCMonth() * 100) + today.getUTCDate();
+
+
+   var intEnd = (end.getUTCFullYear() * 10000) + (end.getUTCMonth() * 100) + end.getUTCDate();
+	
+	  var intlatestdate = (latestdate.getUTCFullYear() * 10000) + (latestdate.getUTCMonth() * 100) + latestdate.getUTCDate();
+
+//alert(intlatestdate);
+   //clear the message
+
+
+   g_form.hideFieldMsg(control.name);
+
+
+
+   //Use UTC conversion, and verify each part is appropriate
+
+
+   if (intEnd >= intToday) {
+
+
+   //this is valid, do nothing
+
+
+   } else {
+
+
+   g_form.showFieldMsg(control.name,'End date must be in the future.','error');
+
+	   alert('The Earliest Date should be on or later than current date');
+	   
+	   
+	 
+	  
+
+   g_form.clearValue(control.name);
+
+
+   }
+
+	  if( isNaN(intlatestdate) )
+		   {
+		   }else{
+			  
+			   
+			   if(intlatestdate>=intEnd)
+				   {
+					    
+					   
+				   }
+			   else
+				   {
+					    alert('The Earliest Date should be less than latest date');
+					      g_form.clearValue(control.name);
+				   }
+		   }
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-09 15:31:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f215527ddbd9b74067166ac2ca9619d9</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Earliest date validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_client_f215527ddbd9b74067166ac2ca9619d9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-14 11:11:32</sys_updated_on>
+        <table>x_inmis_im_itad_workorder</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

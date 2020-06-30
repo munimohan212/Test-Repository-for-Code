@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.UpdateReadyforDisposal</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>UpdateReadyforDisposal</name>
+        <script><![CDATA[var UpdateReadyforDisposal = Class.create();
+UpdateReadyforDisposal.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	readyfordisposal: function() {
+		
+		var param1 = this.getParameter('AssetSysID');
+		var grupdate = new GlideRecord('alm_asset');
+		grupdate.addQuery('sys_id',param1);
+		grupdate.query();
+		
+		if (grupdate.next())
+			{
+			grupdate.setValue('install_status',6);
+			grupdate.setValue('substatus','ready_for_disposal');
+			grupdate.update();
+		}
+	},
+	type: 'UpdateReadyforDisposal'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 09:44:27</sys_created_on>
+        <sys_id>7ad90a21dbc57f0067166ac2ca9619bc</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>UpdateReadyforDisposal</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_7ad90a21dbc57f0067166ac2ca9619bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-07 11:31:43</sys_updated_on>
+    </sys_script_include>
+</record_update>

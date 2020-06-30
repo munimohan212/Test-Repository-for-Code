@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="currency" max_length="40" name="x_inmis_im_itad_currency" type="collection">
+        <element label="CurrencyCode" max_length="40" name="currencycode" type="string"/>
+        <element label="CurrencyID" max_length="40" name="currencyid" type="string"/>
+        <element display="true" label="CurrencyName" max_length="40" name="currencyname" type="string"/>
+        <element label="Symbol" max_length="40" name="symbol" type="string"/>
+        <index name="index">
+            <element name="currencyid"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>7aea6c7fdbd1330067166ac2ca9619d1</enforce_acl>
+        <http_method>PUT</http_method>
+        <name>Received</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	
+	try{
+		var body = request.body.data;
+		var workOrderID = body.InputArguments.JobUpdate.RequestNumber.toString();
+		var imJobID = body.InputArguments.JobUpdate.IMJobId.toString();
+		var jobStatus = body.InputArguments.JobUpdate.JobStatus.toString();
+		var sourceID = body.InputArguments.JobUpdate.SourceID.toString();
+		var loadID = body.InputArguments.Receipt.LoadID.toString();
+		var palletCount = body.InputArguments.Receipt.PalletCount.toString();
+		var receivedBy = body.InputArguments.Receipt.ReceivedBy.toString();
+		var receivedOn = body.InputArguments.Receipt.ReceivedOnUTC.toString();
+		var facility = body.InputArguments.Receipt.Facility.toString();
+		var gd = new GlideDate();
+		
+		var receivedUpdate = new GlideRecord('x_inmis_im_itad_inbound_received');
+		receivedUpdate.initialize();
+		receivedUpdate.sourceid = sourceID;
+		receivedUpdate.im_jobid = imJobID;
+		receivedUpdate.job_status = jobStatus;
+		receivedUpdate.loadid = loadID;
+		receivedUpdate.pallet_count = palletCount;
+		receivedUpdate.received_by = receivedBy;
+		receivedUpdate.received_on = receivedOn;
+		receivedUpdate.request_number = workOrderID;
+		receivedUpdate.facility = facility;
+		receivedUpdate.insert();
+		response.setContentType('application/json');
+		
+		var responseBody = {"Message":"Updated receiving details for work order:"+workOrderID};
+			response.setBody(responseBody);
+		}
+		catch(ex){
+			gs.error("There was an error doing recieved API Call", ex);
+		}
+		
+	})(request, response);]]></operation_script>
+        <operation_uri>/api/x_inmis_im_itad/imitad_inbound/Received</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/Received</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-30 11:32:46</sys_created_on>
+        <sys_id>61298bfedb4d73408a521fe9689619c2</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Received</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ws_operation_61298bfedb4d73408a521fe9689619c2</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-17 08:01:23</sys_updated_on>
+        <web_service_definition display_value="IMITAD Inbound">f1d49dc6db0dff008a521fe96896192c</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.IMITADLocationUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>IMITADLocationUtils</name>
+        <script><![CDATA[var IMITADLocationUtils = Class.create();
+IMITADLocationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    getLocations: function() {
+        var sysIDs = [];
+        var cmnLocation = new GlideRecord('cmn_location');
+        cmnLocation.query();
+        while (cmnLocation.next()) {
+            var IMITADLocation = new GlideRecord('x_inmis_im_itad_imitad_location');
+            IMITADLocation.addQuery('location', cmnLocation.getValue('sys_id'));
+          var qc =   IMITADLocation.addQuery('itad_locationid', '!=', 'NULL');
+			qc.addOrCondition('disposal', true);
+        //    IMITADLocation.addQuery('disposal', true);
+            IMITADLocation.query();
+            while (IMITADLocation.next()) {
+                sysIDs.push(cmnLocation.getValue('sys_id'));
+            }
+        }
+        gs.info('sys_idNOT IN' + sysIDs.toString());
+        return 'sys_idNOT IN' + sysIDs.toString();
+    },
+    type: 'IMITADLocationUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-29 10:04:31</sys_created_on>
+        <sys_id>57d00dc2db85581067166ac2ca9619e9</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>IMITADLocationUtils</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_57d00dc2db85581067166ac2ca9619e9</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-06-03 06:57:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

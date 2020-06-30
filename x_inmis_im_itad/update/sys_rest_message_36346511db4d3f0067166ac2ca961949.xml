@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message">
+    <sys_rest_message action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <authentication_type>no_authentication</authentication_type>
+        <basic_auth_password>BiEMFVqbCuh7MaSa+EyjGA==</basic_auth_password>
+        <basic_auth_profile/>
+        <basic_auth_user/>
+        <description>Create/Update location in Ingram Micro</description>
+        <name>IngramMirco Location create update</name>
+        <oauth2_profile/>
+        <protocol_name/>
+        <rest_endpoint>${CreateLocationbaseUrl}</rest_endpoint>
+        <sys_class_name>sys_rest_message</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-25 12:21:58</sys_created_on>
+        <sys_id>36346511db4d3f0067166ac2ca961949</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>IngramMirco Location create update</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_rest_message_36346511db4d3f0067166ac2ca961949</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-27 07:58:29</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message>
+</record_update>

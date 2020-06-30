@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Customer Registration" max_length="40" name="x_inmis_im_itad_customer_registration" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Company" max_length="32" name="company" reference="core_company" type="reference"/>
+        <element display="true" label="Instance Name" mandatory="true" max_length="80" name="company_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true,no_data_replicate=true" label="Password" max_length="500" name="encrypted_password" type="password2"/>
+        <element label="Username" max_length="500" name="encrypted_username" type="string"/>
+        <element attributes="edge_encryption_enabled=true,format=none" label="Source ID" mandatory="true" max_length="40" name="source_id" type="integer"/>
+        <element label="Source Name" mandatory="true" max_length="75" name="source_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Domain" max_length="32" name="sys_domain" type="domain_id"/>
+        <element label="Token" max_length="50" name="token" type="string"/>
+        <element label="TokenExpireDate" max_length="40" name="tokenexpiredate" type="glide_date_time"/>
+        <index name="index">
+            <element name="sys_domain"/>
+        </index>
+        <index name="index2">
+            <element name="company"/>
+        </index>
+    </element>
+</database>

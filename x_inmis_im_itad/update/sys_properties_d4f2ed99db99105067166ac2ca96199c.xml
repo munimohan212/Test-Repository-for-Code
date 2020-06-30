@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices>Yes,No</choices>
+        <description>Please configure this property to Push or Pull the data from Blue IQ.&#13;
+Note:  Select "Yes" to pull and "No" to Push from Blue IQ.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_inmis_im_itad.SchedulerToGetDate</name>
+        <read_roles>x_inmis_im_itad.imitad_wo_create,x_inmis_im_itad.imitad_admin</read_roles>
+        <suffix>SchedulerToGetDate</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-08 14:58:57</sys_created_on>
+        <sys_id>d4f2ed99db99105067166ac2ca96199c</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>x_inmis_im_itad.SchedulerToGetDate</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_properties_d4f2ed99db99105067166ac2ca96199c</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-22 10:27:30</sys_updated_on>
+        <type>choicelist</type>
+        <value>No</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=d4f2ed99db99105067166ac2ca96199c"/>
+</record_update>

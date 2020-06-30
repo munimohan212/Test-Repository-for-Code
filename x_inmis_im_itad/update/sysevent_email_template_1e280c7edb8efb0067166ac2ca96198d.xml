@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>x_inmis_im_itad_my_request</collection>
+        <email_layout/>
+        <message/>
+        <message_html><![CDATA[<p>Hi Team,</p>
+<p>Request ${number} has been raised by ${first_name} ${last_name}.<br />Below is the&nbsp;details for the same.</p>
+<p><strong>Requestor</strong>:&nbsp;${first_name} ${last_name}</p>
+<p><strong>Service Of Interest</strong>: ${serviceofinterest}</p>
+<p><strong>Issue With</strong>: ${issue_with}</p>
+<p><strong>Email</strong>: ${email}</p>
+<p><strong>Phone Number</strong>: ${phone_number}</p>
+<p><strong>Detail Description</strong>:</p>
+<p>${detail_description}</p>
+<p>Please review the request and intimate user accordingly through email.</p>
+<p>&nbsp;</p>
+<p>Thanks!</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>support.request.template</name>
+        <sms_alternate/>
+        <subject>ServiceNow : ${number} : ${short_description}</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-18 14:36:44</sys_created_on>
+        <sys_id>1e280c7edb8efb0067166ac2ca96198d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>support.request.template</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sysevent_email_template_1e280c7edb8efb0067166ac2ca96198d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-18 15:06:14</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

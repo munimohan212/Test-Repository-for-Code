@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_inmis_im_itad_im_mapping_model_equipment</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Mapping Validation</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	//Validation for Model Category
+	try{
+		
+		var modelsyslist=current.mapping_model_categories.toString();//to get sys_id
+		var modelvaluelist=current.mapping_model_categories.getDisplayValue().toString();//to get values
+		var modelsysArray = modelsyslist.split(",");
+		var modelvalueArray = modelvaluelist.split(",");
+		var existmodels='';
+		
+		for (var  i = 0; i < modelsysArray.length; i++) {
+			
+			// check one by one list items exist or not
+			
+			var category=modelsysArray[i].toString();
+			
+			var grupdate = new GlideRecord('x_inmis_im_itad_im_mapping_model_equipment');
+			//grupdate.addQuery('mapping_model_categories','CONTAINS',category);
+			grupdate.addQuery('sys_id!='+current.sys_id+'^mapping_model_categories CONTAINS'+category);
+			grupdate.query();
+			
+			if (grupdate.next()) {
+				//to show category values which already exist
+				if(existmodels=="")
+					{
+					existmodels=modelvalueArray[i];
+				}
+				else
+					{
+					existmodels=existmodels+ ","+modelvalueArray[i];
+				}
+			}
+		}
+		
+	
+		
+		var equipsyslist=current.mapping_equipment_type.toString();//to get sys_id
+		var equipvaluelist=current.mapping_equipment_type.getDisplayValue().toString();//to get values
+		var equipsysArray = equipsyslist.split(",");
+		var equipvalueArray = equipvaluelist.split(",");
+		var existequip='';
+	
+		
+		for (var  j = 0; j < equipsysArray.length; j++) {
+			
+			// check one by one list items exist or not
+			
+			var type=equipsysArray[j].toString();
+			
+			var grupdate1 = new GlideRecord('x_inmis_im_itad_im_mapping_model_equipment');
+			//grupdate.addQuery('mapping_model_categories','CONTAINS',category);
+			grupdate1.addQuery('sys_id!='+current.sys_id+'^mapping_equipment_type CONTAINS'+type);
+			grupdate1.query();
+			
+			if (grupdate1.next()) {
+				//to show category values which already exist
+				if(existequip=="")
+					{
+					existequip=equipvalueArray[j];
+				}
+				else
+					{
+					existequip=existequip+ ","+equipvalueArray[j];
+				}
+			}
+		}
+		
+		
+		
+
+		
+if(existmodels!='' && existequip!='')
+{
+gs.addErrorMessage("Mapping already exists for <b> "+existmodels +"</b> Model Category and <b> "+existequip +"</b> Equipment Type.Please Check and try again");
+current.setAbortAction(true);
+}
+else if (existmodels =='' && existequip =='')
+{
+gs.addInfoMessage("	The mapping has been added successfully.");	
+//("The mapping has been added successfully.");	
+}
+else if(existmodels!='')
+{
+gs.addErrorMessage("Mapping already exists for <b> "+existmodels +"</b> model categories.Please Check and try again");		
+current.setAbortAction(true);
+}
+else if (existequip!='')
+{
+gs.addErrorMessage("Mapping already exists for <b> "+existequip+"</b> Equipment Type.Please Check and try again");		
+current.setAbortAction(true);
+}
+}
+catch(ex1) {
+		var message1 = ex1.message;
+		
+		gs.addErrorMessage(message1);
+		current.setAbortAction(true);
+		
+	}
+	
+	
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-21 07:23:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f7ffa39adb03c0108a521fe968961984</sys_id>
+        <sys_mod_count>82</sys_mod_count>
+        <sys_name>Mapping Validation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_f7ffa39adb03c0108a521fe968961984</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-13 09:34:04</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=f7ffa39adb03c0108a521fe968961984"/>
+</record_update>

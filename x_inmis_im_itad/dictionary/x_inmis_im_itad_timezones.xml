@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Timezones" max_length="40" name="x_inmis_im_itad_timezones" type="collection">
+        <element display="true" label="Timezone" max_length="40" name="timezone" type="string"/>
+        <element label="TimezoneID" max_length="40" name="timezoneid" type="string"/>
+        <index name="index">
+            <element name="timezoneid"/>
+        </index>
+    </element>
+</database>

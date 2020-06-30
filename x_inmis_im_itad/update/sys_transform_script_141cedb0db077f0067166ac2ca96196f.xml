@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="Inbound AssetLevelAttachment">dab35570dbc37f0067166ac2ca9619fe</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+	
+	try{
+		
+		if(ignore!=true && error!=true){
+			
+			var gr = new GlideRecord('alm_hardware');
+		//	gr.addQuery('x_inmis_im_itad_referenceid',source.u_scan_id);  Made this line as comment // DE5188
+			gr.addQuery('serial_number',source.u_serial_number);
+			gr.query();
+			if(gr.next()){
+				
+				new CreateAttachment('alm_hardware',gr.getUniqueValue(),source.u_filename,'',source.u_filebytes);
+				
+			}else{
+				gs.info('No asset level attachment found.');
+			}
+			
+		}}catch(ex){
+			gs.error('Error from assetlevelattachment:' + ex);
+		}
+		
+	})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-08-01 10:01:31</sys_created_on>
+        <sys_id>141cedb0db077f0067166ac2ca96196f</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>onAfter</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_transform_script_141cedb0db077f0067166ac2ca96196f</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-06-03 07:26:37</sys_updated_on>
+        <when>onAfter</when>
+    </sys_transform_script>
+</record_update>

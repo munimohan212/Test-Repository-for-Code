@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="Outbound Integration">bd176106db4dff008a521fe968961901</category>
+        <order>2</order>
+        <property display_value="x_inmis_im_itad.CreateLocation" name="x_inmis_im_itad.CreateLocation">fbffb821db9ef3408a521fe9689619e9</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-27 07:53:38</sys_created_on>
+        <sys_id>8d43c1e1db9ef3408a521fe968961936</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_inmis_im_itad.CreateLocation.Outbound Integration</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_8d43c1e1db9ef3408a521fe968961936</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-27 07:53:38</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Inbound Attachment" max_length="40" name="x_inmis_im_itad_inbound_attachment" type="collection">
+        <element attributes="import_attribute_name=asset_tag,edge_encryption_enabled=true" label="Asset Tag" max_length="100" name="asset_tag" type="string"/>
+        <element attributes="import_attribute_name=filebytes,edge_encryption_enabled=true" label="FileBytes" max_length="65000" name="filebytes" type="string"/>
+        <element attributes="import_attribute_name=filename,edge_encryption_enabled=true" label="FileName" max_length="1000" name="filename" type="string"/>
+        <element attributes="import_attribute_name=im_jobid,edge_encryption_enabled=true" label="IM JobId" max_length="40" name="im_jobid" type="string"/>
+        <element attributes="import_attribute_name=job_status,edge_encryption_enabled=true" label="Job Status" max_length="100" name="job_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=location_id" label="Location ID" max_length="40" name="location_id" type="integer"/>
+        <element attributes="import_attribute_name=po_number,edge_encryption_enabled=true" label="PO Number" max_length="40" name="po_number" type="string"/>
+        <element attributes="import_attribute_name=request_number,edge_encryption_enabled=true" label="Request Number" max_length="40" name="request_number" type="string"/>
+        <element attributes="import_attribute_name=scan_id,edge_encryption_enabled=true" label="Scan ID" max_length="40" name="scan_id" type="string"/>
+        <element attributes="import_attribute_name=serial_number,edge_encryption_enabled=true" label="Serial Number" max_length="100" name="serial_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="SourceID" max_length="40" name="sourceid" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=source_id" label="Source ID" max_length="40" name="source_id" type="integer"/>
+    </element>
+</database>

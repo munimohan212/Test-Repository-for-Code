@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_entry">
+    <sys_transform_entry action="DELETE">
+        <choice_action>ignore</choice_action>
+        <coalesce>false</coalesce>
+        <coalesce_case_sensitive>false</coalesce_case_sensitive>
+        <coalesce_empty_fields>false</coalesce_empty_fields>
+        <date_format>yyyy-MM-dd HH:mm:ss</date_format>
+        <map display_value="Inbound ReportSent">c1025f76db8d73408a521fe9689619f6</map>
+        <reference_value_field/>
+        <source_field>currency</source_field>
+        <source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+        <source_table>x_inmis_im_itad_inbound_reportsent</source_table>
+        <sys_class_name>sys_transform_entry</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-30 12:19:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>dde353f6db8d73408a521fe968961910</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>currency</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_transform_entry_dde353f6db8d73408a521fe968961910</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-20 15:57:24</sys_updated_on>
+        <target_field>x_inmis_im_itad_currency</target_field>
+        <target_table>alm_asset</target_table>
+        <use_source_script>false</use_source_script>
+    </sys_transform_entry>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_transform_entry_dde353f6db8d73408a521fe968961910</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;
+    &lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;
+        &lt;choice_action&gt;ignore&lt;/choice_action&gt;
+        &lt;coalesce&gt;false&lt;/coalesce&gt;
+        &lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;
+        &lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;
+        &lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;
+        &lt;map display_value="Inbound ReportSent"&gt;c1025f76db8d73408a521fe9689619f6&lt;/map&gt;
+        &lt;reference_value_field/&gt;
+        &lt;source_field&gt;currency&lt;/source_field&gt;
+        &lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;
+        &lt;source_table&gt;x_inmis_im_itad_inbound_reportsent&lt;/source_table&gt;
+        &lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2019-04-30 12:19:09&lt;/sys_created_on&gt;
+        &lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;
+        &lt;sys_id&gt;dde353f6db8d73408a521fe968961910&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;currency&lt;/sys_name&gt;
+        &lt;sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;
+        &lt;sys_scope display_value="Ingram Micro IT Asset Disposition"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_transform_entry_dde353f6db8d73408a521fe968961910&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2019-05-20 15:57:24&lt;/sys_updated_on&gt;
+        &lt;target_field&gt;x_inmis_im_itad_currency&lt;/target_field&gt;
+        &lt;target_table&gt;alm_asset&lt;/target_table&gt;
+        &lt;use_source_script&gt;false&lt;/use_source_script&gt;
+    &lt;/sys_transform_entry&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1860726130</payload_hash>
+        <record_name>currency</record_name>
+        <reverted_from/>
+        <source>68373231dbfd405067166ac2ca961955</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2019-12-19 10:39:05</sys_created_on>
+        <sys_id>8f67fa71dbfd405067166ac2ca961920</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>16f1dbd58a80000001</sys_recorded_at>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2019-12-19 10:39:05</sys_updated_on>
+        <type>Field Map</type>
+        <update_guid>cb67fa7127fd4050939d327a4e0e5720</update_guid>
+        <update_guid_history>cb67fa7127fd4050939d327a4e0e5720:0,fb0732fdeebd4050ae06f642245f1872:439312219,0c6b3df60c998010b76535819db08151:0,76faf176cb9980100d55387605afa2ea:439312219,5b9647b4db1dc090716bdcc7710871f9:0,c6268bf0011dc09060b4d36f49432c49:439312219,11f0ae534f0737005d6aa535e4d6a9ee:0,aca0e6dff7c337008d472848368b0602:-988332618,47dd125b0bc33700177283c5d0561ff2:0,7e8dde97fbc3370099d4ffc539ff0d68:439312219,d32a1613c2c33700e8a6ada6520d3f4f:0,8ad9da5f15833700204ba117be74df53:439312219,fe19929bfd833700e198d99d6555b51e:0,4dc89ad78e833700aa54cd6454b7abfd:-988332618,d257561728833700fb9333d080894652:0,a1079e5321833700d42378c9f684ea66:439312219,88f4161f65433700983fe238f873c556:0,7784565b6f433700b7043032ab25f39c:439312219,5f56c761b3e97300331722a094a2ffe7:0,cc264beddba97300eb2406fbdc00ba3d:671733027,47e4472dd5a97300afb731696c019a8e:0,b2a407a92da97300f56016819af72495:671733027,5aa2cb25f7a973008e6ad7017b97e38d:0,75628ba114a97300dedd497d39e926ea:671733027,01a50711eb217300c24f796cb6759572:-1397618537,7a79f8f7541533003ac22322807f2a50:2025372087,1de353f6ca8d73407f7091f5f17ff311:-747304883</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-13 13:26:47</sys_created_on>
+        <sys_db_object display_value="" name="sys_transform_entry">sys_transform_entry</sys_db_object>
+        <sys_id>1c85a81c8e97465d857f9fb99c743189</sys_id>
+        <sys_metadata>dde353f6db8d73408a521fe968961910</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>currency</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_transform_entry_dde353f6db8d73408a521fe968961910</sys_update_name>
+        <sys_update_version display_value="sys_transform_entry_dde353f6db8d73408a521fe968961910">8f67fa71dbfd405067166ac2ca961920</sys_update_version>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-13 13:26:47</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

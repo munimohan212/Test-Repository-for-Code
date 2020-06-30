@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>x_inmis_im_itad_email_id</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>billing email  vallidation</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+	if(oldValue != newValue){
+		g_form.hideFieldMsg('x_inmis_im_itad_email_id', true);
+		if (!isEmailValid(newValue)) {
+			g_form.showFieldMsg('x_inmis_im_itad_email_id', newValue + " is an invalid email, please re-enter email in correct format.",'error');
+			alert(newValue + " is an invalid email, please re-enter email in correct format.");
+			g_form.clearValue(control.name);
+		}
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-15 11:05:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fc72dcbbdbd1f3008a521fe96896195f</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>billing email  vallidation</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_client_fc72dcbbdbd1f3008a521fe96896195f</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:39:58</sys_updated_on>
+        <table>cmn_location</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_script_client_fc72dcbbdbd1f3008a521fe96896195f</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;x_inmis_im_itad_email_id&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;billing email  vallidation&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+	if (isLoading || newValue === '') {
+		return;
+	}
+	if(oldValue != newValue){
+		g_form.hideFieldMsg('x_inmis_im_itad_email_id', true);
+		if (!isEmailValid(newValue)) {
+			g_form.showFieldMsg('x_inmis_im_itad_email_id', newValue + " is an invalid email, please re-enter email in correct format.",'error');
+			alert(newValue + " is an invalid email, please re-enter email in correct format.");
+			g_form.clearValue(control.name);
+		}
+	}
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2019-05-15 11:05:48&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;fc72dcbbdbd1f3008a521fe96896195f&lt;/sys_id&gt;&lt;sys_mod_count&gt;10&lt;/sys_mod_count&gt;&lt;sys_name&gt;billing email  vallidation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Ingram Micro IT Asset Disposition"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_fc72dcbbdbd1f3008a521fe96896195f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Munimohan.Bathala@ness.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-05-12 14:39:58&lt;/sys_updated_on&gt;&lt;table&gt;cmn_location&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>236630976</payload_hash>
+        <record_name>billing email  vallidation</record_name>
+        <reverted_from/>
+        <source>5098945bdb6cd01067166ac2ca9619c5</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-12 14:39:59</sys_created_on>
+        <sys_id>d91d56a8dbbc941067166ac2ca9619d3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1720953fe4f0000001</sys_recorded_at>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:39:59</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>151d56a872bc94108caade5893e3c1d3</update_guid>
+        <update_guid_history>151d56a872bc94108caade5893e3c1d3:236630976,e467767155fd4050a1a89125a911a3eb:0,26e6f2bdbfbd4050351f93167ff1c3ca:-151413529,b54c8fd43ce10c905e2ded21189e555c:611427059,e95bf5f6439980107607936490abcd5f:0,8f0bf976fb998010a213e1be1866fa4c:2038100178,8c96cf74131dc090ad4c431f8aa9cafb:0,f0f54bb08b1dc0903f8cd8b585d88108:2038100178,03e0e653c2073700e0528e09bfd09def:0,5b706a9fb9c337009822a1e90b8fff34:-1073501139,55dd1e1b28c33700cc57d7073d55f46c:0,9e5dde5715c33700300126af2fee5b79:2038100178,112adedf78833700bc69b853bb16446d:0,60e9de5feb833700f2756b088353b5a2:2038100178,f0195e5be08337005c2e565c337dec5c:0,eb889a979c8337004efd0ac339467d05:-1073501139,185712171a833700c27626e48aadf4f1:0,e2e6d25365833700f3af0f4931baef2c:2038100178,46e4dedbdc433700a68be70070550b8d:0,bf74de1ba64337008a8d44b3be4dc879:2038100178,b06c84c75aca7f00464535bd4c3730f0:-1687610463,0656076167e9730034770b790fbfd1f4:0,e7160bed2ca97300f45bf60758c7f71a:-899679076,f9e4832d1ba97300d622ee5ccc36958a:0,43a447a9dea973002dab38bafff8e473:-899679076,b4a20b2513a973008f4998d7f0498161:0,ec428f6134a97300d25ab1f03ca61500:-899679076,e37b1433cbd13300b0e0cb459e94a0f4:1435815592,b00690bf67d1f3000bb514f176cd9432:-1158636373,0e35587f55d1f3000843ca9686ae5477:1946617562,2bc4107f59d1f30092496c078b809357:-505595142,7cc4147fa0d1f30096794e059b1cc4cb:-1676085781,d4e39cfbf8d1f300b570d5985429e9a4:1013207705,8673dcfb3ad1f3001a2d9f662b0afad1:206869257,cdf2d0fb4fd1f300c54cbd28eb4078a9:-1056389322</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-20 07:20:25</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>4078af90e155426d923570cc344af571</sys_id>
+        <sys_metadata>fc72dcbbdbd1f3008a521fe96896195f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>billing email  vallidation</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent display_value="">6895ea00db2123008a521fe968961986</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_script_client_fc72dcbbdbd1f3008a521fe96896195f</sys_update_name>
+        <sys_update_version display_value="sys_script_client_fc72dcbbdbd1f3008a521fe96896195f">d91d56a8dbbc941067166ac2ca9619d3</sys_update_version>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-20 07:20:25</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

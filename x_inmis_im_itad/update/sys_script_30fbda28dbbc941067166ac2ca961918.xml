@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_inmis_im_itad_imitad_location</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>IngramMicro LocationCreateUpdate</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions>x_inmis_im_itad.imitad_admin</role_conditions>
+        <script><![CDATA[try {
+	gs.info('Location create/update started');
+	var SourceID;
+	var username='';
+	var password='';
+	var Token='';
+	var Tokenexpiredate='';
+	
+	var imcust = new GlideRecord('x_inmis_im_itad_customer_registration');
+	imcust.addQuery('company_name',gs.getProperty('instance_name'));
+	imcust.query();
+	
+	if(imcust.next()){
+		SourceID = imcust.source_id;
+		var Encrypter = imcust.encrypted_password.getDecryptedValue();
+		username=imcust.encrypted_username;
+		password=Encrypter;
+		Token= imcust.getElement('token').getDisplayValue();
+		Tokenexpiredate=imcust.getElement('tokenexpiredate').getDisplayValue();
+	}
+	
+	
+	
+	//if token is null OR Expired create token
+	var minute=20;
+	var hour=1;
+	if(Token!='')
+		{
+		var today=new GlideDateTime(new GlideDateTime().getDisplayValue());
+		var tt=new GlideDateTime(Tokenexpiredate);
+		var duration =new GlideDuration(GlideDateTime.subtract(today,tt ));
+		var timeSection = duration.toString().split(' ')[1]; //Gets the Time
+		minute = timeSection.split(':')[1];
+		hour=timeSection.split(':')[0];
+		//gs.info("min"+minute);
+	}
+	//Token generation Start
+	if(Token==''||minute>19||minute<1||hour!='00' ){
+		gs.info("create Token...");
+		var t = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Token', 'POST');
+		t.setStringParameterNoEscape('baseUrl',gs.getProperty('x_inmis_im_itad.TestConnection').replace('ConnectionCheck','CreateToken'));
+		t.setStringParameterNoEscape('Username',username);
+		t.setStringParameterNoEscape('Password',password);
+		t.setEccParameter('skip_sensor', true);
+		var response1 = t.executeAsync();
+		var responseBody1 = response1.getBody();
+		
+		var httpStatus1 = response1.getStatusCode();
+		
+		gs.info('responseBody Muni: ' + responseBody1 + ', httpStatus1: ' + httpStatus1 + ', response1: ' + response1);
+		var readResponse1 = JSON.parse(responseBody1);
+		if(response1.haveError()){
+			answer = 'token generation failed:' + response1.getErrorMessage();
+		} else if((readResponse1.ResponseCode=="0"||readResponse1.ErrorMessage=="") && readResponse1.IsSuccess == true) {
+			answer = 'token generated';
+			Token=readResponse1.Token;
+			Tokenexpiredate=new GlideDateTime();
+			Tokenexpiredate.addSeconds(1200);
+			var grupdate = new GlideRecord('x_inmis_im_itad_customer_registration');
+			grupdate.addQuery('source_id',SourceID);
+			grupdate.query();
+			if (grupdate.next())
+				{
+				grupdate.setValue('token',Token);
+				grupdate.setValue('tokenexpiredate',Tokenexpiredate);
+					
+				grupdate.update();
+			}
+			
+			
+		} else {
+			answer = 'token generation failed:' + readResponse.ErrorMessage;
+		}
+		gs.info(answer);
+	}
+	//Token generation End
+	
+	
+	var r = new sn_ws.RESTMessageV2('x_inmis_im_itad.IngramMirco Location create update', 'post');
+	
+	
+	//r.setStringParameterNoEscape('password',password);
+	//r.setStringParameterNoEscape('username',username);
+	r.setStringParameterNoEscape('Token',Token);
+	r.setStringParameterNoEscape('SourceID',SourceID);
+	r.setStringParameterNoEscape('Facility',current.itad_facility.facilityid.toString());
+	r.setStringParameterNoEscape('Currency',  current.currency.currencyid.toString());
+	r.setStringParameterNoEscape('billingAdd1',current.address_1.toString());
+	r.setStringParameterNoEscape('locationCity',current.location.city.toString());
+	r.setStringParameterNoEscape('billingAdd3',current.address_3.toString());
+	r.setStringParameterNoEscape('locationAdd3','');
+	r.setStringParameterNoEscape('billingAdd2',current.address_2.toString());
+	r.setStringParameterNoEscape('locationID',current.itad_locationid == "" ? "0": current.itad_locationid.toString());
+	r.setStringParameterNoEscape('billToName',current.billing_name.toString());
+	r.setStringParameterNoEscape('locationAdd2', '');
+	r.setStringParameterNoEscape('locationAdd1',current.location.street.toString());
+	r.setStringParameterNoEscape('locationDesc', current.location.name.toString());
+	r.setStringParameterNoEscape('IsCOIRequired',current.coi_required.toString());
+	r.setStringParameterNoEscape('IsUnionLabourRequired',current.unionlabour_required.toString());
+	r.setStringParameterNoEscape('IsDockAvailable',current.dock_available.toString());
+	r.setStringParameterNoEscape('IsTimeLimitRequiredToLoadDock',current.loading_timelimit.toString());
+	r.setStringParameterNoEscape('IsPalletJackAvailable',current.palletjack_available.toString());
+	r.setStringParameterNoEscape('IsSchedulingRequired',current.scheduling_required.toString());
+	r.setStringParameterNoEscape('CanHandcartsBeUtilizedFromBuildingEquipment',current.handcarts_required.toString());
+	r.setStringParameterNoEscape('IsLiftGateNeeded',current.liftgate_required.toString());	  
+	r.setStringParameterNoEscape('IsFreightElevatorAvailable',current.freightelevator_available.toString());
+	r.setStringParameterNoEscape('IsPassengerElevatorAvailable',current.passengerelevator_available.toString());
+	r.setStringParameterNoEscape('ForkliftAvailable',current.forklift_available.toString());
+	r.setStringParameterNoEscape('IsLoadingbaydockhavingStandardHeight',current.standard_height.toString());
+	r.setStringParameterNoEscape('Weight',current.weight.toString());
+	r.setStringParameterNoEscape('PostalCode',current.zip.toString());
+	r.setStringParameterNoEscape('EmailID',current.email_id.toString());
+	
+	r.setStringParameterNoEscape('IsPickupLocation',current.pickup_location);
+	r.setStringParameterNoEscape('IsBillingLocation',current.billing_location.toString());
+	r.setStringParameterNoEscape('IsShippingLocation',current.shipping_location.toString());
+	r.setStringParameterNoEscape('ZipPostalCode',current.location.zip.toString());
+	
+	r.setStringParameterNoEscape('TimeZone',current.time_zone.timezoneid.toString());
+	r.setStringParameterNoEscape('BillingCity',current.city.toString());
+	r.setStringParameterNoEscape('BillingState',current.state.stateid.toString());
+	
+	r.setStringParameterNoEscape('pickupcontact',current.pickup_contact_ref.toString());
+	
+	
+	r.setStringParameterNoEscape('primarycontact',current.primary_contact.toString());
+	r.setStringParameterNoEscape('alternativecontact',current.alternate_contact.toString());
+	
+	r.setStringParameterNoEscape('LocationNotes',current.location_notes.toString());
+	
+	r.setStringParameterNoEscape('CreateLocationbaseUrl',gs.getProperty('x_inmis_im_itad.CreateLocation'));
+	
+	
+	
+	gs.info('Location create/update request created successfully.');
+	
+	var requestBody = r.getRequestBody();
+	gs.info('requestBody:' + requestBody);
+	var response = r.execute();
+	
+	var responseBody = response.getBody();
+	var httpStatus = response.getStatusCode();
+	
+	gs.info("responseBody : " +responseBody);
+	
+	var readResponse = JSON.parse(responseBody);
+	
+	gs.info("readResponse : " +readResponse);
+	
+	var imLocIDUpdate = new GlideRecord('x_inmis_im_itad_imitad_location');
+	imLocIDUpdate.addQuery('sys_id',current.sys_id);
+	imLocIDUpdate.query();
+	if(imLocIDUpdate.next()){
+		imLocIDUpdate.setValue('itad_locationid',readResponse.LocationID);
+		
+		if(readResponse.FacilityInfo.Address2=="")
+			{
+			imLocIDUpdate.setValue('itad_facilityaddress',readResponse.FacilityInfo.Address1 +""+readResponse.FacilityInfo.Address2 +" "+readResponse.FacilityInfo.Address3+"\r\n"+readResponse.FacilityInfo.City+"\r\n"+readResponse.FacilityInfo.StateDesc+" "+readResponse.FacilityInfo.ZipCode+" \r\n"+readResponse.FacilityInfo.CountryName);
+			
+			
+		} else {		imLocIDUpdate.setValue('itad_facilityaddress',readResponse.FacilityInfo.Address1 +"\r\n"+readResponse.FacilityInfo.Address2 +" "+readResponse.FacilityInfo.Address3+"\r\n "+readResponse.FacilityInfo.City+"\r\n"+readResponse.FacilityInfo.StateDesc+" "+readResponse.FacilityInfo.ZipCode+" \r\n"+readResponse.FacilityInfo.CountryName);
+		}
+		imLocIDUpdate.update();
+	}
+	gs.info('Location create/update completed.');
+	
+	
+	
+	// to insert/update location contacts
+	
+	if(current.	itad_locationid !=""){
+		
+		gs.info(' create/update Location Contact started.');
+		// create pickup contact list
+		var pickupContactInformation=[];
+		var pickupcontactlist=current.pickup_contact.toString();
+		var PickupContactArray = pickupcontactlist.split(",");
+		//Prepare serialized asset level information
+		gs.info("pickupcontactlist"+pickupcontactlist);
+		for (var  PickupContactInfo = 0; PickupContactInfo < PickupContactArray.length; PickupContactInfo++) {
+			var record1 = new GlideRecord('sys_user');
+			
+			
+			if (record1.get(PickupContactArray[PickupContactInfo])) {
+				
+				
+				var contactInformation = {
+					
+					"PickUpContactName":record1.getDisplayValue('first_name').toString() +""+record1.getDisplayValue('last_name').toString() ,
+					"FirstName":record1.getDisplayValue('first_name').toString(),
+					"LastName":record1.getDisplayValue('last_name').toString(),
+					"EmployeeStatus":"A",
+					"Email":record1.getDisplayValue('email').toString(),
+					"EmployeePhone":record1.getDisplayValue('phone').toString(),
+					"EmployeeMobile": record1.getDisplayValue('mobile_phone').toString(),
+					"HireDate": record1.getDisplayValue('sys_created_on').toString()
+					
+				};
+				pickupContactInformation.push(contactInformation);
+				
+			}
+		}
+		gs.info('pickupContactInformation!!!!:'+JSON.stringify(pickupContactInformation));
+		//cretae pickup contact
+		
+		
+		var r1 = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Update Location Contact', 'post');
+		
+		//r1.setStringParameterNoEscape('password',password);
+		//r1.setStringParameterNoEscape('username',username);
+		r1.setStringParameterNoEscape('Token',Token);
+		r1.setStringParameterNoEscape('SourceID',SourceID);
+		r1.setStringParameterNoEscape('locationID',current.itad_locationid);
+		r1.setStringParameterNoEscape('Facility',current.itad_facility.facilityid);
+		r1.setStringParameterNoEscape('Currency',current.currency.currencyid);
+		r1.setStringParameterNoEscape('locationCity',current.location.city);
+		r1.setStringParameterNoEscape('TimeZone',current.time_zone.timezoneid);
+		r1.setStringParameterNoEscape('ZipPostalCode',current.location.zip);
+		
+		
+		//r1.setStringParameterNoEscape('PickUpContactName',current.x_inmis_im_itad_pickup_contact.first_name+" "+current.x_inmis_im_itad_pickup_contact.last_name);
+		//r1.setStringParameterNoEscape('PickUpFirstName',current.x_inmis_im_itad_pickup_contact.first_name);	//r1.setStringParameterNoEscape('PickUpLastName',current.x_inmis_im_itad_pickup_contact.last_name);
+		//r1.setStringParameterNoEscape('PickUpEmployeeStatus',current.x_inmis_im_itad_pickup_contact.active==true?"A":"D");
+		//r1.setStringParameterNoEscape('PickUpEmail',current.x_inmis_im_itad_pickup_contact.email);
+		//r1.setStringParameterNoEscape('PickUpEmployeePhone',current.x_inmis_im_itad_pickup_contact.phone);
+		//r1.setStringParameterNoEscape('PickUpEmployeeMobile',current.x_inmis_im_itad_pickup_contact.mobile_phone);
+		//r1.setStringParameterNoEscape('PickUpHireDate',current.x_inmis_im_itad_pickup_contact.sys_created_on);
+		
+		r1.setStringParameterNoEscape('PickUpContactInformation',JSON.stringify(pickupContactInformation));
+		
+		r1.setStringParameterNoEscape('PrimaryContactName',current.primary_contact.first_name+" "+current.primary_contact.last_name);
+		r1.setStringParameterNoEscape('PrimaryFirstName',current.primary_contact.first_name);	
+		r1.setStringParameterNoEscape('PrimaryLastName',current.primary_contact.last_name);
+		r1.setStringParameterNoEscape('PrimaryEmployeeStatus',current.primary_contact.active==true?"A":"D");
+		r1.setStringParameterNoEscape('PrimaryEmail',current.primary_contact.email);
+		r1.setStringParameterNoEscape('PrimaryEmployeePhone',current.primary_contact.phone);
+		r1.setStringParameterNoEscape('PrimaryEmployeeMobile',current.primary_contact.mobile_phone);
+		r1.setStringParameterNoEscape('PrimaryHireDate',current.primary_contact.sys_created_on);
+		
+		r1.setStringParameterNoEscape('AlternateContactName',current.alternate_contact.first_name+" "+current.alternate_contact.last_name);
+		r1.setStringParameterNoEscape('AlternateFirstName',current.alternate_contact.first_name);	
+		r1.setStringParameterNoEscape('AlternateLastName',current.alternate_contact.last_name);
+		r1.setStringParameterNoEscape('AlternateEmployeeStatus',current.alternate_contact.active==true?"A":"D");
+		r1.setStringParameterNoEscape('AlternateEmail',current.alternate_contact.email);
+		r1.setStringParameterNoEscape('AlternateEmployeePhone',current.alternate_contact.phone);
+		r1.setStringParameterNoEscape('AlternateEmployeeMobile',current.alternate_contact.mobile_phone);
+		r1.setStringParameterNoEscape('AlternateHireDate',current.alternate_contact.sys_created_on);
+		r1.setStringParameterNoEscape('CreateLocationbaseUrl',gs.getProperty('x_inmis_im_itad.CreateLocation')+'Contact');
+		
+		
+		gs.info(' create/update Locationcontact request created successfully.');
+		var response1 = r1.execute();
+		
+		var responseBody1 = response1.getBody();
+		var httpStatus1 = response1.getStatusCode();
+		
+		gs.info("responseBody1 : " +responseBody1);
+	}
+}
+catch(ex) {
+	var message = ex.message;
+	gs.error(message);
+}]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-12 14:35:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>30fbda28dbbc941067166ac2ca961918</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>IngramMicro LocationCreateUpdate</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_30fbda28dbbc941067166ac2ca961918</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-15 09:02:31</sys_updated_on>
+        <template/>
+        <when>async</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=30fbda28dbbc941067166ac2ca961918"/>
+</record_update>

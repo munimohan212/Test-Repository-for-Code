@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="hasLabels=true" label="Model Category Mapping for Pallet Calculator" max_length="40" name="x_inmis_im_itad_im_mapping_model_equipment" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false,ref_decoration_disabled=true" display="true" label="IMITAD Equipment type" mandatory="true" max_length="32" name="mapping_equipment_type" reference="x_inmis_im_itad_equipment_type" reference_qual="equipmenttypeISNOTEMPTY^EQ" reference_qual_condition="equipmenttypeISNOTEMPTY^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="ServiceNow Model Categories" mandatory="true" max_length="1024" name="mapping_model_categories" reference="cmdb_model_category" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="active" label="Status" max_length="40" name="u_choice_1" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Active" sequence="0" value="active"/>
+                <element inactive_on_update="false" label="Inactive" sequence="1" value="inactive"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="mapping_equipment_type"/>
+        </index>
+    </element>
+</database>

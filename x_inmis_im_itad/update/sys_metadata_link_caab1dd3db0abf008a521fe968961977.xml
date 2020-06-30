@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>a85a82dedba9f3008a521fe968961919</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="x_inmis_im_itad_timezones">
+    <x_inmis_im_itad_timezones action="INSERT_OR_UPDATE">
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-23 14:12:09</sys_created_on>
+        <sys_id>a85a82dedba9f3008a521fe968961919</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-05-23 14:12:09</sys_updated_on>
+        <timezone>(UTC+08:00) Perth</timezone>
+        <timezoneid>80</timezoneid>
+    </x_inmis_im_itad_timezones>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-20 09:53:35</sys_created_on>
+        <sys_id>caab1dd3db0abf008a521fe968961977</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>(UTC+08:00) Perth</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_metadata_link_caab1dd3db0abf008a521fe968961977</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-20 09:53:35</sys_updated_on>
+        <tablename>x_inmis_im_itad_timezones</tablename>
+    </sys_metadata_link>
+</record_update>

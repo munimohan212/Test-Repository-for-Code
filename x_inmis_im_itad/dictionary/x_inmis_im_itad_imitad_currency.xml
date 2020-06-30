@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="IMITAD currency" max_length="40" name="x_inmis_im_itad_imitad_currency" type="collection">
+        <element attributes="import_attribute_name=CurrencyCode,edge_encryption_enabled=true" label="CurrencyCode" max_length="40" name="u_currencycode" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=CurrencyID" label="CurrencyID" max_length="40" name="u_currencyid" type="integer"/>
+        <element attributes="import_attribute_name=currencyName,edge_encryption_enabled=true" label="currencyName" max_length="40" name="u_currencyname" type="string"/>
+        <element attributes="import_attribute_name=Symbol,edge_encryption_enabled=true" label="Symbol" max_length="40" name="u_symbol" type="string"/>
+    </element>
+</database>

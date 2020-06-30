@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_inmis_im_itad_inbound_received" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>facility</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>77da5a4cdbed945067166ac2ca9619e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>im_jobid</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>7fda5a4cdbed945067166ac2ca9619e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>import_set_run</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>ffda5a4cdbed945067166ac2ca9619e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>job_status</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>73da5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>loadid</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>f3da5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>pallet_count</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>77da5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>received_by</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>f7da5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>received_on</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>7bda5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>request_number</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>fbda5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>template_import_log</element>
+            <list_id display_value="x_inmis_im_itad_inbound_received" element="NULL" name="x_inmis_im_itad_inbound_received" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">fbda5a4cdbed945067166ac2ca9619e7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_id>7fda5a4cdbed945067166ac2ca9619ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_inmis_im_itad_inbound_received</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-17 08:00:26</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fbda5a4cdbed945067166ac2ca9619e7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_inmis_im_itad_inbound_received</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_list_x_inmis_im_itad_inbound_received_null</sys_update_name>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-17 08:00:26</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

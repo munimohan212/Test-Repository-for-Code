@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>write</operation>
+        <source_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 10:27:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>23d316a5dbc57f0067166ac2ca96197c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>sys_dictionary</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_scope_privilege_23d316a5dbc57f0067166ac2ca96197c</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-02 13:50:59</sys_updated_on>
+        <target_name>sys_dictionary</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_scope_privilege_23d316a5dbc57f0067166ac2ca96197c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>write</operation><source_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2019-04-26 10:27:01</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>23d316a5dbc57f0067166ac2ca96197c</sys_id><sys_mod_count>1</sys_mod_count><sys_name>sys_dictionary</sys_name><sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope><sys_update_name>sys_scope_privilege_23d316a5dbc57f0067166ac2ca96197c</sys_update_name><sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by><sys_updated_on>2020-06-02 13:50:59</sys_updated_on><target_name>sys_dictionary</target_name><target_scope display_value="Global">global</target_scope><target_type>sys_db_object</target_type></sys_scope_privilege></record_update>]]></payload>
+        <payload_hash>-1277645808</payload_hash>
+        <record_name>sys_dictionary</record_name>
+        <reverted_from/>
+        <source>937b508fdb0d10108a521fe96896196a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-02 13:50:59</sys_created_on>
+        <sys_id>ac4b5213db0d50108a521fe9689619a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>172754cb0330000001</sys_recorded_at>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-02 13:50:59</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>a44b5213a80d5010b03aa7489205f1a0</update_guid>
+        <update_guid_history>a44b5213a80d5010b03aa7489205f1a0:-1277645808,5467767198fd405040d3af52b5cf793e:0,19d6fa7d49bd4050a675b9edb74ca56b:1263819924,195bb5f64c9980108b328ca933ce0acb:0,3fba31366f9980103307a31889abbea3:1263819924,6386cf74661dc090eeb3ec2b19757274:0,a7e5c7b05f1dc0901312855c9ca9aa6f:1263819924,bae0e65376073700fc5db23b80ff735f:0,7760e29f95c33700003e5206051e6e9b:-89335542,05ddda1b0fc33700c7fd4e53725257e1:0,225dde574cc33700319a22e3c2881585:1263819924,012a9edfac8337005e1e7614896005ea:0,14a9161fe0833700f40233d2f6a026e4:1263819924,14191e5bda833700e0a62c29bca352d9:0,f498da9720833700658daf2a4d557174:-89335542,48571217d9833700a5d71da59b5b344d:0,b0d65a1373833700f2acc86d6d93370f:1263819924,69e49edbe8433700789ff2c4cb53e2d8:0,b554521bae4337009c26437d35b473e1:1263819924,3156076104e9730000150915157ff998:0,edf54bada1a97300b7579eaeb983ca23:-89335542,61e4832ddea97300e35703c479c0f922:0,05844769d2a97300d0daa14a51d775a8:-89335542,68a20b251fa97300df51c3d1e396a111:0,ab320f6169a97300b52f2dd845e2a75a:-89335542,ebd316a56dc57f00e3d8bae41fe48e7c:-395734378</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-02 13:54:16</sys_created_on>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>115b184e54cb45c081bba5be117e9c44</sys_id>
+        <sys_metadata>23d316a5dbc57f0067166ac2ca96197c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_dictionary</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_23d316a5dbc57f0067166ac2ca96197c</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_23d316a5dbc57f0067166ac2ca96197c">ac4b5213db0d50108a521fe9689619a0</sys_update_version>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-02 13:54:16</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description>Data Migration and Schema Update</description>
+        <flush_cache>false</flush_cache>
+        <name>Data Migration and Schema Update</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>true</run_once>
+        <script><![CDATA[function locationDataMigration() {
+    try {
+        var location = new GlideRecord('cmn_location');
+        location.addQuery('x_inmis_im_itad_im_locationid', '!=', 'NULL');
+        location.query();
+        while (location.next()) {
+            gs.info('Data Migration Location : ' + location.getValue('sys_id') + ' , Location Name:' + location.getValue('name'));
+            var IMITADLocation = new GlideRecord('x_inmis_im_itad_imitad_location');
+            IMITADLocation.initialize();
+            IMITADLocation.address_1 = location.getValue('x_inmis_im_itad_address_1');
+            IMITADLocation.address_2 = location.getValue('x_inmis_im_itad_address_2');
+            IMITADLocation.address_3 = location.getValue('x_inmis_im_itad_address_3');
+            IMITADLocation.alternate_contact = location.getValue('x_inmis_im_itad_alternative_contact');
+            IMITADLocation.billing_location = location.getValue('x_inmis_im_itad_billing_location');
+            IMITADLocation.billing_name = location.getValue('x_inmis_im_itad_billing_name');
+            IMITADLocation.city = location.getValue('x_inmis_im_itad_city');
+            IMITADLocation.coi_required = location.getValue('x_inmis_im_itad_coi_required');
+            IMITADLocation.country = location.getValue('x_inmis_im_itad_billing_country');
+            IMITADLocation.currency = location.getValue('x_inmis_im_itad_fcurrency');
+            IMITADLocation.disposal = location.getValue('x_inmis_im_itad_u_bisdisposable');
+            IMITADLocation.dock_available = location.getValue('x_inmis_im_itad_dock_available');
+            IMITADLocation.email_id = location.getValue('x_inmis_im_itad_email_id');
+            IMITADLocation.forklift_available = location.getValue('x_inmis_im_itad_forklift_available');
+            IMITADLocation.freightelevator_available = location.getValue('x_inmis_im_itad_freight_elevator_available');
+            IMITADLocation.handcarts_required = location.getValue('x_inmis_im_itad_handcards_required');
+            IMITADLocation.inventory_management = location.getValue('x_inmis_im_itad_inventory_management') ? location.getValue('x_inmis_im_itad_inventory_management') : location.getValue('x_inmis_im_itad_inventory_mgmt');
+            IMITADLocation.itad_facility = location.getValue('x_inmis_im_itad_facility');
+            IMITADLocation.itad_facilityaddress = location.getValue('x_inmis_im_itad_im_facilityaddress');
+            IMITADLocation.itad_locationid = location.getValue('x_inmis_im_itad_im_locationid');
+            IMITADLocation.liftgate_required = location.getValue('x_inmis_im_itad_liftgate_required');
+            IMITADLocation.loading_timelimit = location.getValue('x_inmis_im_itad_loading_timelimit');
+            IMITADLocation.location = location.getValue('sys_id');
+            IMITADLocation.location_notes = location.getValue('x_inmis_im_itad_location_notes');
+            IMITADLocation.name = location.getValue('x_inmis_im_itad_name');
+            IMITADLocation.palletjack_available = location.getValue('x_inmis_im_itad_palletjack_available');
+            IMITADLocation.passengerelevator_available = location.getValue('x_inmis_im_itad_passengerelevator_available');
+            IMITADLocation.pickup_contact = location.getValue('x_inmis_im_itad_u_glide_list_1');
+            IMITADLocation.pickup_contact_ref = location.getValue('x_inmis_im_itad_pickup_contact');
+            IMITADLocation.pickup_location = location.getValue('x_inmis_im_itad_pickup_location');
+            IMITADLocation.u_html_1 = location.getValue('x_inmis_im_itad_u_html_1') ? location.getValue('x_inmis_im_itad_u_html_1') : location.getValue('x_inmis_im_itad_u_html_2');
+            IMITADLocation.primary_contact = location.getValue('x_inmis_im_itad_primary_contact');
+            IMITADLocation.product_type = location.getValue('x_inmis_im_itad_product_type');
+            IMITADLocation.scheduling_required = location.getValue('x_inmis_im_itad_scheduling_required');
+            IMITADLocation.shipping_location = location.getValue('x_inmis_im_itad_shipping_location');
+            IMITADLocation.standard_height = location.getValue('x_inmis_im_itad_standard_height');
+            IMITADLocation.state = location.getValue('x_inmis_im_itad_billing_state');
+            IMITADLocation.time_zone = location.getValue('x_inmis_im_itad_time_zone');
+            IMITADLocation.u_html_1 = location.x_inmis_im_itad_u_html;
+            IMITADLocation.unionlabour_required = location.getValue('x_inmis_im_itad_unionlabour_required');
+            IMITADLocation.weight = location.getValue('x_inmis_im_itad_weight');
+            IMITADLocation.zip = location.getValue('x_inmis_im_itad_zip');
+            IMITADLocation.insert();
+        }
+    } catch (e) {
+        gs.info('>>>Exception occured [locationDataMigration]: ' + e);
+    }
+}
+
+function workorderDataMigration() {
+    try {
+        var IMITADLocation = '';
+        var woLocation = new GlideRecord('x_inmis_im_itad_workorder');
+        woLocation.addQuery('u_location', '!=', 'NULL');
+        woLocation.query();
+        while (woLocation.next()) {
+            gs.info('Data Migration Work Order : ' + woLocation.getValue('u_location') + ' , Work Order Name: ' + woLocation.u_location.name);
+            var disLocation = new GlideRecord('x_inmis_im_itad_imitad_location');
+            disLocation.addQuery('location', woLocation.getValue('u_location'));
+            disLocation.query();
+            if (disLocation.next()) {
+                IMITADLocation = disLocation.getValue('sys_id');
+            }
+            woLocation.u_location = IMITADLocation;
+            woLocation.setWorkflow(false); //Do not run business rules
+            woLocation.autoSysFields(false); //Do not update system fields
+            woLocation.update();
+        }
+    } catch (e) {
+        gs.info('>>>Exception occured [workorderDataMigration]: ' + e);
+    }
+}
+
+function hardwareDataMigration() {
+    try {
+        var hardware = new GlideRecord('alm_hardware');
+        hardware.addQuery('x_inmis_im_itad_requestnumber', '!=', 'NULL');
+        hardware.query();
+        while (hardware.next()) {
+            gs.info('Data Migration Hardware : ' + hardware.getValue('sys_id') + ', Hardware Name: ' + hardware.getValue('display_name'));
+            var IMITADHardware = new GlideRecord('x_inmis_im_itad_imitad_hardware');
+            IMITADHardware.initialize();
+            IMITADHardware.asset_recovery = hardware.getValue('x_inmis_im_itad_asset_recovery');
+            IMITADHardware.audit_status = hardware.getValue('x_inmis_im_itad_test_status');
+            IMITADHardware.audited_by = hardware.getValue('x_inmis_im_itad_audited_by');
+            IMITADHardware.audited_on = hardware.getValue('x_inmis_im_itad_audited_on');
+            IMITADHardware.cosmetic_grade = hardware.getValue('x_inmis_im_itad_conditional_code');
+            IMITADHardware.cosmetic_reason = hardware.getValue('x_inmis_im_itad_conditional_remarks');
+            IMITADHardware.currency = hardware.getValue('x_inmis_im_itad_currency');
+            IMITADHardware.failure_reason = hardware.getValue('x_inmis_im_itad_test_remarks');
+            IMITADHardware.hardware_assets = hardware.getValue('sys_id');
+            IMITADHardware.im_assetid = hardware.getValue('x_inmis_im_itad_referenceid');
+            IMITADHardware.im_itad_equipment_type = hardware.getValue('x_inmis_im_itad_im_itad_equipment_type');
+            IMITADHardware.mfg_part = hardware.getValue('x_inmis_im_itad_part_number') ? hardware.getValue('x_inmis_im_itad_part_number') : hardware.getValue('x_inmis_im_itad_partnumber');
+            IMITADHardware.missing_notes = hardware.getValue('x_inmis_im_itad_missing');
+            IMITADHardware.msrp = hardware.getValue('x_inmis_im_itad_msrp');
+            IMITADHardware.processing_fees = hardware.getValue('x_inmis_im_itad_processing_fees');
+            IMITADHardware.weight = hardware.getValue('x_inmis_im_itad_weight');
+            IMITADHardware.weight_unit = hardware.getValue('x_inmis_im_itad_weight_unit');
+            IMITADHardware.workorder = hardware.getValue('x_inmis_im_itad_requestnumber');
+            IMITADHardware.workorder_status = hardware.getValue('x_inmis_im_itad_workorder_status');
+            IMITADHardware.insert();
+        }
+    } catch (e) {
+        gs.info('>>>Exception occured [hardwareDataMigration]: ' + e);
+    }
+}
+
+
+
+//Location Data Migration
+locationDataMigration();
+
+//WO Order Location Data
+workorderDataMigration();
+
+//Hardware Data Migration
+hardwareDataMigration();
+
+]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-01 10:25:30</sys_created_on>
+        <sys_id>f6e1e8cfdb0d10108a521fe968961982</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Data Migration and Schema Update</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_fix_f6e1e8cfdb0d10108a521fe968961982</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-03 06:00:31</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

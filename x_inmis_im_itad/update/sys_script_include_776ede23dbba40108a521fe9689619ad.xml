@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.GetInstancename</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>GetInstancename</name>
+        <script><![CDATA[var GetInstancename = Class.create();
+GetInstancename.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getInstance: function() {
+		
+		var instanceName = gs.getProperty('instance_name');
+		
+		return instanceName;
+	},
+    type: 'GetInstancename'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-12 12:24:22</sys_created_on>
+        <sys_id>776ede23dbba40108a521fe9689619ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetInstancename</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_776ede23dbba40108a521fe9689619ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-12 12:24:22</sys_updated_on>
+    </sys_script_include>
+</record_update>

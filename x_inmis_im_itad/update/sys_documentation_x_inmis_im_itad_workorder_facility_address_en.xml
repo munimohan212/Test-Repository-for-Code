@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="facility_address" label="ITAD FacilityAddress" language="en" table="x_inmis_im_itad_workorder">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>facility_address</element>
+            <help/>
+            <hint/>
+            <label>ITAD FacilityAddress</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_workorder</name>
+            <plural>ITAD FacilityAddress</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-06-06 12:47:50</sys_created_on>
+            <sys_id>1c37fefddbbd405067166ac2ca9619c2</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>ITAD FacilityAddress</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_documentation_x_inmis_im_itad_workorder_facility_address_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-06-11 13:05:38</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

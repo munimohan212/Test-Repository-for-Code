@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Additional Information" section_id="f39bfdd8dbac9c1067166ac2ca9619ec" sys_domain="global" table="x_inmis_im_itad_imitad_location" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>coi_required</element>
+            <position>0</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>97138e10dbec9c1067166ac2ca961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>dock_available</element>
+            <position>1</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>1b138e10dbec9c1067166ac2ca961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>palletjack_available</element>
+            <position>2</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>9b138e10dbec9c1067166ac2ca961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>forklift_available</element>
+            <position>3</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>1f138e10dbec9c1067166ac2ca961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>passengerelevator_available</element>
+            <position>4</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>9f138e10dbec9c1067166ac2ca961972</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>liftgate_required</element>
+            <position>5</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>13138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>location_notes</element>
+            <position>6</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>93138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>7</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>17138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>unionlabour_required</element>
+            <position>8</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>97138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>loading_timelimit</element>
+            <position>9</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>1b138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>scheduling_required</element>
+            <position>10</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>9b138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>handcarts_required</element>
+            <position>11</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>1f138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>freightelevator_available</element>
+            <position>12</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>9f138e10dbec9c1067166ac2ca961973</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>standard_height</element>
+            <position>13</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:52:20</sys_created_on>
+            <sys_id>13138e10dbec9c1067166ac2ca961974</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Additional Information" display_value="Additional Information" name="x_inmis_im_itad_imitad_location" sys_domain="global" view="Default view">f39bfdd8dbac9c1067166ac2ca9619ec</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:52:20</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Additional Information</caption>
+            <header>false</header>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:19:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f39bfdd8dbac9c1067166ac2ca9619ec</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Additional Information</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_section_f39bfdd8dbac9c1067166ac2ca9619ec</sys_update_name>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-29 07:19:35</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

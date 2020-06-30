@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>Instance Property URI Update</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>true</run_once>
+        <script><![CDATA[function updateInboundInstanceName() {
+    try {
+        var instance = 'https://' + gs.getProperty('instance_name');
+        var property = new GlideRecord('sys_properties');
+        property.addEncodedQuery('nameINx_inmis_im_itad.BaseURI,x_inmis_im_itad.ScheduledURI,x_inmis_im_itad.InvoicedURI,x_inmis_im_itad.ReceivedURI,x_inmis_im_itad.AssetLevelAttachmentURI,x_inmis_im_itad.AttachmentURI');
+        property.query();
+        while (property.next()) {
+            switch (property.name.toString()) {
+                case 'x_inmis_im_itad.BaseURI':
+                    var baseURI = instance + '.service-now.com';
+                    property.value = baseURI;
+                    break;
+                case 'x_inmis_im_itad.ScheduledURI':
+                    var ScheduledURI = instance + '.service-now.com/api/x_inmis_im_itad/imitad_inbound/Scheduled';
+                    property.value = ScheduledURI;
+                    break;
+                case 'x_inmis_im_itad.ReceivedURI':
+                    var ReceivedURI = instance + '.service-now.com/api/x_inmis_im_itad/imitad_inbound/Received';
+                    property.value = ReceivedURI;
+                    break;
+                case 'x_inmis_im_itad.InvoicedURI':
+                    var InvoicedURI = instance + '.service-now.com/api/x_inmis_im_itad/imitad_inbound/Invoiced';
+                    property.value = InvoicedURI;
+                    break;
+                case 'x_inmis_im_itad.AssetLevelAttachmentURI':
+                    var AssetLevelAttachmentURI = instance + '.service-now.com/api/x_inmis_im_itad/imitad_inbound/AssetLevelAttachment';
+                    property.value = AssetLevelAttachmentURI;
+                    break;
+                case 'x_inmis_im_itad.AttachmentURI':
+                    var AttachmentURI = instance + '.service-now.com/api/x_inmis_im_itad/imitad_inbound/Attachment';
+                    property.value = AttachmentURI;
+                    break;
+
+            }
+            property.update();
+
+        }
+
+
+    } catch (e) {
+        gs.info('>>Exception occured [Instance Property URI Update] ' + e);
+    }
+
+}
+
+
+function updateOutboundAPI() {
+    try {
+        var property = new GlideRecord('sys_properties');
+        property.addEncodedQuery('nameINx_inmis_im_itad.TestConnection,x_inmis_im_itad.CreateLocation,x_inmis_im_itad.CreateJob,x_inmis_im_itad.GetAuditData,x_inmis_im_itad.CustomerRegistration URI');
+        property.query();
+        while (property.next()) {
+            switch (property.name.toString()) {
+                case 'x_inmis_im_itad.TestConnection':
+                    property.value = "https://portaluat.ingrammicroitad.com/IMITADService/IMITADService.svc/ConnectionCheck";
+                    break;
+                case 'x_inmis_im_itad.CreateLocation':
+                    property.value = "https://portaluat.ingrammicroitad.com/IMITADService/IMITADService.svc/CreateLocation";
+                    break;
+                case 'x_inmis_im_itad.CreateJob':
+                    property.value = "https://portaluat.ingrammicroitad.com/IMITADService/IMITADService.svc/NewJobCreation";
+                    break;
+                case 'x_inmis_im_itad.GetAuditData':
+
+                    property.value = "https://portaluat.ingrammicroitad.com/IMITADService/IMITADService.svc/GetAuditedData";
+                    break;
+                case 'x_inmis_im_itad.CustomerRegistration URI':
+
+                    property.value = "https://portaluat.ingrammicroitad.com/IMITADService/IMITADService.svc/CustomerRegistration";
+                    break;
+
+            }
+            property.update();
+        }
+
+    } catch (e) {
+        gs.info('>>Exception occured [updateOutboundAPI] ' + e);
+    }
+}
+
+
+updateInboundInstanceName();
+
+updateOutboundAPI();]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-22 06:47:45</sys_created_on>
+        <sys_id>57ed4437db34141067166ac2ca96192f</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Instance Property URI Update</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_fix_57ed4437db34141067166ac2ca96192f</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-06-16 08:16:54</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

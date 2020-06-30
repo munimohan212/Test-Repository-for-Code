@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user>admin</basic_auth_user>
+        <content>{&#13;
+  "Token":"${Token}",&#13;
+  "JobRequest": {&#13;
+    "SourceID": ${SourceID},&#13;
+    "LocationID": ${LocationID},&#13;
+    "FeedDate": "${FeedExecutionDate}",&#13;
+    "PONumber": "${PONumber}",&#13;
+    "RequestNumber": "${WorkOrderID}",&#13;
+    "JobType": ${WorkOrderType},&#13;
+    "SourceOfRequest": "${SourceOfRequest}",&#13;
+    "vWOSourceKey":"${vWOSourceKey}",&#13;
+    "vPickupInstruction":"${vPickupInstruction}"&#13;
+  },&#13;
+  "Pickup": {&#13;
+    "EarliestDate": "${EarliestDate}",&#13;
+    "LatestDate": "${LatestDate}",&#13;
+    "TimeofDay": ${TimeOfDay},&#13;
+     "DatesNotAvailable": "${DatesNotAvailable}",&#13;
+     "SchedulingNotes": "${SchedulingNotes}"&#13;
+&#13;
+  },&#13;
+  "Delivery": {&#13;
+    "DeliverySentDate": "${DeliverySentDate}",&#13;
+    "EstimatedArrivalDate": "${EstimatedArrivalDate}",&#13;
+    "TrackingNumber": "${TrackingNumber}"&#13;
+  },&#13;
+  "EquipmentLocationDetail": {&#13;
+    "EquipmentLocation": "${EquipmentLocation}",&#13;
+    "LocationtoPalletize": "${LocationToPalletize}"&#13;
+  },&#13;
+  "EquipmentDetails": {&#13;
+    "EquipmentNotes": "${EquipmentNotes}",&#13;
+        "EquipmentDetail": ${Equipmentdetails}&#13;
+  },&#13;
+  "PartDetails": [&#13;
+    {&#13;
+      "PartNo": "p001",&#13;
+      "QtyExpected": 0&#13;
+    },&#13;
+    {&#13;
+      "PartNo": "p002",&#13;
+      "QtyExpected": 0&#13;
+    }&#13;
+  ],&#13;
+  "SerializedAssetLevelInformation": ${SerializedAssetLevelInformation}&#13;
+&#13;
+&#13;
+&#13;
+}</content>
+        <function_name>post</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>IngramMicro Create Job [ post ]</qualified_name>
+        <rest_endpoint>${CreateJobbaseUrl}</rest_endpoint>
+        <rest_message display_value="IngramMicro Create Job">86246261db097f0067166ac2ca961986</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 11:40:04</sys_created_on>
+        <sys_id>6c742661db097f0067166ac2ca9619a7</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>post</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_rest_message_fn_6c742661db097f0067166ac2ca9619a7</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-04-23 09:59:22</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+</record_update>

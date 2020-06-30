@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>!RP.isRelatedList()</condition>
+        <form_action>false</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>true</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>true</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Ready for Disposal</name>
+        <onclick>readydisposal()</onclick>
+        <order>100</order>
+        <script><![CDATA[function readydisposal()
+{
+	var selSysIds = g_list.getChecked();
+	var sysIdList = selSysIds.split(',');
+	if(selSysIds==null ||selSysIds=='' ) {
+		alert('Please select assets to mark state as ready for disposal.');
+		return;
+	}
+	
+	var count2=0;
+	var selecteditem2=sysIdList.length;
+	var isvalid2=true;
+	
+	for(var i = 0; i < sysIdList.length; i++) {
+		
+		var gaa = new GlideAjax('x_inmis_im_itad.GetfieldValue');
+		
+		gaa.addParam('sysparm_name', 'getvalue');
+		gaa.addParam('SysID', sysIdList[i]);
+		
+		
+		gaa.getXMLAnswer(populateField2);
+		
+		
+	}
+	
+	
+	
+	function populateField2(response){
+		var answer = JSON.parse(response);
+		
+		count2++;
+	
+		if(answer.result_value=='ready_for_disposal')
+			{
+			isvalid2=false;
+		}
+		
+		else{
+			
+			
+		}
+		if(count2==selecteditem2)
+			{
+			if(isvalid2==false || isvalid2=='false'  )
+				{
+				alert("Selected assets are already  'ready for disposal'. Please check the assets and try again.");
+			}
+			else
+				{
+				checkworkorderexist(sysIdList);
+			}
+		}
+		
+		
+	}
+	
+	
+	
+}
+function checkworkorderexist(sysIdList1)   {
+	var count1=0;
+	var selecteditem1=sysIdList1.length;
+	var isvalid1=true;
+	var workorder='';
+	
+	for(var i = 0; i < sysIdList1.length; i++) {
+		
+		var gaa = new GlideAjax('x_inmis_im_itad.GetWorkorderfromasset');
+		
+		gaa.addParam('sysparm_name', 'GetWorkorder');
+		gaa.addParam('assetSysID', sysIdList1[i]);
+		
+		gaa.getXMLAnswer(populateField1);
+		
+	}
+	
+	
+	function populateField1(response){
+		
+		count1++;
+		
+		if(response=='')
+			{
+		}
+		else{
+			isvalid1=false;
+			if(workorder=='')
+				{
+				workorder=response;
+			}
+			else
+				{
+				workorder+=','+response;
+			}
+		}
+		
+		if(count1==selecteditem1)
+			{
+			if(isvalid1==false)
+				{
+				alert("workorder "+workorder+ " already created for selected assets. Please check the assets and try again.");
+			}
+			else
+				{
+				updateByID(sysIdList1);
+			}
+		}
+		
+		
+	}
+	
+}
+function updateByID (sys_ids) {
+	var count=0;
+	var selecteditem=sys_ids.length;
+	var isvalid=true;
+	
+	for(var i = 0; i < sys_ids.length; i++) {
+		
+		var gaa = new GlideAjax('x_inmis_im_itad.UpdateReadyforDisposal');
+		
+		gaa.addParam('sysparm_name', 'readyfordisposal');
+		gaa.addParam('AssetSysID', sys_ids[i]);
+		
+		
+		gaa.getXMLAnswer(populateField);
+		
+		
+	}
+	
+	function populateField(response){
+		
+		count++;
+		if(count==selecteditem)
+			{
+			alert('Selected assets have been successfully marked as "Ready for disposal"');
+			
+			try{
+				if(g_user.hasRole('admin') || g_user.hasRole('x_inmis_im_itad.imitad_admin')){
+					location.href='/alm_hardware_list.do';
+				} else {
+					location.href='/alm_hardware_list.do?&sysparm_fixed_query=sys_class_name=alm_hardware^locationINjavascript:new x_inmis_im_itad.GetUserLocations().getLocationDetails()';
+				}
+			} catch(e) {
+				
+			}
+			
+		}
+		
+	}
+}
+]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 09:44:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>33994221dbc57f0067166ac2ca961967</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_name>Ready for Disposal</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_action_33994221dbc57f0067166ac2ca961967</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-14 06:54:22</sys_updated_on>
+        <table>alm_hardware</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

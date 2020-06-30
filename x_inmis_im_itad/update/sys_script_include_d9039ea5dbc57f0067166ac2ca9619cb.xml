@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.MarkAsDisposable</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to  make location disposable</description>
+        <name>MarkAsDisposable</name>
+        <script><![CDATA[var MarkAsDisposable = Class.create();
+MarkAsDisposable.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	markdisposable: function() {
+		var param1 = this.getParameter('LocationSysID');
+		var grupdate = new GlideRecord('x_inmis_im_itad_imitad_location');
+		grupdate.addQuery('sys_id',param1);
+		grupdate.query();
+		if (grupdate.next())
+			{
+			grupdate.setValue('disposal',true);
+			grupdate.update();
+		}
+	},
+	type: 'MarkAsDisposable'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 10:24:56</sys_created_on>
+        <sys_id>d9039ea5dbc57f0067166ac2ca9619cb</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>MarkAsDisposable</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_d9039ea5dbc57f0067166ac2ca9619cb</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:48:03</sys_updated_on>
+    </sys_script_include>
+</record_update>

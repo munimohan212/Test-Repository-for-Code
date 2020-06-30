@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Inbound AssetLevelAttachment" max_length="40" name="x_inmis_im_itad_inbound_assetlevelattach" type="collection">
+        <element attributes="import_attribute_name=u_asset_tag,edge_encryption_enabled=true" label="Asset Tag" max_length="100" name="u_asset_tag" type="string"/>
+        <element attributes="import_attribute_name=u_filebytes,edge_encryption_enabled=true" label="FileBytes" max_length="65000" name="u_filebytes" type="string"/>
+        <element attributes="import_attribute_name=u_filename,edge_encryption_enabled=true" label="FileName" max_length="100" name="u_filename" type="string"/>
+        <element attributes="import_attribute_name=u_location_id,edge_encryption_enabled=true" label="Location ID" max_length="40" name="u_location_id" type="string"/>
+        <element attributes="import_attribute_name=u_po_number,edge_encryption_enabled=true" label="PO Number" max_length="40" name="u_po_number" type="string"/>
+        <element attributes="import_attribute_name=u_request_number,edge_encryption_enabled=true" label="Request Number" max_length="40" name="u_request_number" type="string"/>
+        <element attributes="import_attribute_name=u_scan_id,edge_encryption_enabled=true" label="Scan ID" max_length="40" name="u_scan_id" type="string"/>
+        <element attributes="import_attribute_name=u_serial_number,edge_encryption_enabled=true" label="Serial Number" max_length="100" name="u_serial_number" type="string"/>
+        <element attributes="import_attribute_name=u_source_id,edge_encryption_enabled=true" label="Source ID" max_length="40" name="u_source_id" type="string"/>
+    </element>
+</database>

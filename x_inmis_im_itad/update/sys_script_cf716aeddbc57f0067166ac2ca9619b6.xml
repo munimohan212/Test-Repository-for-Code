@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_inmis_im_itad_workorder</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_inmis_im_itad_workorder">workorder_statusINdraft,requested,wo_submitted^EQ<item display_value="draft,requested,wo_submitted" endquery="false" field="workorder_status" goto="false" newquery="false" operator="IN" or="false" value="draft,requested,wo_submitted"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>IngramMicro Create Job</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions>x_inmis_im_itad.imitad_wo_create,x_inmis_im_itad.imitad_admin</role_conditions>
+        <script><![CDATA[function compressArray(original) {
+    var compressed = [];
+    // make a copy of the input array
+    var copy = original.slice(0);
+
+    // first loop goes over every element
+    for (var i = 0; i < original.length; i++) {
+        var myCount = 0;
+        // loop over every element in the copy and see if it's the same
+        for (var w = 0; w < copy.length; w++) {
+            if (original[i] == copy[w]) {
+                // increase amount of times duplicate is found
+                myCount++;
+                // sets item to undefined
+                delete copy[w];
+            }
+        }
+
+        if (myCount > 0) {
+            var a = new Object();
+            a.value = original[i];
+            a.count = myCount;
+            compressed.push(a);
+        }
+    }
+    return compressed;
+}
+
+(function executeRule(current, previous /*null when async*/ ) {
+
+    gs.info("current state:" + current.state);
+    if (current.state != 'draft') {
+        gs.info("WO:" + current.number + ":Business rule started.");
+        var types = [];
+        var typesname = [];
+        var count = [];
+        var username = '';
+        var password = '';
+        var Token = '';
+        var Tokenexpiredate = '';
+
+        var SerializedAssetLevelInformation = [];
+        var serialnotexist = 0;
+        var sourceid = '';
+        var getCurrentDateTime = new GlideDateTime();
+        var getCurrentDate = new GlideDate();
+
+        var assetlist = current.u_glide_list_1.toString();
+        var status = current.workorder_status;
+        var array = assetlist.split(",");
+
+
+
+        var icomp = new GlideRecord('x_inmis_im_itad_customer_registration');
+        icomp.addQuery('company_name', gs.getProperty('instance_name'));
+        icomp.query();
+        if (icomp.next()) {
+            sourceid = icomp.source_id;
+        }
+        var imcust = new GlideRecord('x_inmis_im_itad_customer_registration');
+        imcust.addQuery('source_id', sourceid);
+        imcust.query();
+        if (imcust.next()) {
+            var Encrypter = imcust.encrypted_password.getDecryptedValue();
+            username = imcust.encrypted_username;
+            password = Encrypter;
+            Token = imcust.getElement('token').getDisplayValue();
+            Tokenexpiredate = imcust.getElement('tokenexpiredate').getDisplayValue();
+        }
+
+
+
+        //if token is null OR Expired create token
+        var minute = 20;
+        var hour = 1;
+        if (Token != '') {
+            var today = new GlideDateTime(new GlideDateTime().getDisplayValue());
+            var tt = new GlideDateTime(Tokenexpiredate);
+            var duration = new GlideDuration(GlideDateTime.subtract(today, tt));
+            var timeSection = duration.toString().split(' ')[1]; //Gets the Time
+            minute = timeSection.split(':')[1];
+            hour = timeSection.split(':')[0];
+            //	gs.info("min"+minute);
+        }
+        //Token generation Start
+        if (Token == '' || minute > 19 || minute < 1 || hour != '00') {
+            gs.info("create Token..");
+            var t = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Token', 'POST');
+            t.setStringParameterNoEscape('baseUrl', gs.getProperty('x_inmis_im_itad.TestConnection').replace('ConnectionCheck', 'CreateToken'));
+            t.setStringParameterNoEscape('Username', username);
+            t.setStringParameterNoEscape('Password', password);
+            t.setEccParameter('skip_sensor', true);
+            var response1 = t.executeAsync();
+            var responseBody1 = response1.getBody();
+            var httpStatus1 = response1.getStatusCode();
+            var readResponse1 = JSON.parse(responseBody1);
+            if (response1.haveError()) {
+                answer = 'token generation failed:' + response1.getErrorMessage();
+            } else if ((readResponse1.ResponseCode == "0" || readResponse1.ErrorMessage == "") && readResponse1.IsSuccess == true) {
+                answer = 'token generated';
+                Token = readResponse1.Token;
+                Tokenexpiredate = new GlideDateTime();
+                Tokenexpiredate.addSeconds(1200);
+                var grupdates = new GlideRecord('x_inmis_im_itad_customer_registration');
+                grupdates.addQuery('source_id', sourceid);
+                grupdates.query();
+                if (grupdates.next()) {
+
+                    grupdates.setValue('token', Token);
+                    grupdates.setValue('tokenexpiredate', Tokenexpiredate);
+                    grupdates.update();
+                }
+
+
+            } else {
+                answer = 'token generation failed:' + readResponse1.ErrorMessage;
+                current.setAbortAction(true);
+                gs.addErrorMessage(readResponse1.ErrorMessage);
+            }
+
+        }
+        //Token generation End
+
+
+
+
+
+
+        //Prepare serialized asset level information
+        for (var assetInfo = 0; assetInfo < array.length; assetInfo++) {
+            var record = new GlideRecord('alm_asset');
+
+            var isAssetInWarranty = false;
+            if (record.get(array[assetInfo])) {
+                if (record.getValue('warranty_expiration') != null || record.getValue('warranty_expiration') != '') {
+                    if (getCurrentDate <= record.getValue('warranty_expiration')) {
+                        isAssetInWarranty = true;
+                    }
+                }
+
+                if (record.getDisplayValue('serial_number').toString() == "") {
+                    serialnotexist += 1;
+                }
+
+                var assetInformation = {
+                    "vAssetSourceKey": array[assetInfo].toString(),
+                    "SerialNumber": record.getDisplayValue('serial_number').toString(),
+                    "AssetTag": record.getDisplayValue('asset_tag').toString(),
+                    "Class": 24,
+                    "Category": 97,
+                    "Manufacturer": record.getElement('model').getRefRecord().getDisplayValue('manufacturer'),
+                    "Model": record.getElement('model').getRefRecord().getDisplayValue('model_number'),
+                    "Description": record.getDisplayName(),
+                    "Color": 0,
+                    "IsAssetInWarranty": isAssetInWarranty,
+                    "WarrantyEndDate": record.getDisplayValue('warranty_expiration'),
+                    "MSRP": "00.0",
+                };
+                SerializedAssetLevelInformation.push(assetInformation);
+                gs.info('SerializedAsset:' + JSON.stringify(assetInformation));
+            }
+        }
+
+
+
+        //Calculate quantity of assets against model category
+        var equipmentdetails = [];
+        try {
+
+            for (var j = 0; j < array.length; j++) {
+                //gs.info("Reference value is: " + array[i]+"-"+i);
+                var rec = new GlideRecord('alm_asset');
+                if (rec.get(array[j])) {
+                    types.push(rec.getValue('model_category'));
+                    typesname.push(rec.getDisplayValue('model_category'));
+                }
+            }
+            types = types.sort();
+            gs.info("Types are: "+types.join(','));
+			//get equipmenttype
+            var newArray = compressArray(types);
+            for (var i = 0; i < newArray.length; i++) {   
+                var equipid = "";
+                var asset = {};
+                var grupdates11 = new GlideRecord('x_inmis_im_itad_im_mapping_model_equipment');
+                grupdates11.addQuery('mapping_model_categories', newArray[i].value);
+                grupdates11.query();
+                if (grupdates11.next()) {
+                    equipid = grupdates11.mapping_equipment_type.equipmenttypeid;					
+
+                }
+
+                //get equipmenttype
+                if (equipid == "") {
+					var Category = '';
+					var  modelCategory = new GlideRecord('cmdb_model_category');
+					modelCategory.addQuery('sys_id', newArray[i].value);
+					modelCategory.query();
+					if(modelCategory.next()){
+						Category = modelCategory.getValue('name');
+					}
+					
+                    current.setAbortAction(true);						
+                    gs.addErrorMessage('Workorder cannot be submitted, as there is model category ( ' + Category + ' ) of an asset not mapped to equipment type. Please contact ITAD administrator');
+                   return;
+                } else {
+                    asset = {
+                        "EquipmentType": parseInt(equipid.toString()),
+                        "EstimatedQty": newArray[i].count,
+                        "PalletCount": 0,
+                        "PalletWeight": 0
+                    };
+                }
+                equipmentdetails.push(asset);
+
+
+                gs.info('equipmentdetailsjson:' + JSON.stringify(equipmentdetails));
+                gs.info('equipmentidjson:' + JSON.stringify(equipid));
+
+            }
+            if (serialnotexist > 0) {
+                current.setAbortAction(true);
+                gs.addErrorMessage('serial number not exist');
+                gs.info('-aborted serialnumbernotexist-------');
+                gs.info('-aborted due to error serial number not exist');
+                return;
+
+            }
+
+
+        } catch (ex) {
+            var message = ex.message;
+            gs.info('WO:' + current.number + ':Error occured:' + message);
+            gs.error(ex);
+            current.setAbortAction(true);
+        }
+        var misc = {
+            "EquipmentType": 1,
+            "EstimatedQty": 0,
+            "PalletCount": current.misc_items_enter_pallet_count_manually.toString() ? current.misc_items_enter_pallet_count_manually.toString() : 0,
+            "PalletWeight": current.misc_items_enter_weight_manually.toString() ? current.misc_items_enter_weight_manually.toString() : 0
+        };
+        equipmentdetails.push(misc);
+  gs.info('FInalequipmentdetailsjson:' + JSON.stringify(equipmentdetails));
+
+
+
+
+        try {
+            //API call started to create job
+
+
+            gs.info("WO:" + current.number + ":API call started.");
+            //gs.info("state:"+current.state);
+            var r = new sn_ws.RESTMessageV2('x_inmis_im_itad.IngramMicro Create Job', 'post');
+            r.setStringParameterNoEscape('PONumber', current.u_ponumber);
+            r.setStringParameterNoEscape('SourceID', sourceid);
+            r.setStringParameterNoEscape('LatestDate', current.latest_date);
+            r.setStringParameterNoEscape('LocationToPalletize', current.location_palletize);
+            r.setStringParameterNoEscape('LocationID', current.u_location.itad_locationid);
+            //r.setStringParameterNoEscape('password',password);
+            //r.setStringParameterNoEscape('username',username);
+            r.setStringParameterNoEscape('Token', Token);
+
+            r.setStringParameterNoEscape('TimeOfDay', current.time_of_day == '' ? 0 : current.time_of_day);
+            r.setStringParameterNoEscape('FeedExecutionDate', getCurrentDateTime);
+            r.setStringParameterNoEscape('WorkOrderID', current.number);
+            r.setStringParameterNoEscape('WorkOrderType', current.u_wotype);
+            r.setStringParameterNoEscape('EarliestDate', current.earliest_date);
+            r.setStringParameterNoEscape('EquipmentLocation', current.equipment_location);
+            r.setStringParameterNoEscape('DeliverySentDate', current.delivery_sent_date);
+            r.setStringParameterNoEscape('EstimatedArrivalDate', current.estimated_arrival_date);
+            r.setStringParameterNoEscape('TrackingNumber', current.tracking_number);
+            r.setStringParameterNoEscape('EquipmentNotes', current.u_equipment_notes + " " + current.miscellaneousbox);
+            r.setStringParameterNoEscape('SourceOfRequest', 'ServiceNow');
+            r.setStringParameterNoEscape('vWOSourceKey', current.sys_id);
+            r.setStringParameterNoEscape('SerializedAssetLevelInformation', JSON.stringify(SerializedAssetLevelInformation));
+            r.setStringParameterNoEscape('Equipmentdetails', JSON.stringify(equipmentdetails));
+
+            r.setStringParameterNoEscape('vPickupInstruction', current.pickup_instructions);
+            r.setStringParameterNoEscape('CreateJobbaseUrl', gs.getProperty('x_inmis_im_itad.CreateJob'));
+
+            // r.setStringParameterNoEscape('PalletCount', current.misc_items_enter_pallet_count_manually);
+            // r.setStringParameterNoEscape('PalletWeight', current.misc_items_enter_weight_manually);
+            r.setStringParameterNoEscape('SchedulingNotes', current.scheduling_notes);
+            r.setStringParameterNoEscape('DatesNotAvailable', current.dates_not_available);
+            //  r.setStringParameterNoEscape('EquipmentType', 7);
+            // r.setStringParameterNoEscape('EstimatedQty', 1);
+            //             r.setStringParameterNoEscape('MiscPalletCount', 1);
+            //             r.setStringParameterNoEscape('MiscPalletWeight', 2);
+            //             r.setStringParameterNoEscape('MiscEquipmentType', 1);
+            //             r.setStringParameterNoEscape('MiscEstimatedQty', 0);
+
+
+
+            r.setEccParameter('skip_sensor', true);
+
+
+
+
+            var response = r.executeAsync();
+           // response.waitForResponse(60);
+            var responseBody = response.getBody();
+            var httpStatus = response.getStatusCode();
+            gs.info("WO:" + current.number + ":ResponseBody:" + responseBody);
+
+            var readResponse = JSON.parse(responseBody);
+            gs.info("Response" + readResponse);
+            if (response.haveError()) {
+                current.setAbortAction(true);
+                gs.addErrorMessage(response.getErrorMessage());
+            } else {
+                if (readResponse.Responsecode == "0" || readResponse.ErrorMessage == "") {
+
+                    // To create/update IMITAD Hardware  records once we got response from blue IQ
+
+                    for (var x = 0; x < array.length; x++) {
+                        var IMITADHardware = new GlideRecord('x_inmis_im_itad_imitad_hardware');
+                        IMITADHardware.addQuery('location', array[x]);
+                        IMITADHardware.query();
+                        if (IMITADHardware.next()) {
+
+                            IMITADHardware.workorder = current.number;
+                            IMITADHardware.workorder_status = readResponse.JobStatus;
+                            IMITADHardware.update();
+
+                        } else {
+
+                            var IMITADHardware1 = new GlideRecord('x_inmis_im_itad_imitad_hardware');
+                            IMITADHardware1.initialize();
+                            IMITADHardware1.hardware_assets = array[x];
+                            IMITADHardware1.workorder = current.number;
+                            IMITADHardware1.workorder_status = readResponse.JobStatus;
+                            IMITADHardware1.insert();
+                        }
+                    }
+
+
+                    current.im_jobid = readResponse.JobID;
+                    if (readResponse.JobStatus == 'Requested') {
+
+                        current.workorder_status = 'requested';
+                    } else if (readResponse.JobStatus == 'Scheduled') {
+                        current.workorder_status = 'scheduled';
+                    }
+
+                    //to change status of assets on submit
+                    for (var k = 0; k < array.length; k++) {
+                        gs.info("asset sysid is: " + array[k] + "-" + k);
+
+                        var grupdate = new GlideRecord('alm_asset');
+                        grupdate.addQuery('sys_id', array[k]);
+                        grupdate.query();
+
+                        if (grupdate.next()) {
+                            grupdate.setValue('install_status', 9);
+                            grupdate.setValue('substatus', 'pending_disposal');
+                            grupdate.update();
+                        }
+
+                    }
+
+                    gs.addInfoMessage('Workorder ' + current.number + ' has been submitted successfully in ServiceNow. Please note Job ' + current.im_jobid + ' for further communication.');
+
+
+                } else {
+                    current.setAbortAction(true);
+                    gs.addErrorMessage(readResponse.ErrorMessage);
+
+
+                }
+            }
+
+
+            gs.info('WO:' + current.number + ':Business rule completed.');
+
+            //// Insert new  job contacts
+
+            // create Job contact list
+            var JobContactInformation = [];
+            var Jobcontactlist = current.u_glide_list_2.toString();
+            var JobContactArray = Jobcontactlist.split(",");
+            //Prepare serialized asset level information
+            for (var JobContactInfo = 0; JobContactInfo < JobContactArray.length; JobContactInfo++) {
+                var record1 = new GlideRecord('sys_user');
+
+
+                if (record1.get(JobContactArray[JobContactInfo])) {
+
+
+                    var contactInformation = {
+
+                        "JobContactName": record1.getDisplayValue('first_name').toString() + "" + record1.getDisplayValue('last_name').toString(),
+                        "Email": record1.getDisplayValue('email').toString(),
+                        "EmployeePhone": record1.getDisplayValue('phone').toString(),
+                        "EmployeeMobile": record1.getDisplayValue('mobile_phone').toString()
+
+                    };
+                    JobContactInformation.push(contactInformation);
+
+                }
+            }
+            gs.info('jobcontactInformation!!!!:' + JSON.stringify(JobContactInformation));
+
+
+            if (current.im_jobid != "") {
+
+                gs.info(' create Job Contact started.');
+                var r1 = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Job Contact', 'post');
+
+                //var imcust1 = new GlideRecord('x_inmis_im_itad_customer_registration');
+                //imcust1.addQuery('company_name',gs.getProperty('instance_name'));
+                //imcust1.query();
+                //r1.setStringParameterNoEscape('password',password);
+                //r1.setStringParameterNoEscape('username',username);
+                r1.setStringParameterNoEscape('Token', Token);
+                r1.setStringParameterNoEscape('SourceID', sourceid);
+                r1.setStringParameterNoEscape('JobID', current.im_jobid);
+                //r1.setStringParameterNoEscape('JobContactName',current.pickup_contact.first_name+" "+current.pickup_contact.last_name);
+                //r1.setStringParameterNoEscape('JobContactEmail',current.pickup_contact.email);
+                //r1.setStringParameterNoEscape('JobContactPhone',current.pickup_contact.phone);
+                //r1.setStringParameterNoEscape('JobContactMobile',current.pickup_contact.mobile_phone);
+                r1.setStringParameterNoEscape('JobContactInformation', JSON.stringify(JobContactInformation));
+                r1.setStringParameterNoEscape('CreateJobbaseUrl', gs.getProperty('x_inmis_im_itad.CreateJob').replace('NewJobCreation', 'CreateJobContact'));
+
+
+                gs.info(' create JObcontact request created successfully.');
+                var response2 = r1.execute();
+
+                var responseBody2 = response2.getBody();
+                var httpStatus2 = response2.getStatusCode();
+
+                gs.info("responseBody2 : " + responseBody2);
+            }
+
+        } catch (ex) {
+            var message = ex.message;
+            gs.info('WO:' + current.number + ':Error occured:' + message);
+            gs.error(ex);
+            current.setAbortAction(true);
+        }
+    }
+
+
+    //}}
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 11:37:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cf716aeddbc57f0067166ac2ca9619b6</sys_id>
+        <sys_mod_count>411</sys_mod_count>
+        <sys_name>IngramMicro Create Job</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_cf716aeddbc57f0067166ac2ca9619b6</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-11 07:51:21</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=cf716aeddbc57f0067166ac2ca9619b6"/>
+</record_update>

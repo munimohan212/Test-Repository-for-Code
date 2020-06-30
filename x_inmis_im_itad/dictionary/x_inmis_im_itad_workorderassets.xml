@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WorkOrderAssets" max_length="40" name="x_inmis_im_itad_workorderassets" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="AssetID" max_length="32" name="assetid" reference="alm_asset" type="reference"/>
+        <element label="workOrderid" max_length="40" name="workorderid" reference="x_inmis_im_itad_workorder" type="string"/>
+        <index name="index">
+            <element name="assetid"/>
+        </index>
+    </element>
+</database>

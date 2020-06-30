@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections action="DELETE" form_id="8e640501dbc13f0067166ac2ca96198f" sys_domain="global" table="cmn_location" version="3">
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>cmn_location</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-24 15:22:53</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8e640501dbc13f0067166ac2ca96198f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>cmn_location</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_form_sections_8e640501dbc13f0067166ac2ca96198f</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-24 15:22:53</sys_updated_on>
+            <sys_user/>
+            <view display_value="">42640501dbc13f0067166ac2ca96198a</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_ui_form_sections_8e640501dbc13f0067166ac2ca96198f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_form_sections form_id="8e640501dbc13f0067166ac2ca96198f" sys_domain="global" table="cmn_location" version="3"><sys_ui_form action="INSERT_OR_UPDATE"><name>cmn_location</name><roles/><sys_class_name>sys_ui_form</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2019-04-24 15:22:53</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>8e640501dbc13f0067166ac2ca96198f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>cmn_location</sys_name><sys_overrides/><sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope><sys_update_name>sys_ui_form_sections_8e640501dbc13f0067166ac2ca96198f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2019-04-24 15:22:53</sys_updated_on><sys_user/><view display_value="">42640501dbc13f0067166ac2ca96198a</view><view_name/></sys_ui_form></sys_ui_form_sections></record_update>]]></payload>
+        <payload_hash>-422844889</payload_hash>
+        <record_name>Location</record_name>
+        <reverted_from/>
+        <source>0735b472db70901067166ac2ca9619ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-20 07:26:35</sys_created_on>
+        <sys_id>c3964207db7c901067166ac2ca961973</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17230fa16c80000001</sys_recorded_at>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-20 07:26:35</sys_updated_on>
+        <type>Form Sections</type>
+        <update_guid>8b9642074c7c90107b9d47b8b2a74172</update_guid>
+        <update_guid_history>8b9642074c7c90107b9d47b8b2a74172:-422844889,03964207827c9010f3449285f2159866:572146762,cf964207627c9010cf88ba1cd65f7757:1994426181,72964207ae7c90100b975efb7ff38e45:371790969,d6c8a4830e64d010366dc21ca07b530c:-869868484,219364cff824d0107943c2f7c5a775ad:1866206726,448d592ed510d8104c45814907ebdc1a:-869868484,cc4d552e6110d810d7965d229064d6d4:-328392101,ef67fa7186fd4050ed38605974adf4ab:0,9fd6be7d14bd405028f6346fe77a1bc9:-1397164453,dfd6be7dc4bd405003e2615f5041edc2:-422844889,93d6be7dd4bd405013b15c23c5b014ba:572146762,d7d6be7d31bd4050e4abb6e6dc3b22a2:1994426181,1bd6be7d9ebd40506a1356c16300c386:371790969,546b3df62f9980109e0e7efb1efdb2ba:0,decaf136e9998010101570c095fdcae4:-1397164453,52caf1369299801049e556b552a812de:-422844889,56caf1367a998010ccd082ee967906d5:572146762,d2caf136bd9980105a5634f6e20a1eca:1994426181,46caf136cb99801095868e61e2f0d5ae:371790969,6f9687b4e01dc090533db95d521cd8c7:0,72f5cbb0e71dc0908f3e004384c81a90:-1397164453,bef5cbb0b01dc090ce29e536d0b52b87:-422844889,72f5cbb0ba1dc090353d0e04de66ba7f:572146762,7ef5cbb0981dc09016d56ea62547d173:1994426181,e6f5cbb0c71dc090214cb59944210957:371790969,25f62be86709c4508b53638aee1012a4:-869868484,a1f62be8e309c45065007d071b9b8ea1:-596612187,69f62be82009c450c4be16e0e87e4c8e:-99599352,00e3eb28dd09c45002214cb1cdc5b302:950702978,04e3ab281609c45058e33b7241289ef0:-1113924959,d0c32b28cd09c45096be62dd4d16f9b6:1722555220,40c32b280b09c450225b278d28113ab2:214100836,1df0ee5369073700acd9f5310d828aaf:0,1170a69f5ec337004aacfc97fc8db269:1496014816,5170a69fc2c3370005872f54e7ad3462:-395020628,1570a69f78c337007cba9d004eef9c59:1375648399,5970a69f05c33700a0c571a666fd0941:-2109128374,5970a69f48c337005ef5a156c1198332:1430645700,dbdd525b80c3370053f5b9afccd7389e:0,c66dd29743c3370097d96595b78260d4:-1397164453,0a6dd2979ac337001d0827af104c8ccd:-422844889,f96dd29799c33700c6ce32322e0735c4:572146762,316dd297b0c3370090a65add4972e9ad:1994426181,316dd297c9c33700579ed94ceb8e6a9e:1822338367,2b2a1613dac3370004b74f3a73e663ad:0,87a95a1f318337005cf2bc7b9f6a222a:-1397164453,c7a95a1f6f8337003e76dae54ae2e123:-422844889,8ba95a1f38833700f6806b81d535971a:572146762,87a95a1f7a833700373c7b98737d2e0f:1994426181,87a95a1f1c833700d7d740e051917400:1822338367,4f19929b0983370016a5b0aeebc9fb70:0,7a989e974683370080e3d2154ef77947:1496014816,fa989e97f48337009a268aa4b2d11640:-395020628,fe989e9779833700ff95fb74b4970937:1375648399,3e989e976f8337002e791a1328b1922c:-2109128374,7e989e97f283370096c5bb738df0e61d:1430645700,6a57561761833700ee73276f552816a7:0,3fd65e1303833700a0e7e4ecc22127ed:-1397164453,7fd65e13018337008ccf0523628f1de6:-422844889,33d65e134883370028c666fe5c6c32de:572146762,3fd65e1311833700cb145905652832d2:1994426181,3fd65e13ca833700d2b28f9712beb4c3:1822338367,14f4161f8043370028e86e1727c593da:0,5964561b4343370040fcd55c1d57b2d9:-1397164453,9964561bf74337009b40c1b5859041d2:-422844889,5d64561b284337006c8b9d70f5da84c9:572146762,9964561b5d4337007584629195018bbe:1994426181,8964561b65433700d413f1ae5373e7af:1822338367,ef1fedba44bdf3005da3e76642d827f3:2053124853,27560b61e1e97300c84738976d4c792f:0,76f5cbadb3a973008d282bf52d012b77:1496014816,72f5cbad90a973006bc23c97d8792063:-395020628,7ef5cbade7a973004a43773b5cfcd258:1305310609,7ef5cbad5ba97300400b78fc1e0b243e:1243935019,f2f5cbadaca97300155a6623be847135:646231564,97e4472deda97300592ff35e5c41abef:0,2a840b6980a97300ed99191ffe8cf944:1496014816,ea840b693da973000725dbd8fde1963c:-395020628,e6840b6907a97300f9b7c08803981e32:1305310609,a6840b6974a973004f1e59cfdcb84518:1243935019,2e840b69e1a97300afe9803852a6f50e:646231564,16a2cb2548a97300bb8ba76cf02a5bd5:0,8642cf6181a97300a99eb4228ec779da:1496014816,4e42cf6152a973006abe92caab68c9d3:-395020628,7942cf615aa973005a9cddeb7b7e7dc9:1305310609,3142cf618ba97300e63b6254ff6376bc:1243935019,7942cf6108a973004fdce8d2f49f3cb2:646231564,2574850135c13f0008a8b7c26453d655:-778733496,c664450157c13f00205a31417f149d0b:815663292,0e64450114c13f00bddbe8697c738707:-330325175,c6644501a9c13f00c411818f5d508504:871341366,ce6445019cc13f00dc6027d92feac700:476809570</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-05-20 07:26:35</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_form">sys_ui_form</sys_db_object>
+        <sys_id>3bbcf3246b514fe0a2f2c7284e369910</sys_id>
+        <sys_metadata>8e640501dbc13f0067166ac2ca96198f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmn_location</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent display_value="">6895ea00db2123008a521fe968961986</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_ui_form_sections_8e640501dbc13f0067166ac2ca96198f</sys_update_name>
+        <sys_update_version display_value="sys_ui_form_sections_8e640501dbc13f0067166ac2ca96198f">c3964207db7c901067166ac2ca961973</sys_update_version>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-05-20 07:26:35</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

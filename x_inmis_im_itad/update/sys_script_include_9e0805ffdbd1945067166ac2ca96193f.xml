@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.validateDomainEnabled</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>validateDomainEnabled</name>
+        <script><![CDATA[var validateDomainEnabled = Class.create();
+validateDomainEnabled.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    checkDomain: function() {
+        return gs.getProperty('glide.sys.domain.enabled') == 'true';
+    },
+    type: 'validateDomainEnabled'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-16 07:22:21</sys_created_on>
+        <sys_id>9e0805ffdbd1945067166ac2ca96193f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>validateDomainEnabled</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_9e0805ffdbd1945067166ac2ca96193f</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-16 07:22:21</sys_updated_on>
+    </sys_script_include>
+</record_update>

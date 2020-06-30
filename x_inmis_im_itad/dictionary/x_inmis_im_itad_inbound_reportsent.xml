@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Inbound ReportSent" max_length="40" name="x_inmis_im_itad_inbound_reportsent" type="collection">
+        <element attributes="import_attribute_name=auditedby,edge_encryption_enabled=true" label="AuditedBy" max_length="40" name="auditedby" type="string"/>
+        <element attributes="import_attribute_name=auditedonutc" label="AuditedOnUTC" max_length="40" name="auditedonutc" type="glide_date"/>
+        <element attributes="import_attribute_name=conditioncode,edge_encryption_enabled=true" label="ConditionCode" max_length="40" name="conditioncode" type="string"/>
+        <element attributes="import_attribute_name=conditionremarks,edge_encryption_enabled=true" label="ConditionRemarks" max_length="40" name="conditionremarks" type="string"/>
+        <element attributes="import_attribute_name=currency,edge_encryption_enabled=true" label="Currency" max_length="40" name="currency" type="string"/>
+        <element attributes="import_attribute_name=imjobid,edge_encryption_enabled=true" label="IMJobId" max_length="40" name="imjobid" type="string"/>
+        <element attributes="import_attribute_name=missing,edge_encryption_enabled=true" label="Missing" max_length="40" name="missing" type="string"/>
+        <element attributes="import_attribute_name=msrp,edge_encryption_enabled=true" label="MSRP" max_length="40" name="msrp" type="string"/>
+        <element attributes="import_attribute_name=partnumber,edge_encryption_enabled=true" label="PartNumber" max_length="40" name="partnumber" type="string"/>
+        <element attributes="import_attribute_name=processingfees,edge_encryption_enabled=true" label="ProcessingFees" max_length="40" name="processingfees" type="string"/>
+        <element attributes="import_attribute_name=recoveryvalue,edge_encryption_enabled=true" label="RecoveryValue" max_length="40" name="recoveryvalue" type="string"/>
+        <element attributes="import_attribute_name=referenceid,edge_encryption_enabled=true" label="ReferenceID" max_length="40" name="referenceid" type="string"/>
+        <element attributes="import_attribute_name=requestnumber,edge_encryption_enabled=true" label="RequestNumber" max_length="40" name="requestnumber" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="SourceID" max_length="40" name="sourceid" type="string"/>
+        <element default="500" label="TestRemarks" max_length="40" name="testremarks" type="string"/>
+        <element attributes="import_attribute_name=teststatus,edge_encryption_enabled=true" label="TestStatus" max_length="40" name="teststatus" type="string"/>
+        <element attributes="import_attribute_name=vassetsourcekey,edge_encryption_enabled=true" label="vAssetSourceKey" max_length="40" name="vassetsourcekey" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=weight" label="Weight" max_length="40" name="weight" type="integer"/>
+        <element attributes="import_attribute_name=weightunit,edge_encryption_enabled=true" label="WeightUnit" max_length="40" name="weightunit" type="string"/>
+        <element label="WorkorderStatus" max_length="40" name="workorderstatus" read_only="true" type="string"/>
+        <element attributes="import_attribute_name=wosourcekey,edge_encryption_enabled=true" label="WOSourceKey" max_length="40" name="wosourcekey" type="string"/>
+    </element>
+</database>

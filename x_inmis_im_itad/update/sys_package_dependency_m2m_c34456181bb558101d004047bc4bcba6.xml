@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Asset Management" source="com.snc.asset_management">792aa5d82cd300100c1dbc48b5c9f50d</dependency>
+        <min_version>1.0.0</min_version>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-05 11:22:18</sys_created_on>
+        <sys_id>c34456181bb558101d004047bc4bcba6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-05 11:22:18</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category">
+    <sys_properties_category action="INSERT_OR_UPDATE">
+        <name>Outbound Integration</name>
+        <sys_class_name>sys_properties_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-27 20:29:01</sys_created_on>
+        <sys_id>bd176106db4dff008a521fe968961901</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Outbound Integration</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_properties_category_bd176106db4dff008a521fe968961901</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-28 19:16:41</sys_updated_on>
+        <title><![CDATA[<p>Outbound integration configuration</p>]]></title>
+    </sys_properties_category>
+    <sys_translated_text action="delete_multiple" query="documentkey=bd176106db4dff008a521fe968961901"/>
+</record_update>

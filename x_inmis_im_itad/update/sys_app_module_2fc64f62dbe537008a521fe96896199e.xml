@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="IM-ITAD">ce80c889dbc17f008a521fe968961955</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint>Lists location wise global hardware assets, ready to be marked for disposal.</hint>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Hardware Assets</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>alm_hardware</name>
+        <order>20</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query>&amp;sysparm_fixed_query=locationINjavascript:new x_inmis_im_itad.GetUserLocations().getLocationDetails();</query>
+        <report/>
+        <roles>x_inmis_im_itad.imitad_wo_create,admin</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-24 13:15:31</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2fc64f62dbe537008a521fe96896199e</sys_id>
+        <sys_mod_count>201</sys_mod_count>
+        <sys_name>Hardware Assets</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_app_module_2fc64f62dbe537008a521fe96896199e</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-19 07:05:34</sys_updated_on>
+        <timeline_page/>
+        <title>Hardware Assets</title>
+        <uncancelable>false</uncancelable>
+        <view_name>Hardwares</view_name>
+        <window_name/>
+    </sys_app_module>
+</record_update>

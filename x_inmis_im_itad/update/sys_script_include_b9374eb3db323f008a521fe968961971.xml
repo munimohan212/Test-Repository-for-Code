@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_inmis_im_itad.getmappedlocation</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to get locations mapped to the users</description>
+        <name>getmappedlocation</name>
+        <script><![CDATA[var getmappedlocation = Class.create();
+getmappedlocation.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getLocationDetails:function(){
+		var x = [];
+		var gr = new GlideRecord('x_inmis_im_itad_m2m_locations_users');
+		gr.addQuery('user', gs.getUser().getID());
+		gs.info('user :'+ gs.getUser().getID());
+		gr.query();
+		while(gr.next()) {
+			gs.info(' Location is'+gr.location.sys_id);
+			x.push(gr.location.sys_id);
+		}
+		return x.toString();
+	},
+	type: 'getmappedlocation'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-07-29 09:11:53</sys_created_on>
+        <sys_id>b9374eb3db323f008a521fe968961971</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>getmappedlocation</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_b9374eb3db323f008a521fe968961971</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-16 09:48:15</sys_updated_on>
+    </sys_script_include>
+</record_update>

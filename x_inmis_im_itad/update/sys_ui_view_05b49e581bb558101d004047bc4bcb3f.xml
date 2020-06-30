@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>Location</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-30 12:27:40</sys_created_on>
+        <sys_id>05b49e581bb558101d004047bc4bcb3f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Location</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_view_05b49e581bb558101d004047bc4bcb3f</sys_update_name>
+        <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-30 12:27:40</sys_updated_on>
+        <title>Location</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

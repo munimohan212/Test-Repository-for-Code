@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="all_tables.text_index_translations=true" label="Location" max_length="40" name="cmn_location" sizeclass="435" text_index="true" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="State" mandatory="true" max_length="32" name="x_inmis_im_itad_billing_state" reference="x_inmis_im_itad_states" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="ITAD Facility" max_length="32" name="x_inmis_im_itad_facility" reference="x_inmis_im_itad_facilities" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" hint="Please select currency of Work Order." label="Currency" mandatory="true" max_length="32" name="x_inmis_im_itad_fcurrency" reference="x_inmis_im_itad_currency" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Time zone" mandatory="true" max_length="32" name="x_inmis_im_itad_time_zone" reference="x_inmis_im_itad_timezones" type="reference"/>
+        <index name="index">
+            <element name="x_inmis_im_itad_billing_state"/>
+        </index>
+        <index name="index2">
+            <element name="x_inmis_im_itad_fcurrency"/>
+        </index>
+        <index name="index3">
+            <element name="x_inmis_im_itad_facility"/>
+        </index>
+        <index name="index4">
+            <element name="x_inmis_im_itad_time_zone"/>
+        </index>
+    </element>
+</database>

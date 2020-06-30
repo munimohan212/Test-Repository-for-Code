@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="time_of_day" table="x_inmis_im_itad_workorder" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>time_of_day</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No Preference</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_workorder</name>
+            <sequence>0</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-26 07:48:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8daf2921db857f0067166ac2ca9619c4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-26 07:48:44</sys_updated_on>
+            <value>5125</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>time_of_day</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Morning (8:00 AM to Noon)</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_workorder</name>
+            <sequence>1</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-26 07:48:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cdaf2921db857f0067166ac2ca9619c5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-26 07:48:44</sys_updated_on>
+            <value>5126</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>time_of_day</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Afternoon (Noon to 5:00 PM)</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_workorder</name>
+            <sequence>2</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-26 07:48:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4daf2921db857f0067166ac2ca9619c6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-26 07:48:44</sys_updated_on>
+            <value>5127</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>time_of_day</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>After Hours Pickup</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_workorder</name>
+            <sequence>3</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-26 07:48:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c9af2921db857f0067166ac2ca9619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-26 07:48:44</sys_updated_on>
+            <value>24529</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>time_of_day</element>
+            <name>x_inmis_im_itad_workorder</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-26 07:48:44</sys_created_on>
+            <sys_id>5d745e181bb558101d004047bc4bcb29</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>time_of_day</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_choice_x_inmis_im_itad_workorder_time_of_day</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-26 07:48:44</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

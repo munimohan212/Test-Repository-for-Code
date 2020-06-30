@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="IMITAD Location" max_length="40" name="x_inmis_im_itad_imitad_location" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Billing Address 1" max_length="1000" name="address_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Billing Address 2" max_length="1000" name="address_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Billing Address 3" max_length="1000" name="address_3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Alternate Contact" max_length="32" name="alternate_contact" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Billing location" max_length="40" name="billing_location" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Billing name" max_length="100" name="billing_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="City" max_length="40" name="city" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is Certificate Of Insurance (COI) required to enter building?" label="COI Required?" max_length="40" name="coi_required" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Country" max_length="32" name="country" reference="core_country" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" hint="Please select currency of Work Order." label="Currency" max_length="32" name="currency" reference="x_inmis_im_itad_currency" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Disposal" max_length="40" name="disposal" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Does the location have a dock?" label="Dock Available?" max_length="40" name="dock_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Email ID" max_length="40" name="email_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is a forklift available?" label="Forklift Available?" max_length="40" name="forklift_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is a freight elevator available?" label="FreightElevator Available?" max_length="40" name="freightelevator_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Can handcarts be utilized from the equipment in the building to the loading bay/dock to the truck? " label="HandCarts Required?" max_length="40" name="handcarts_required" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Inventory management" max_length="40" name="inventory_management" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Serial Number" sequence="1" value="1"/>
+                <element inactive_on_update="false" label="Part Number" sequence="2" value="2"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="ITAD Facility" max_length="32" name="itad_facility" reference="x_inmis_im_itad_facilities" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="ITAD FacilityAddress" max_length="1000" name="itad_facilityaddress" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="ITAD location ID would get auto-filled from IM-ITAD application for first time location creation" label="ITAD LocationID" max_length="40" name="itad_locationid" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is a lift gate needed?" label="LiftGate Required?" max_length="40" name="liftgate_required" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is there a time limit at the loading bay/dock? " label="Loading Timelimit?" max_length="40" name="loading_timelimit" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" display="true" label="Location" max_length="32" name="location" reference="cmn_location" reference_qual="javascript: new IMITADLocationUtils().getLocations();" type="reference" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true" label="Location Notes" max_length="1000" name="location_notes" type="string"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is a pallet jack available?" label="PalletJack Available?" max_length="40" name="palletjack_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is a passenger elevator available?" label="PassengerElevator Available?" max_length="40" name="passengerelevator_available" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,no_email=true,no_sort=true,slushbucket_ref_no_expand=true" label="PickUp Contact" max_length="1024" name="pickup_contact" reference="sys_user" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="PickUp Contact" max_length="32" name="pickup_contact_ref" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Pickup location" max_length="40" name="pickup_location" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Primary Contact" max_length="32" name="primary_contact" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Product Type" max_length="40" name="product_type" type="choice">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" hint="Is scheduling required? " label="Scheduling Required?" max_length="40" name="scheduling_required" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Shipping Location" max_length="40" name="shipping_location" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" hint="If there is a loading bay/dock, is it standard height?" label="Standard Height?" max_length="40" name="standard_height" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="State" max_length="32" name="state" reference="x_inmis_im_itad_states" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Domain" max_length="32" name="sys_domain" type="domain_id"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Time zone" max_length="32" name="time_zone" reference="x_inmis_im_itad_timezones" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" hint="Is union labor required to enter the building?" label="UnionLabour Required?" max_length="40" name="unionlabour_required" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Please ensure that locations are marked as disposal. Workorder can only be creat" max_length="8000" name="u_html_1" type="html"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" label="Weight" max_length="40" name="weight" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Pounds" sequence="0" value="P"/>
+                <element inactive_on_update="false" label="kgs" sequence="1" value="K"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="ZIP" max_length="40" name="zip" type="string"/>
+        <index name="index">
+            <element name="country"/>
+        </index>
+        <index name="index2">
+            <element name="sys_domain"/>
+        </index>
+        <index name="index3">
+            <element name="currency"/>
+        </index>
+        <index name="index4">
+            <element name="location"/>
+        </index>
+        <index name="index5">
+            <element name="state"/>
+        </index>
+        <index name="index6">
+            <element name="itad_facility"/>
+        </index>
+        <index name="index7">
+            <element name="time_zone"/>
+        </index>
+        <index name="index8">
+            <element name="alternate_contact"/>
+        </index>
+        <index name="index9">
+            <element name="primary_contact"/>
+        </index>
+        <index name="index10">
+            <element name="pickup_contact_ref"/>
+        </index>
+    </element>
+</database>

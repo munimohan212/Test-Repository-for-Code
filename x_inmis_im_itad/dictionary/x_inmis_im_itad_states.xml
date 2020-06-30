@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="States" max_length="40" name="x_inmis_im_itad_states" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Description" max_length="100" name="description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="StateID" max_length="40" name="stateid" type="integer"/>
+        <element display="true" label="State Abbreviation" max_length="5" name="state_abbreviation" type="string"/>
+        <index name="index">
+            <element name="stateid"/>
+        </index>
+    </element>
+</database>

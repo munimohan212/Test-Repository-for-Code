@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>7aea6c7fdbd1330067166ac2ca9619d1</enforce_acl>
+        <http_method>PUT</http_method>
+        <name>Invoiced</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	try{     
+		var body = request.body.data;
+		var RequestNumber;
+		var workorderID =body.InputArguments.JobUpdate.RequestNumber.toString();
+		var jobStatus = body.InputArguments.JobUpdate.JobStatus.toString();
+		var sourceID = body.InputArguments.JobUpdate.SourceID.toString();
+		
+		var updateAssetStatus;
+		for(var i=0;  i < body.InputArguments.AuditTransaction.length;i++){
+			var ReferenceID = body.InputArguments.AuditTransaction[i].ReferenceID;
+			var AssetSold = body.InputArguments.AuditTransaction[i].AssetSold;
+			RequestNumber = body.InputArguments.AuditTransaction[i].RequestNumber;
+			var vAssetSourceKey = body.InputArguments.AuditTransaction[i].vAssetSourceKey;
+			var PartNumber = body.InputArguments.AuditTransaction[i].PartNumber;
+			//var Mfg.Date = body.InputArguments.AuditTransaction.Mfg.Date.toString();
+			
+			//var Quantity = body.InputArguments.AuditTransaction[i].Quantity;
+			
+			var Missing = body.InputArguments.AuditTransaction[i].Missing;
+			
+			//var Ownership = body.InputArguments.AuditTransaction[i].Ownership;
+			var AuditedBy = body.InputArguments.AuditTransaction[i].AuditedBy;
+			var AuditedOnUTC = body.InputArguments.AuditTransaction[i].AuditedOnUTC;
+			var ConditionCode = body.InputArguments.AuditTransaction[i].ConditionCode;
+			var ConditionRemarks = body.InputArguments.AuditTransaction[i].ConditionRemarks;
+			//var DispositionCode = body.InputArguments.AuditTransaction[i].DispositionCode;
+			var RecoveryValue = body.InputArguments.AuditTransaction[i].RecoveryValue;
+			var ProcessingFees = body.InputArguments.AuditTransaction[i].ProcessingFees;
+			var Currency = body.InputArguments.AuditTransaction[i].Currency;
+			var TestStatus = body.InputArguments.AuditTransaction[i].TestStatus;
+			var Weight = body.InputArguments.AuditTransaction[i].Weight;
+			var WeightUnit = body.InputArguments.AuditTransaction[i].WeightUnit;
+			var TestRemarks = body.InputArguments.AuditTransaction[i].TestRemarks;
+			//var Remarks = body.InputArguments.AuditTransaction[i].Remarks;
+			//var IsSerialNumberMissing = body.InputArguments.AuditTransaction[i].IsSerialNumberMissing;
+			//var SerialNumber = body.InputArguments.AuditTransaction[i].SerialNumber;
+			//var AssetTag = body.InputArguments.AuditTransaction[i].AssetTag;
+			//var Class = body.InputArguments.AuditTransaction.Class.toString();
+			//var Category = body.InputArguments.AuditTransaction.Category.toString();
+			//var Manufacturer = body.InputArguments.AuditTransaction[i].Manufacturer;
+			//var Model = body.InputArguments.AuditTransaction[i].Model;
+			//var Description = body.InputArguments.AuditTransaction[i].Description;
+			//var Color = body.InputArguments.AuditTransaction.Color.toString();
+			//var IsAssetInWarranty = body.InputArguments.AuditTransaction[i].IsAssetInWarranty;
+			//var WarrantyEndDate = body.InputArguments.AuditTransaction[i].WarrantyEndDate;
+			var MSRP = body.InputArguments.AuditTransaction[i].MSRP;
+			
+			var ProcessingFeesd =parseFloat(body.InputArguments.AuditTransaction[i].ProcessingFees) ;
+			var RecoveryValued =parseFloat( body.InputArguments.AuditTransaction[i].RecoveryValue);
+			ProcessingFeesd=ProcessingFeesd.toFixed(2);
+			RecoveryValued=RecoveryValued.toFixed(2);
+			
+			//in the back end we are using report sent table only for invoiced
+			var ReportsentUpdate = new GlideRecord('x_inmis_im_itad_inbound_reportsent');
+			ReportsentUpdate.initialize();
+			ReportsentUpdate.sourceid = sourceID;
+			ReportsentUpdate.vassetsourcekey = vAssetSourceKey;
+			ReportsentUpdate.referenceid = ReferenceID;
+			ReportsentUpdate.partnumber = PartNumber;
+			//ReportsentUpdate.mfg_date = Mfg.Date;
+			//ReportsentUpdate.quantity = Quantity;
+			ReportsentUpdate.missing = Missing;
+			//ReportsentUpdate.ownership = Ownership;
+			ReportsentUpdate.auditedby = AuditedBy;
+			ReportsentUpdate.auditedonutc = AuditedOnUTC;
+			ReportsentUpdate.conditioncode = ConditionCode;
+			ReportsentUpdate.conditionremarks = ConditionRemarks;
+			//ReportsentUpdate.dispositioncode = DispositionCode;
+			ReportsentUpdate.recoveryvalue = RecoveryValued;
+			ReportsentUpdate.processingfees = ProcessingFeesd;
+			ReportsentUpdate.currency = Currency;
+			ReportsentUpdate.teststatus = TestStatus;
+			ReportsentUpdate.testremarks = TestRemarks==""?" ":TestRemarks;
+			ReportsentUpdate.weight = Weight;
+			ReportsentUpdate.weightunit = WeightUnit;
+			//ReportsentUpdate.remarks = Remarks;
+			//ReportsentUpdate.isserailnumbermissing = IsSerialNumberMissing;
+			//ReportsentUpdate.serainumber = SerialNumber;
+			//ReportsentUpdate.assettag = AssetTag;
+			//ReportsentUpdate.manufacturer = Manufacturer;
+			//ReportsentUpdate.model = Model;
+			//ReportsentUpdate.description = Description;
+			//ReportsentUpdate.isassetinwarranty = IsAssetInWarranty;
+			//ReportsentUpdate.warrantyenddate = WarrantyEndDate;
+			ReportsentUpdate.msrp = MSRP;
+			ReportsentUpdate.requestnumber=workorderID;
+			ReportsentUpdate.workorderstatus=jobStatus;
+			ReportsentUpdate.insert();
+			
+			if(AssetSold == 1){
+				updateAssetStatus = new x_inmis_im_itad.UpdateAssetStatus().updateStatusFromBR(vAssetSourceKey,7,'sold');
+			} else {
+				updateAssetStatus = new x_inmis_im_itad.UpdateAssetStatus().updateStatusFromBR(vAssetSourceKey,7,'disposed');
+			}
+		}
+		
+		updateJobStatus = new x_inmis_im_itad.UpdateJobStatus().updateJobStatusFromBR(workorderID,jobStatus);
+		
+		response.setContentType('application/json');
+		var responseBody = {"Message":"Audit transaction update successfully:"+RequestNumber};
+			response.setBody(responseBody);
+		}
+		catch(ex){
+			gs.error("There was an error doing Report sent API Call", ex);
+		}
+	})(request, response);]]></operation_script>
+        <operation_uri>/api/x_inmis_im_itad/imitad_inbound/Invoiced</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/Invoiced</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-07 14:39:10</sys_created_on>
+        <sys_id>d5d6b70ddb15774067166ac2ca9619bd</sys_id>
+        <sys_mod_count>62</sys_mod_count>
+        <sys_name>Invoiced</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ws_operation_d5d6b70ddb15774067166ac2ca9619bd</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-17 08:04:39</sys_updated_on>
+        <web_service_definition display_value="IMITAD Inbound">f1d49dc6db0dff008a521fe96896192c</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

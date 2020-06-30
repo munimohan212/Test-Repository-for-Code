@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Sends an email for support request.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_inmis_im_itad.Support email</name>
+        <read_roles>x_inmis_im_itad.imitad_admin</read_roles>
+        <suffix>Support email</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-18 11:09:52</sys_created_on>
+        <sys_id>80b91762db4efb0067166ac2ca9619dc</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>x_inmis_im_itad.Support email</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_properties_80b91762db4efb0067166ac2ca9619dc</sys_update_name>
+        <sys_updated_by>abel.tuter</sys_updated_by>
+        <sys_updated_on>2020-06-22 10:16:05</sys_updated_on>
+        <type>string</type>
+        <value/>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=80b91762db4efb0067166ac2ca9619dc"/>
+</record_update>

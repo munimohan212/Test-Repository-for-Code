@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>7aea6c7fdbd1330067166ac2ca9619d1</enforce_acl>
+        <http_method>PUT</http_method>
+        <name>Scheduled</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    try {
+        var body = request.body.data;
+        var workOrderID = body.InputArguments.JobUpdate.RequestNumber.toString();
+        var imJobID = body.InputArguments.JobUpdate.IMJobId.toString();
+		var sourceID = body.InputArguments.JobUpdate.SourceID.toString();
+
+        var gd = new GlideDate();
+        var pickupConfirmedDate = gd.getByFormat("dd-MM-yyyy");
+        var timeFrom = body.InputArguments.ConfirmedSchedule.TimeBetweenFrom.toString();
+        var timeTo = body.InputArguments.ConfirmedSchedule.TimeBetweenTo.toString();
+        var confirmedBy = body.InputArguments.ConfirmedSchedule.Confirmedby.toString();
+        var confirmedWith = body.InputArguments.ConfirmedSchedule.Confirmedwith.toString();
+        var jobStatus = body.InputArguments.JobUpdate.JobStatus.toString();
+        var company = '';
+        var scheduleUpdate = new GlideRecord('x_inmis_im_itad_inbound_scheduled');
+        scheduleUpdate.initialize();
+        scheduleUpdate.sourceid = sourceID;
+        scheduleUpdate.time_to = timeTo;
+        scheduleUpdate.time_from = timeFrom;
+        scheduleUpdate.request_number = workOrderID;
+        scheduleUpdate.pickup_confirmed = pickupConfirmedDate;
+        scheduleUpdate.im_jobid = imJobID;
+        scheduleUpdate.confirmed_with = confirmedWith;
+        scheduleUpdate.confirmed_by = confirmedBy;
+        scheduleUpdate.job_status = jobStatus;
+        scheduleUpdate.insert();
+
+        response.setContentType('application/json');
+        var responseBody = {
+            "Message": "Updated scheduling details for work order:" + workOrderID
+        };
+        response.setBody(responseBody);
+    } catch (ex) {
+        gs.error("There was an error doing Scheduled API Call", ex);
+    }
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_inmis_im_itad/imitad_inbound/Scheduled</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/Scheduled</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-27 19:10:11</sys_created_on>
+        <sys_id>cdf4ddc6db0dff008a521fe9689619ed</sys_id>
+        <sys_mod_count>38</sys_mod_count>
+        <sys_name>Scheduled</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ws_operation_cdf4ddc6db0dff008a521fe9689619ed</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-17 07:54:20</sys_updated_on>
+        <web_service_definition display_value="IMITAD Inbound">f1d49dc6db0dff008a521fe96896192c</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <name>BlueIQ WO Integration Data Load</name>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2020-06-05 14:12:38</run_start>
+        <run_time>1970-01-01 09:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[function tokenValidation() {
+    var tokenDetails = {};
+    var username = '';
+    var password = '';
+    var Token = '';
+    var Tokenexpiredate = '';
+    var sourceid = '';
+
+
+    var icomp = new GlideRecord('x_inmis_im_itad_customer_registration');
+    icomp.addQuery('company_name', gs.getProperty('instance_name'));
+    icomp.query();
+    if (icomp.next()) {
+        sourceid = icomp.getValue('source_id');
+    }
+    var imcust = new GlideRecord('x_inmis_im_itad_customer_registration');
+    imcust.addQuery('source_id', sourceid);
+    imcust.query();
+    if (imcust.next()) {
+        var Encrypter = imcust.encrypted_password.getDecryptedValue();
+        username = imcust.encrypted_username;
+        password = Encrypter;
+        Token = imcust.getElement('token').getDisplayValue();
+        Tokenexpiredate = imcust.getElement('tokenexpiredate').getDisplayValue();
+    }
+
+
+    //if token is null OR Expired create token
+    var minute = 20;
+    var hour = 1;
+    if (Token != '') {
+        var today = new GlideDateTime(new GlideDateTime().getDisplayValue());
+        var tt = new GlideDateTime(Tokenexpiredate);
+        var duration = new GlideDuration(GlideDateTime.subtract(today, tt));
+        var timeSection = duration.toString().split(' ')[1]; //Gets the Time
+        minute = timeSection.split(':')[1];
+        hour = timeSection.split(':')[0];
+        //	gs.info("min"+minute);
+    }
+    //Token generation Start
+    if (Token == '' || minute > 19 || minute < 1 || hour != '00') {
+        gs.info("create Token..");
+        var t = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Token', 'POST');
+        t.setStringParameterNoEscape('baseUrl', gs.getProperty('x_inmis_im_itad.TestConnection').replace('ConnectionCheck', 'CreateToken'));
+        t.setStringParameterNoEscape('Username', username);
+        t.setStringParameterNoEscape('Password', password);
+        t.setEccParameter('skip_sensor', true);
+        var response1 = t.executeAsync();
+        var responseBody1 = response1.getBody();
+        var httpStatus1 = response1.getStatusCode();
+        var readResponse1 = JSON.parse(responseBody1);
+        if (response1.haveError()) {
+            answer = 'token generation failed:' + response1.getErrorMessage();
+        } else if ((readResponse1.ResponseCode == "0" || readResponse1.ErrorMessage == "") && readResponse1.IsSuccess == true) {
+            answer = 'token generated';
+            Token = readResponse1.Token;
+            Tokenexpiredate = new GlideDateTime();
+            Tokenexpiredate.addSeconds(1200);
+            var grupdates = new GlideRecord('x_inmis_im_itad_customer_registration');
+            grupdates.addQuery('source_id', sourceid);
+            grupdates.query();
+            if (grupdates.next()) {
+                grupdates.setValue('token', Token);
+                grupdates.setValue('tokenexpiredate', Tokenexpiredate);
+                grupdates.update();
+            }
+        } else {
+            answer = 'token generation failed:' + readResponse1.ErrorMessage;
+            gs.addErrorMessage(readResponse1.ErrorMessage);
+        }
+    }
+
+    tokenDetails.Token = Token;
+    tokenDetails.sourceid = tokenDetails;
+
+    return tokenDetails;
+    //Token generation End
+}
+
+function pullWorkOrderData() {
+    try {
+        gs.info('Scedule Job Started "BlueIQ WO Integration Data Load"');
+        var username = '';
+        var password = '';
+        var Token = '';
+        var Tokenexpiredate = '';
+        var sourceid = '';
+        var workOrderList = [];
+
+        var icomp = new GlideRecord('x_inmis_im_itad_customer_registration');
+        icomp.addQuery('company_name', gs.getProperty('instance_name'));
+        icomp.query();
+        if (icomp.next()) {
+            sourceid = icomp.getValue('source_id');
+        }
+        var imcust = new GlideRecord('x_inmis_im_itad_customer_registration');
+        imcust.addQuery('source_id', sourceid);
+        imcust.query();
+        if (imcust.next()) {
+            var Encrypter = imcust.encrypted_password.getDecryptedValue();
+            username = imcust.encrypted_username;
+            password = Encrypter;
+            Token = imcust.getElement('token').getDisplayValue();
+            Tokenexpiredate = imcust.getElement('tokenexpiredate').getDisplayValue();
+        }
+
+
+        //if token is null OR Expired create token
+        var minute = 20;
+        var hour = 1;
+        if (Token != '') {
+            var today = new GlideDateTime(new GlideDateTime().getDisplayValue());
+            var tt = new GlideDateTime(Tokenexpiredate);
+            var duration = new GlideDuration(GlideDateTime.subtract(today, tt));
+            var timeSection = duration.toString().split(' ')[1]; //Gets the Time
+            minute = timeSection.split(':')[1];
+            hour = timeSection.split(':')[0];
+            //	gs.info("min"+minute);
+        }
+        //Token generation Start
+        if (Token == '' || minute > 19 || minute < 1 || hour != '00') {
+            gs.info("create Token..");
+            var t = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Token', 'POST');
+            t.setStringParameterNoEscape('baseUrl', gs.getProperty('x_inmis_im_itad.TestConnection').replace('ConnectionCheck', 'CreateToken'));
+            t.setStringParameterNoEscape('Username', username);
+            t.setStringParameterNoEscape('Password', password);
+            t.setEccParameter('skip_sensor', true);
+            var response1 = t.executeAsync();
+            var responseBody1 = response1.getBody();
+            var httpStatus1 = response1.getStatusCode();
+            var readResponse1 = JSON.parse(responseBody1);
+            if (response1.haveError()) {
+                answer = 'token generation failed:' + response1.getErrorMessage();
+            } else if ((readResponse1.ResponseCode == "0" || readResponse1.ErrorMessage == "") && readResponse1.IsSuccess == true) {
+                answer = 'token generated';
+                Token = readResponse1.Token;
+                Tokenexpiredate = new GlideDateTime();
+                Tokenexpiredate.addSeconds(1200);
+                var grupdates = new GlideRecord('x_inmis_im_itad_customer_registration');
+                grupdates.addQuery('source_id', sourceid);
+                grupdates.query();
+                if (grupdates.next()) {
+                    grupdates.setValue('token', Token);
+                    grupdates.setValue('tokenexpiredate', Tokenexpiredate);
+                    grupdates.update();
+                }
+            } else {
+                answer = 'token generation failed:' + readResponse1.ErrorMessage;
+                gs.addErrorMessage(readResponse1.ErrorMessage);
+            }
+        }
+        //Token generation End
+
+
+        //Get all workorders in state  schedule state
+        var WO = new GlideRecord('x_inmis_im_itad_workorder');
+        WO.addQuery('workorder_status', 'received');
+        WO.query();
+        while (WO.next()) {
+            var obj = {
+                "RequestNumber": ""
+            };
+            obj.RequestNumber = WO.getValue('number').toString();
+            workOrderList.push(obj);
+        }
+
+        // Call x_inmis_im_itad.GetAuditData API
+
+        var requestBody = {};
+        requestBody.Token = Token;
+        requestBody.SourceID = sourceid;
+        requestBody.RequestDetail = workOrderList;
+        requestBody.StartDate = '';
+        requestBody.EndDate = '';
+
+        gs.info('Schedule requestBody stringify: ' + JSON.stringify(requestBody));
+
+        var r = new sn_ws.RESTMessageV2('x_inmis_im_itad.GetAuditedData', 'GetAuditedData');
+        r.setStringParameterNoEscape('GetAuditedDatabaseUrl', gs.getProperty('x_inmis_im_itad.GetAuditData'));
+        r.setRequestBody(JSON.stringify(requestBody));
+
+        var response = r.execute();
+        var responseBody = response.getBody();
+        var httpStatus = response.getStatusCode();
+        gs.info("Schedule ResponseBody:" + responseBody);
+
+        var readResponse = JSON.parse(responseBody);
+        gs.info("Schedule readResponse" + readResponse);
+
+        if (response.haveError()) {
+            gs.info('Error: ' + response.getErrorMessage());
+            gs.addErrorMessage('Error occured while pulling data from Blue IQ');
+        } else if (readResponse.ResponseCode == "0" || readResponse.ErrorMessage == "") {
+
+            var auditedData = readResponse.AuditedData;
+            if (auditedData) {
+                for (var i = 0; i < auditedData.length; i++) {
+                    var AssetSold = auditedData[i].AssetSold;
+                    var ReferenceID = auditedData[i].ReferenceID;
+                    var vRequestNumber = auditedData[i].vRequestNumber;
+                    var JobStatus = auditedData[i].JobStatus;
+                    var vAssetSourceKey = auditedData[i].vAssetSourceKey;
+                    var PartNumber = auditedData[i].PartNumber;
+                    var Missing = auditedData[i].Missing;
+                    var AuditedBy = auditedData[i].AuditedBy;
+                    var AuditedOnUTC = auditedData[i].AuditedOnUTC;
+                    var ConditionCode = auditedData[i].ConditionCode;
+                    var ConditionRemarks = auditedData[i].ConditionRemarks;
+                    var RecoveryValue = parseFloat(auditedData[i].RecoveryValueUSD);
+                    RecoveryValue = RecoveryValue.toFixed(2);
+                    var ProcessingFees = parseFloat(auditedData[i].ProcessingFees);
+                    ProcessingFees = ProcessingFees.toFixed(2);
+                    var Currency = auditedData[i].Currency;
+                    var TestStatus = auditedData[i].TestStatus;
+                    var Weight = auditedData[i].Weight;
+                    var WeightUnit = auditedData[i].WeightUnit;
+                    var TestRemarks = auditedData[i].TestRemarks;
+                    var MSRP = auditedData[i].MSRP;
+                    gs.info('Weight: ' + Weight + ', WeightUnit: ' + WeightUnit);
+                    //in the back end we are using report sent table only for invoiced
+                    var ReportsentUpdate = new GlideRecord('x_inmis_im_itad_inbound_reportsent');
+                    ReportsentUpdate.initialize();
+                    ReportsentUpdate.vassetsourcekey = vAssetSourceKey;
+                    ReportsentUpdate.referenceid = ReferenceID;
+                    ReportsentUpdate.partnumber = PartNumber;
+                    ReportsentUpdate.missing = Missing;
+                    //ReportsentUpdate.ownership = Ownership;
+                    ReportsentUpdate.auditedby = AuditedBy;
+                    ReportsentUpdate.auditedonutc = AuditedOnUTC;
+                    ReportsentUpdate.conditioncode = ConditionCode;
+                    ReportsentUpdate.conditionremarks = ConditionRemarks;
+                    //ReportsentUpdate.dispositioncode = DispositionCode;
+                    ReportsentUpdate.recoveryvalue = RecoveryValue;
+                    ReportsentUpdate.processingfees = ProcessingFees;
+                    ReportsentUpdate.currency = Currency;
+                    ReportsentUpdate.teststatus = TestStatus;
+                    ReportsentUpdate.testremarks = TestRemarks == "" ? " " : TestRemarks;
+                    ReportsentUpdate.weight = Weight;
+                    ReportsentUpdate.weightunit = WeightUnit;
+                    //ReportsentUpdate.remarks = Remarks;
+                    //ReportsentUpdate.isserailnumbermissing = IsSerialNumberMissing;
+                    //ReportsentUpdate.serainumber = SerialNumber;
+                    //ReportsentUpdate.assettag = AssetTag;
+                    //ReportsentUpdate.manufacturer = Manufacturer;
+                    //ReportsentUpdate.model = Model;
+                    //ReportsentUpdate.description = Description;
+                    //ReportsentUpdate.isassetinwarranty = IsAssetInWarranty;
+                    //ReportsentUpdate.warrantyenddate = WarrantyEndDate;
+                    ReportsentUpdate.msrp = MSRP;
+                    ReportsentUpdate.requestnumber = vRequestNumber; // workorderID
+                    ReportsentUpdate.workorderstatus = JobStatus;
+                    ReportsentUpdate.insert();
+
+                    var updateAssetStatus;
+                    if (AssetSold == 1) {
+                        updateAssetStatus = new x_inmis_im_itad.UpdateAssetStatus().updateStatusFromBR(vAssetSourceKey, 7, 'sold');
+                    } else {
+                        updateAssetStatus = new x_inmis_im_itad.UpdateAssetStatus().updateStatusFromBR(vAssetSourceKey, 7, 'disposed');
+                    }
+
+
+                    var updateJobStatus = new x_inmis_im_itad.UpdateJobStatus().updateJobStatusFromBR(vRequestNumber, JobStatus);
+                }
+                gs.addInfoMessage('The data succesfully pulled from Bule IQ');
+            }
+
+        }
+    } catch (e) {
+        gs.info('>>Exception occured: ' + e);
+    }
+
+}
+
+//Pull Data of Invoice State Workorders from BlueIQ
+pullWorkOrderData();
+
+
+function pullWorkOrderScheduleData() {
+    try {
+        var authenticationDetails = tokenValidation();
+
+
+
+
+
+    } catch (e) {
+        gs.info('>>>Exception Occured [pullWorkOrderScheduleData]: ' + e);
+    }
+}
+
+function pullWorkOrderRecievedData() {
+    try {
+        var authenticationDetails = tokenValidation();
+		
+    } catch (e) {
+        gs.info('>>>Exception Occured [pullWorkOrderScheduleData]: ' + e);
+    }
+}
+
+function pullWorkOrderInvoicedData() {
+    try {
+        var authenticationDetails = tokenValidation();
+		
+    } catch (e) {
+        gs.info('>>>Exception Occured [pullWorkOrderScheduleData]: ' + e);
+    }
+}
+
+
+pullWorkOrderScheduleData();
+pullWorkOrderRecievedData();
+pullWorkOrderInvoicedData();]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+        <sys_created_on>2020-06-05 14:22:28</sys_created_on>
+        <sys_id>03fcfd18db9114108a521fe9689619fb</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_name>BlueIQ WO Integration Data Load</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sysauto_script_03fcfd18db9114108a521fe9689619fb</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-30 07:35:23</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

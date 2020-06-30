@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="facilities" max_length="40" name="x_inmis_im_itad_facilities" type="collection">
+        <element display="true" label="FacilityDescription" max_length="40" name="facilitydescription" type="string"/>
+        <element label="FacilityID" max_length="40" name="facilityid" type="string"/>
+        <index name="index">
+            <element name="facilityid"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.UpdateAssetStatus</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to update assets status after disposal order is created</description>
+        <name>UpdateAssetStatus</name>
+        <script><![CDATA[var UpdateAssetStatus = Class.create();
+UpdateAssetStatus.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	updatestatus: function() {
+		var param1 = this.getParameter('assetSysID');
+		var param2 = this.getParameter('install_status');
+		var param3 = this.getParameter('substatus');
+		var grupdate = new GlideRecord('alm_asset');
+		grupdate.addQuery('sys_id',param1);
+		grupdate.query();
+		
+		if (grupdate.next()) {
+			grupdate.setValue('install_status',param2);
+			grupdate.setValue('substatus',param3);
+			grupdate.update();
+		}	
+	},
+	updateStatusFromBR: function(assetSysID,install_status,substatus){
+		var grupdate = new GlideRecord('alm_asset');
+		grupdate.addQuery('sys_id',assetSysID);
+		grupdate.query();
+		if (grupdate.next()) {
+			grupdate.setValue('install_status',install_status);
+			grupdate.setValue('substatus',substatus);
+			grupdate.update();
+		}	
+	},
+	type: 'UpdateAssetStatus'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 10:06:24</sys_created_on>
+        <sys_id>7bfd0e61dbc57f0067166ac2ca9619aa</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>UpdateAssetStatus</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_7bfd0e61dbc57f0067166ac2ca9619aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-07-11 09:33:56</sys_updated_on>
+    </sys_script_include>
+</record_update>

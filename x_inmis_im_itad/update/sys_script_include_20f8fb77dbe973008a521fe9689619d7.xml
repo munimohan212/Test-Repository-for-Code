@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.GetWorkorderfromasset</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to get  workorderId of assets</description>
+        <name>GetWorkorderfromasset</name>
+        <script><![CDATA[var GetWorkorderfromasset = Class.create();
+GetWorkorderfromasset.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	GetWorkorder: function() {
+		var param1 = this.getParameter('assetSysID');
+		var result_value = '';
+		var grecord = new GlideRecord('x_inmis_im_itad_workorderassets');
+		grecord.addQuery('assetid', param1);
+		grecord.query();
+		if (grecord.next()) {
+			result_value = grecord.workorderid;
+		}
+		return result_value;
+	},
+	type: 'GetWorkorderfromasset'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-28 14:12:09</sys_created_on>
+        <sys_id>20f8fb77dbe973008a521fe9689619d7</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>GetWorkorderfromasset</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_20f8fb77dbe973008a521fe9689619d7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-28 14:52:58</sys_updated_on>
+    </sys_script_include>
+</record_update>

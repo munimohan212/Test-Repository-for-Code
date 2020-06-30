@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="inventory_management" table="x_inmis_im_itad_imitad_location" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>inventory_management</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Serial Number</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <sequence>1</sequence>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-12 13:23:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cc9b82ecdb7c941067166ac2ca961955</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-12 13:23:41</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>inventory_management</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Part Number</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <sequence>2</sequence>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-12 13:23:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>eaabc6acdb7c941067166ac2ca9619bd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-12 13:23:52</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>inventory_management</element>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-12 13:23:41</sys_created_on>
+            <sys_id>5d745e181bb558101d004047bc4bcb10</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>inventory_management</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_choice_x_inmis_im_itad_imitad_location_inventory_management</sys_update_name>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-12 13:23:41</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

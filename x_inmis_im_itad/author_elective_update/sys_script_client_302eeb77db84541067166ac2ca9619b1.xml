@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>u_glide_list_1</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Get Asset Details</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+
+        return;
+    }
+    var ga1 = new GlideAjax('x_inmis_im_itad.AssetsUtil');
+    ga1.addParam('sysparm_name', 'getAssets');
+    ga1.addParam('sysparm_assets', newValue);
+    ga1.getXML(checkNow1);
+
+    function checkNow1(response) {
+        var retDetails = response.responseXML.documentElement.getAttribute('answer');
+        var arr = retDetails.evalJSON();
+        var strTable = '<table style="align:center; border-collapse: collapse;">';
+        strTable += '<tr><th>Name</th><th>State</th><th>Substate</th><th>Model Category</th><th>Equipment Type</th></tr>';
+        for (var i = 0; i < arr.length; i++) {
+            strTable += '<tr>';
+            strTable += '<td>' + arr[i].name + '</td>';
+            strTable += '<td>' + arr[i].state + '</td>';
+            strTable += '<td>' + arr[i].substate + '</td>';
+            strTable += '<td>' + arr[i].category + '</td>';
+            strTable += '<td>' + arr[i].type + '</td>';
+            strTable += '</tr>';
+        }
+
+        strTable += '</table>';
+        g_form.setValue('selected_assets_details', strTable);
+
+    }
+
+    //Type appropriate comment here, and begin script below
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>INVOLR00</sys_created_by>
+        <sys_created_on>2020-04-15 16:10:03</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>302eeb77db84541067166ac2ca9619b1</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Get Asset Details</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_client_302eeb77db84541067166ac2ca9619b1</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-05-21 11:37:17</sys_updated_on>
+        <table>x_inmis_im_itad_workorder</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</application>
+        <file_path/>
+        <instance_id>c821e244dbe52b846578f22ebf9619bf</instance_id>
+        <instance_name>ven02711</instance_name>
+        <name>sys_script_client_302eeb77db84541067166ac2ca9619b1</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;u_glide_list_1&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Get Asset Details&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+
+        return;
+    }
+    var ga1 = new GlideAjax('x_inmis_im_itad.AssetsUtil');
+    ga1.addParam('sysparm_name', 'getAssets');
+    ga1.addParam('sysparm_assets', newValue);
+    ga1.getXML(checkNow1);
+
+    function checkNow1(response) {
+        var retDetails = response.responseXML.documentElement.getAttribute('answer');
+        var arr = retDetails.evalJSON();
+        var strTable = '&lt;table style="align:center; border-collapse: collapse;"&gt;';
+        strTable += '&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;State&lt;/th&gt;&lt;th&gt;Substate&lt;/th&gt;&lt;th&gt;Model Category&lt;/th&gt;&lt;th&gt;Equipment Type&lt;/th&gt;&lt;/tr&gt;';
+        for (var i = 0; i &lt; arr.length; i++) {
+            strTable += '&lt;tr&gt;';
+            strTable += '&lt;td&gt;' + arr[i].name + '&lt;/td&gt;';
+            strTable += '&lt;td&gt;' + arr[i].state + '&lt;/td&gt;';
+            strTable += '&lt;td&gt;' + arr[i].substate + '&lt;/td&gt;';
+            strTable += '&lt;td&gt;' + arr[i].category + '&lt;/td&gt;';
+            strTable += '&lt;td&gt;' + arr[i].type + '&lt;/td&gt;';
+            strTable += '&lt;/tr&gt;';
+        }
+
+        strTable += '&lt;/table&gt;';
+        g_form.setValue('selected_assets_details', strTable);
+
+    }
+
+    //Type appropriate comment here, and begin script below
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;INVOLR00&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-15 16:10:03&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;302eeb77db84541067166ac2ca9619b1&lt;/sys_id&gt;&lt;sys_mod_count&gt;23&lt;/sys_mod_count&gt;&lt;sys_name&gt;Get Asset Details&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Ingram Micro IT Asset Disposition"&gt;df95bbf0dbc17f008a521fe968961950&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_302eeb77db84541067166ac2ca9619b1&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;INVOLR00&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-05-21 11:37:17&lt;/sys_updated_on&gt;&lt;table&gt;x_inmis_im_itad_workorder&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1113769365</payload_hash>
+        <record_name>Get Asset Details</record_name>
+        <reverted_from/>
+        <source>2205920fdb7c901067166ac2ca9619ca</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>INVOLR00</sys_created_by>
+        <sys_created_on>2020-05-21 11:37:17</sys_created_on>
+        <sys_id>459948e3dbf8d01067166ac2ca96199d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1723705f6330000001</sys_recorded_at>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-05-21 11:37:17</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>c99948e3d1f8d0100e3a24bc3f2a609c</update_guid>
+        <update_guid_history>c99948e3d1f8d0100e3a24bc3f2a609c:-1113769365,f6e880e362f8d010d1b9fb2a25c4a22c:1961091064,9ea848a3b9f8d01087719db326ddc175:-1113769365,f908c4a35bf8d010df8cb412d9b24641:1961091064,6c834caf4cb8d010b8397265b1800046:-1113769365,2daab13ee2f0901077dcf755c409e840:-1370808936,760ab9ba0bf090103dfb7ce8d2f39f45:68005304,bce9f1fa0bf09010f5f43828ffdf86d6:-241857391,fca9f1fa8af09010237247f07b22fb04:68005304,fac7397aa2f09010057afe3fe9767ec8:1997216420,a4c53d3abbf090100425abc7a84bf464:-34241366,1c65f1f6a3f09010cd0afb8ce8a72b83:-938134871,3624b9b669f09010125d981b1439f572:-919718061,b904bdb6a2f0901025a05e17a7665d5e:1674152872,d79331f680f0901022e47575f708f0a2:-486595551,a8633db68cf0901001df6a23b7910115:-859763212,84237db6e4f09010efd36f903a086e55:-757237811,bef27db60cf090102871cfabc18bf684:903149837,0cb1797650f09010914bd28432e79589:829281460,ba41fd3627f09010b87fe525c8c98821:-2025816049,9431b57693f09010556b4bf2c8eb9bed:-658102769,bdbe1e04f51c5410ce7b9a8e103335c3:-1113769365,f3ad96c00e1c5410de45057a9155dcca:-2101684438,02cc5e8c46d85410bc2ccfa2700f22a5:-282537877,0b4c5e8cd7d854109bae3a8057d0f79e:9523357,b022d64c8ed85410d238425df9d0a20d:-1977615762,79c19ac0c4d8541092720dba40c54ffe:273748975,3fe6b3fb8a8454109655d438a4673a0f:-104646280,6096b3fbaa8454105d69bcb5d474df3e:1145642077,8f767bbb2b845410d00ef4be98954445:-132676515,0d06f3bb5a84541014b4810f66a228ef:-1133614309,f7a5b7bbaa845410a6ea2fb8b53b61d8:1805082228,4b7577bbff845410b68e2b6bcdeea7c0:-1683115502,9c4573bb888454103beb039735729464:664922801,1f1533bb388454100679b01789c7bd9a:971765041,f6b43f3ba3845410956f3d1627f0685e:-1864397473,07233f3bb2845410bd5f71851a5c774e:-1511366944,a3d2b73bdc8454101f22d86eb67ae942:-1648168047,d272b73be7845410abc45701c8270939:-192959133,a3027bf7a1845410b1ca2f7b58c6396a:-471350612,e9ce63b77d845410cb4cd8bcd44a3de0:834550117</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>INVOLR00</sys_created_by>
+        <sys_created_on>2020-05-22 11:05:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>7ea850741dcd4ed088180ccd58380799</sys_id>
+        <sys_metadata>302eeb77db84541067166ac2ca9619b1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Get Asset Details</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_parent display_value="WorkOrder">66d461a9db457f0067166ac2ca961973</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_scope_delete display_value="">754b5651fdcb480ea4d7b0c2cca0f181</sys_scope_delete>
+        <sys_update_name>sys_script_client_302eeb77db84541067166ac2ca9619b1</sys_update_name>
+        <sys_update_version display_value="sys_script_client_302eeb77db84541067166ac2ca9619b1">459948e3dbf8d01067166ac2ca96199d</sys_update_version>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-05-22 11:05:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

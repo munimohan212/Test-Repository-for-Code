@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="itad_locationid" label="ITAD LocationID" language="en" table="x_inmis_im_itad_imitad_location">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>itad_locationid</element>
+            <help/>
+            <hint>ITAD location ID would get auto-filled from IM-ITAD application for first time location creation</hint>
+            <label>ITAD LocationID</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <plural>ITAD LocationIDs</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-29 07:29:58</sys_created_on>
+            <sys_id>fbfd395cdbac9c1067166ac2ca96193d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>ITAD LocationID</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_documentation_x_inmis_im_itad_imitad_location_itad_locationid_en</sys_update_name>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-18 06:32:27</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

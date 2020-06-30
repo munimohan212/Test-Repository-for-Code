@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_inmis_im_itad_customer_registration</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Customer Registration</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions>x_inmis_im_itad.imitad_admin</role_conditions>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+    try {
+
+        var IsSuccess = "true";
+
+        var gr = new GlideRecord('x_inmis_im_itad_customer_registration');
+        if (gs.getProperty('glide.sys.domain.enabled') == 'true') {
+            gr.addQuery('company', current.company);
+        } else {
+            gr.addQuery('company_name', current.company_name);
+        }
+        gr.query();
+        if (gr.next()) {
+            IsSuccess = "false";
+            current.setAbortAction(true);
+            gs.addErrorMessage("Customer Instance has already been registered with IM-ITAD application.");
+        }
+
+
+
+        if (IsSuccess == "true") {
+			var requestBody = {};
+			requestBody.SourceID = current.getValue('source_id');
+			requestBody.SourceName = current.getValue('source_name');
+			requestBody.CustomerName = current.getValue('company_name');
+			requestBody.ScheduledHttpVerb = gs.getProperty('x_inmis_im_itad.ScheduledHttpVerb');
+			requestBody.ScheduledURI = gs.getProperty('x_inmis_im_itad.ScheduledURI');
+			requestBody.ReceivedHttpVerb = gs.getProperty('x_inmis_im_itad.ReceivedHttpVerb');
+			requestBody.ReceivedURI =  gs.getProperty('x_inmis_im_itad.ReceivedURI');
+			requestBody.InvoicedHttpVerb = gs.getProperty('x_inmis_im_itad.InvoicedHttpVerb');
+			requestBody.InvoicedURI =  gs.getProperty('x_inmis_im_itad.InvoicedURI');
+			requestBody.AttachmentHttpVerb =gs.getProperty('x_inmis_im_itad.AttachmentHttpVerb');
+			requestBody.AttachmentURI = gs.getProperty('x_inmis_im_itad.AttachmentURI');
+			requestBody.AssetLevelAttachmentHttpVerb =  gs.getProperty('x_inmis_im_itad.AssetLevelAttachmentHttpVerb');
+			requestBody.AssetLevelAttachmentURI = gs.getProperty('x_inmis_im_itad.AssetLevelAttachmentURI');
+			requestBody.CustomerRegistrationbaseUrl = gs.getProperty('x_inmis_im_itad.CustomerRegistration URI');
+			requestBody.ThirdPartyAuthenticationUser = null;
+			requestBody.ThirdPartyAuthenticationPassword = null;
+			requestBody.ITSM_Domain =  current.company.getDisplayValue() ? current.company.getDisplayValue().toString() : null;
+			
+            gs.info('Customer Registration call started.');
+            var r = new sn_ws.RESTMessageV2('x_inmis_im_itad.Customer registration', 'POST');
+            r.setStringParameterNoEscape('SourceID', current.source_id);            
+            r.setStringParameterNoEscape('SourceName', current.source_name);
+            r.setStringParameterNoEscape('CustomerName', current.company_name);
+            r.setStringParameterNoEscape('ScheduledHttpVerb', gs.getProperty('x_inmis_im_itad.ScheduledHttpVerb'));
+            r.setStringParameterNoEscape('ScheduledURI', gs.getProperty('x_inmis_im_itad.ScheduledURI'));
+            r.setStringParameterNoEscape('ReceivedHttpVerb', gs.getProperty('x_inmis_im_itad.ReceivedHttpVerb'));
+            r.setStringParameterNoEscape('ReceivedURI', gs.getProperty('x_inmis_im_itad.ReceivedURI'));
+            r.setStringParameterNoEscape('ReportSentHttpVerb', gs.getProperty('x_inmis_im_itad.InvoicedHttpVerb'));
+            r.setStringParameterNoEscape('ReportSentURI', gs.getProperty('x_inmis_im_itad.InvoicedURI'));
+            r.setStringParameterNoEscape('AttachmentHttpVerb', gs.getProperty('x_inmis_im_itad.AttachmentHttpVerb'));
+            r.setStringParameterNoEscape('AttachmentURI', gs.getProperty('x_inmis_im_itad.AttachmentURI'));
+            r.setStringParameterNoEscape('AssetLevelAttachmentHttpVerb', gs.getProperty('x_inmis_im_itad.AssetLevelAttachmentHttpVerb'));
+            r.setStringParameterNoEscape('AssetLevelAttachmentURI', gs.getProperty('x_inmis_im_itad.AssetLevelAttachmentURI'));
+            r.setStringParameterNoEscape('CustomerRegistrationbaseUrl', gs.getProperty('x_inmis_im_itad.CustomerRegistration URI'));
+            r.setStringParameterNoEscape('ThirdPartyAuthenticationUser', null);
+            r.setStringParameterNoEscape('ThirdPartyAuthenticationPassword', null);
+			r.setStringParameterNoEscape('ITSM_Domain', current.company.getDisplayValue() ? current.company.getDisplayValue().toString() : null);
+
+            //var response = r.execute();
+            r.setEccParameter('skip_sensor', true);
+            var response = r.executeAsync();
+            var responseBody = response.getBody();
+            gs.info('responseBody' + responseBody);
+
+            var httpStatus = response.getStatusCode();
+
+            var responseBodyDetail = JSON.parse(responseBody);
+
+            if (response.haveError()) {
+
+                current.setAbortAction(true);
+                gs.addErrorMessage(response.getErrorMessage());
+                gs.info('-aborted-------');
+                gs.info('-aborted due to error' + response);
+            } else {
+                if (responseBodyDetail.ResponseCode == "0" || responseBodyDetail.ErrorMessage == "") {
+                    current.encrypted_username = responseBodyDetail.Username;
+                    current.encrypted_password = responseBodyDetail.Password;
+
+                    /*var comp = new GlideRecord('core_company');
+                    comp.addQuery('name',current.company_name);
+                    comp.query();
+                    if(comp.next()){
+                    	comp.x_inmis_im_itad_u_imsourceid=current.source_id;
+                    	comp.update();
+                    }*/
+
+                    gs.addInfoMessage('Customer Registered Successfully');
+                    gs.info('Customer Registration call completed.');
+                } else {
+                    current.setAbortAction(true);
+                    gs.addErrorMessage(responseBodyDetail.ErrorMessage);
+                    gs.info('-aborted respose not 0-------');
+                    //gs.info('-aborted due to error'+readResponse.ErrorMessage);
+
+                }
+            }
+        }
+    } catch (ex) {
+        var message = ex.message;
+        gs.error(ex);
+        gs.info('Error occurred during customer registration api call.');
+        current.setAbortAction(true);
+        gs.addErrorMessage(message);
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-27 21:12:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2bbda94adb4dff008a521fe9689619bb</sys_id>
+        <sys_mod_count>57</sys_mod_count>
+        <sys_name>Customer Registration</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_2bbda94adb4dff008a521fe9689619bb</sys_update_name>
+        <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+        <sys_updated_on>2020-06-18 10:51:44</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=2bbda94adb4dff008a521fe9689619bb"/>
+</record_update>

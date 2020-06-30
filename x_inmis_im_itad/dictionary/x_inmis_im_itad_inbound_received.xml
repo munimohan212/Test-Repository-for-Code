@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Inbound Received" max_length="40" name="x_inmis_im_itad_inbound_received" type="collection">
+        <element label="facility" max_length="40" name="facility" type="string"/>
+        <element label="IM JobId" max_length="40" name="im_jobid" type="string"/>
+        <element label="Job Status" max_length="1000" name="job_status" type="string"/>
+        <element label="LoadID" max_length="75" name="loadid" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Pallet count" max_length="40" name="pallet_count" type="integer"/>
+        <element label="Received by" max_length="1000" name="received_by" type="string"/>
+        <element label="Received on" max_length="40" name="received_on" type="glide_date"/>
+        <element label="Request Number" max_length="40" name="request_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="SourceID" max_length="40" name="sourceid" type="string"/>
+    </element>
+</database>

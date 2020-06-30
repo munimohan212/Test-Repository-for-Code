@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_transform_script">
+    <sys_transform_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <map display_value="Inbound Attachment">65246f9ddb1d774067166ac2ca9619b2</map>
+        <order>100</order>
+        <script><![CDATA[(function runTransformScript(source, map, log, target /*undefined onStart*/ ) {
+	try{
+		
+		if(ignore!=true && error!=true){
+			
+			var gr = new GlideRecord('x_inmis_im_itad_workorder');
+			
+			gr.addQuery('number',source.request_number);
+			gr.query();
+			
+			
+			if(gr.next()){
+				
+				new CreateAttachment('x_inmis_im_itad_workorder',gr.getUniqueValue(),source.filename,'',source.filebytes);
+				
+				// new code for asset attachment
+					var gr1 = new GlideRecord('x_inmis_im_itad_workorderassets');
+		
+			gr1.addQuery('workorderid',source.request_number);
+			gr1.query();
+			
+				while(gr1.next()){
+					
+				new CreateAttachment('alm_hardware',gr1.assetid,source.filename,'',source.filebytes);
+				}
+				
+				
+				
+			}else{
+				gs.info('Attachment not uploaded.');
+			}
+			
+		}}catch(ex){
+			gs.error(ex);
+		}
+	})(source, map, log, target);]]></script>
+        <sys_class_name>sys_transform_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-08 08:16:24</sys_created_on>
+        <sys_id>5f276391db5d774067166ac2ca96193e</sys_id>
+        <sys_mod_count>55</sys_mod_count>
+        <sys_name>onAfter</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_transform_script_5f276391db5d774067166ac2ca96193e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-12-05 13:52:41</sys_updated_on>
+        <when>onAfter</when>
+    </sys_transform_script>
+</record_update>

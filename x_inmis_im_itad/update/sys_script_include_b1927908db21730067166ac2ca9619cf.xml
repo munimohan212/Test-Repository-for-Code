@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.TestConnection</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>TestConnection</name>
+        <script><![CDATA[var TestConnection = Class.create();
+TestConnection.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	testConnection: function(){
+		var answer = '';
+		var Token='';
+		var Tokenexpiredate='';
+		var username='';
+		var password = '';
+
+		try{
+			
+			var gr1 = new GlideRecord('x_inmis_im_itad_customer_registration');
+//to delete one record
+if (gr1.get('bb88a90fdbff00908a521fe968961975'))
+    gr1.deleteRecord();
+			
+			
+			username = this.getParameter('username');
+			var sourceid = this.getParameter('sourceid');
+			var gr = new GlideRecord('x_inmis_im_itad_customer_registration');
+			gr.addQuery('source_id',sourceid);
+			gr.query();
+			if(gr.next()){
+				password = gr.getElement('encrypted_password').getDecryptedValue();
+				Token= gr.getElement('token').getDisplayValue();
+				Tokenexpiredate=gr.getElement('tokenexpiredate').getDisplayValue();
+			}
+			
+			//if token is null OR Expired create token
+			var minute=20;
+			var hour=1;
+			if(Token!='')
+				{
+				var today=new GlideDateTime(new GlideDateTime().getDisplayValue());
+				var tt=new GlideDateTime(Tokenexpiredate);
+				var duration =new GlideDuration(GlideDateTime.subtract(today,tt ));
+				var timeSection = duration.toString().split(' ')[1]; //Gets the Time
+				minute = timeSection.split(':')[1];
+				hour=timeSection.split(':')[0];
+				gs.info("min"+minute);
+				gs.info("hr"+hour);
+			}
+			//Token generation Start
+			if(Token==''||minute>19||minute<1||hour!='00' ){
+				gs.info("create Token...");
+				var t = new sn_ws.RESTMessageV2('x_inmis_im_itad.Create Token', 'POST');
+t.setStringParameterNoEscape('baseUrl',gs.getProperty('x_inmis_im_itad.TestConnection').replace('ConnectionCheck','CreateToken'));
+				t.setStringParameterNoEscape('Username',username);
+				t.setStringParameterNoEscape('Password',password);
+				t.setEccParameter('skip_sensor', true);
+				var response1 = t.executeAsync();
+				var responseBody1 = response1.getBody();
+				var httpStatus1 = response1.getStatusCode();
+				var readResponse1 = JSON.parse(responseBody1);
+				if(response1.haveError()){
+					answer = 'token generation failed:' + response1.getErrorMessage();
+				} else if((readResponse1.ResponseCode=="0"||readResponse1.ErrorMessage=="") && readResponse1.IsSuccess == true) {
+					answer = 'token generated';
+					Token=readResponse1.Token;
+					Tokenexpiredate=new GlideDateTime();
+					Tokenexpiredate.addSeconds(1200);
+					var grupdate = new GlideRecord('x_inmis_im_itad_customer_registration');
+					grupdate.addQuery('source_id',sourceid);
+					grupdate.query();
+					if (grupdate.next())
+						{
+						
+						grupdate.setValue('token',Token);
+						grupdate.setValue('tokenexpiredate',Tokenexpiredate);
+						grupdate.update();
+					}
+					
+					
+				} else {
+					answer = 'token generation failed:' + readResponse1.ErrorMessage;
+				}
+				
+				gs.info(answer);
+				
+			}
+			//Token generation End
+			
+			
+			var r = new sn_ws.RESTMessageV2('x_inmis_im_itad.Test connection', 'POST');
+		r.setStringParameterNoEscape('baseUrl',gs.getProperty('x_inmis_im_itad.TestConnection'));
+			//r.setStringParameterNoEscape('Username',username);
+			//r.setStringParameterNoEscape('Password',password);
+			r.setStringParameterNoEscape('Token',Token);
+			
+			r.setEccParameter('skip_sensor', true);
+			var response = r.executeAsync();
+			var responseBody = response.getBody();
+			
+			gs.info(responseBody);
+			var httpStatus = response.getStatusCode();
+			var readResponse = JSON.parse(responseBody);
+			if(response.haveError()){
+				answer = 'Connection failed:' + response.getErrorMessage();
+			} else if((readResponse.ResponseCode=="0"||readResponse.ErrorMessage=="") && readResponse.IsSuccess == true) {
+				answer = 'Connection succeeded.';
+			} else {
+				answer = 'Connection failed:' + readResponse.ErrorMessage;
+			}
+		} catch(ex){
+			var answer = 'Connection failed due to unexpected error:'+ex;
+			gs.error('Test connection script include ended with errors:'+ex);
+		}
+		return answer;
+	},
+	type: 'TestConnection'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-16 12:43:14</sys_created_on>
+        <sys_id>b1927908db21730067166ac2ca9619cf</sys_id>
+        <sys_mod_count>177</sys_mod_count>
+        <sys_name>TestConnection</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_b1927908db21730067166ac2ca9619cf</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-31 14:14:33</sys_updated_on>
+    </sys_script_include>
+</record_update>

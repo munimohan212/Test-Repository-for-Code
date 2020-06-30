@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="IMITAD Timezones" max_length="40" name="x_inmis_im_itad_imitad_timezones" type="collection">
+        <element attributes="import_attribute_name=u_timezone,edge_encryption_enabled=true" label="Timezone" max_length="40" name="u_timezone" type="string"/>
+        <element attributes="import_attribute_name=u_timezoneid,edge_encryption_enabled=true" label="Timezoneid" max_length="40" name="u_timezoneid" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_inmis_im_itad.InsertAttachmentType</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>to save attachment Type </description>
+        <name>InsertAttachmentType</name>
+        <script><![CDATA[var InsertAttachmentType = Class.create();
+InsertAttachmentType.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	insertType: function() {
+		
+		var param1 = this.getParameter('sys_id');
+		var param2 = this.getParameter('Attach_Type');
+		var param3 = this.getParameter('Attach_Type_ID');
+		
+		var grinsert = new GlideRecord('x_inmis_im_itad_attachmenttypes');
+		grinsert.initialize();
+		grinsert.setValue('attachment_sys_id',param1);
+		grinsert.setValue('attachment_type',param2);
+		grinsert.setValue('attachment_type_id',param3);
+		
+		grinsert.insert();
+	},
+	type: 'InsertAttachmentType'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-26 10:47:13</sys_created_on>
+        <sys_id>fe28d2a9dbc57f0067166ac2ca9619fe</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>InsertAttachmentType</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_fe28d2a9dbc57f0067166ac2ca9619fe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-11-28 14:53:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

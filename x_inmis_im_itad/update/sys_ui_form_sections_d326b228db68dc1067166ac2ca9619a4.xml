@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="d326b228db68dc1067166ac2ca9619a4" sys_domain="global" table="x_inmis_im_itad_imitad_hardware" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-30 06:13:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9726b228db68dc1067166ac2ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_hardware" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">d326b228db68dc1067166ac2ca9619a4</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">b6a3baa4db68dc1067166ac2ca96197d</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-30 06:13:54</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-30 06:13:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>df26b228db68dc1067166ac2ca9619a6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_inmis_im_itad_imitad_hardware" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">d326b228db68dc1067166ac2ca9619a4</sys_ui_form>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-30 06:13:54</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_inmis_im_itad_imitad_hardware</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-30 06:13:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d326b228db68dc1067166ac2ca9619a4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_inmis_im_itad_imitad_hardware</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_form_sections_d326b228db68dc1067166ac2ca9619a4</sys_update_name>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-30 06:13:54</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

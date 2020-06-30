@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_inmis_im_itad_imitad_location" version="2" view="sys_ref_list">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>location</element>
+            <list_id display_value="x_inmis_im_itad_imitad_location" element="NULL" name="x_inmis_im_itad_imitad_location" parent="NULL" relationship="NULL" sys_domain="global" view="9f0621502c1300100c1dbc48b5c9f55a">616f3cc1db81d41067166ac2ca9619d2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>INVOLR00</sys_created_by>
+            <sys_created_on>2020-05-26 07:23:18</sys_created_on>
+            <sys_id>296f3cc1db81d41067166ac2ca9619d2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>INVOLR00</sys_updated_by>
+            <sys_updated_on>2020-05-26 07:23:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>itad_locationid</element>
+            <list_id display_value="x_inmis_im_itad_imitad_location" element="NULL" name="x_inmis_im_itad_imitad_location" parent="NULL" relationship="NULL" sys_domain="global" view="9f0621502c1300100c1dbc48b5c9f55a">616f3cc1db81d41067166ac2ca9619d2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>INVOLR00</sys_created_by>
+            <sys_created_on>2020-05-26 07:23:18</sys_created_on>
+            <sys_id>a96f3cc1db81d41067166ac2ca9619d2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>INVOLR00</sys_updated_by>
+            <sys_updated_on>2020-05-26 07:23:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>itad_facilityaddress</element>
+            <list_id display_value="x_inmis_im_itad_imitad_location" element="NULL" name="x_inmis_im_itad_imitad_location" parent="NULL" relationship="NULL" sys_domain="global" view="9f0621502c1300100c1dbc48b5c9f55a">616f3cc1db81d41067166ac2ca9619d2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>INVOLR00</sys_created_by>
+            <sys_created_on>2020-05-26 07:23:18</sys_created_on>
+            <sys_id>2d6f3cc1db81d41067166ac2ca9619d2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>INVOLR00</sys_updated_by>
+            <sys_updated_on>2020-05-26 07:23:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>disposal</element>
+            <list_id display_value="x_inmis_im_itad_imitad_location" element="NULL" name="x_inmis_im_itad_imitad_location" parent="NULL" relationship="NULL" sys_domain="global" view="9f0621502c1300100c1dbc48b5c9f55a">616f3cc1db81d41067166ac2ca9619d2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>INVOLR00</sys_created_by>
+            <sys_created_on>2020-05-26 07:23:18</sys_created_on>
+            <sys_id>ad6f3cc1db81d41067166ac2ca9619d2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>INVOLR00</sys_updated_by>
+            <sys_updated_on>2020-05-26 07:23:18</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_inmis_im_itad_imitad_location</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>INVOLR00</sys_created_by>
+            <sys_created_on>2020-05-26 07:23:18</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>616f3cc1db81d41067166ac2ca9619d2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_inmis_im_itad_imitad_location</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_list_x_inmis_im_itad_imitad_location_sys_ref_list</sys_update_name>
+            <sys_updated_by>INVOLR00</sys_updated_by>
+            <sys_updated_on>2020-05-26 07:23:18</sys_updated_on>
+            <sys_user/>
+            <view display_value="Reference List" name="sys_ref_list">9f0621502c1300100c1dbc48b5c9f55a</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

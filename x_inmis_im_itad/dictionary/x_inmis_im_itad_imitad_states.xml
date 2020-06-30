@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="IMITAD States" max_length="40" name="x_inmis_im_itad_imitad_states" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Active" label="Active" max_length="40" name="u_active" type="integer"/>
+        <element attributes="import_attribute_name=Description,edge_encryption_enabled=true" label="Description" max_length="49" name="u_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=StateID" label="StateID" max_length="40" name="u_stateid" type="integer"/>
+        <element attributes="import_attribute_name=State Abbreviation,edge_encryption_enabled=true" label="State Abbreviation" max_length="40" name="u_state_abbreviation" type="string"/>
+    </element>
+</database>

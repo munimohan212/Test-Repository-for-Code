@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="ITAD Audit" section_id="9f26b228db68dc1067166ac2ca9619a5" sys_domain="global" table="x_inmis_im_itad_imitad_hardware" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>workorder</element>
+            <position>0</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>0b09f7b0dbf8d41067166ac2ca961958</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>workorder_status</element>
+            <position>1</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>cf09f7b0dbf8d41067166ac2ca961958</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>im_assetid</element>
+            <position>2</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4309f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>mfg_part</element>
+            <position>3</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>c309f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>weight</element>
+            <position>4</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4709f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>weight_unit</element>
+            <position>5</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>c709f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>audited_by</element>
+            <position>6</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4b09f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>audited_on</element>
+            <position>7</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>cb09f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>audit_status</element>
+            <position>8</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4f09f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>9</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>cf09f7b0dbf8d41067166ac2ca961959</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cosmetic_grade</element>
+            <position>10</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4309f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cosmetic_reason</element>
+            <position>11</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>c309f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>failure_reason</element>
+            <position>12</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4709f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>missing_notes</element>
+            <position>13</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>c709f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>asset_recovery</element>
+            <position>14</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4b09f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>processing_fees</element>
+            <position>15</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>cb09f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>currency</element>
+            <position>16</position>
+            <sys_created_by>Munimohan.Bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-05-13 16:00:16</sys_created_on>
+            <sys_id>4f09f7b0dbf8d41067166ac2ca96195a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="ITAD Audit" display_value="ITAD Audit" name="x_inmis_im_itad_imitad_hardware" sys_domain="global" view="Default view">9f26b228db68dc1067166ac2ca9619a5</sys_ui_section>
+            <sys_updated_by>Munimohan.Bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-05-13 16:00:16</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>ITAD Audit</caption>
+            <header>false</header>
+            <name>x_inmis_im_itad_imitad_hardware</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>INMITG00</sys_created_by>
+            <sys_created_on>2020-04-30 06:13:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9f26b228db68dc1067166ac2ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>ITAD Audit</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_section_9f26b228db68dc1067166ac2ca9619a5</sys_update_name>
+            <sys_updated_by>INMITG00</sys_updated_by>
+            <sys_updated_on>2020-04-30 06:13:54</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

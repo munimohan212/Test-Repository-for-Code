@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="source_id" label="Source ID" language="en" table="x_inmis_im_itad_inbound_attachment">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>source_id</element>
+            <help/>
+            <hint/>
+            <label>Source ID</label>
+            <language>en</language>
+            <name>x_inmis_im_itad_inbound_attachment</name>
+            <plural>Source IDs</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-05-08 07:57:14</sys_created_on>
+            <sys_id>be273efddbbd405067166ac2ca961965</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Source ID</sys_name>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_documentation_x_inmis_im_itad_inbound_attachment_source_id_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-05-08 07:57:14</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

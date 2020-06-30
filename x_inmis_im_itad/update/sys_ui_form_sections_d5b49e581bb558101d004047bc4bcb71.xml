@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="d5b49e581bb558101d004047bc4bcb71" sys_domain="global" table="alm_hardware" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d1b49e581bb558101d004047bc4bcb72</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">1dea5bfadbe1f70067166ac2ca9619ba</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5db49e581bb558101d004047bc4bcb72</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="General" display_value="General" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">1ead977edbe1f70067166ac2ca9619c2</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d1b49e581bb558101d004047bc4bcbb9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="Contracts" display_value="Contracts" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">36b2c4c3db65f70067166ac2ca9619cc</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:41</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>65b4de581bb558101d004047bc4bcb13</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="Disposal" display_value="Disposal" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">477ffb72db65f70067166ac2ca96199b</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:42</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>31b4de581bb558101d004047bc4bcb6f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="Financial" display_value="Financial" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">6b4db732db65f70067166ac2ca961920</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:43</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>5</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:44</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86b4de581bb558101d004047bc4bcb7e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="Depreciation" display_value="Depreciation" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">7eb2c4c3db65f70067166ac2ca9619cb</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:44</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>6</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dab4de581bb558101d004047bc4bcbdd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="Activities" display_value="Activities" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">f6b248c3db65f70067166ac2ca961929</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:45</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>7</position>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>dab4de581bb558101d004047bc4bcbe0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="alm_hardware" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">d5b49e581bb558101d004047bc4bcb71</sys_ui_form>
+            <sys_ui_section caption="EntitleMents" display_value="EntitleMents" name="alm_hardware" sys_domain="global" view="89b45e581bb558101d004047bc4bcbf5">fab2c4c3db65f70067166ac2ca9619cc</sys_ui_section>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:45</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>alm_hardware</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>munimohan.bathala@ness.com</sys_created_by>
+            <sys_created_on>2020-06-30 12:27:41</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>d5b49e581bb558101d004047bc4bcb71</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>alm_hardware</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+            <sys_update_name>sys_ui_form_sections_d5b49e581bb558101d004047bc4bcb71</sys_update_name>
+            <sys_updated_by>munimohan.bathala@ness.com</sys_updated_by>
+            <sys_updated_on>2020-06-30 12:27:41</sys_updated_on>
+            <sys_user/>
+            <view display_value="Hardware" name="Hardware">89b45e581bb558101d004047bc4bcbf5</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

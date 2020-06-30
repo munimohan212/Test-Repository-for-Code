@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_definition">
+    <sys_ws_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <base_uri>/api/x_inmis_im_itad/imitad_inbound</base_uri>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_version>No active default version</default_version>
+        <doc_link/>
+        <enforce_acl>7aea6c7fdbd1330067166ac2ca9619d1</enforce_acl>
+        <is_versioned>false</is_versioned>
+        <name>IMITAD Inbound</name>
+        <namespace>x_inmis_im_itad</namespace>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <service_id>imitad_inbound</service_id>
+        <short_description/>
+        <sys_class_name>sys_ws_definition</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-27 19:08:50</sys_created_on>
+        <sys_id>f1d49dc6db0dff008a521fe96896192c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>IMITAD Inbound</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ws_definition_f1d49dc6db0dff008a521fe96896192c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-25 10:30:40</sys_updated_on>
+    </sys_ws_definition>
+</record_update>

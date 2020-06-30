@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="My Request" max_length="40" name="x_inmis_im_itad_my_request" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Company" max_length="32" name="company" read_only="true" reference="core_company" type="reference"/>
+        <element label="Detail Description" mandatory="true" max_length="10000" name="detail_description" type="string"/>
+        <element label="Email" mandatory="true" max_length="100" name="email" type="string"/>
+        <element label="First Name" mandatory="true" max_length="50" name="first_name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Issue With" mandatory="true" max_length="500" name="issue_with" type="choice">
+            <choice>
+                <element hint="Issue in registering customer for IM-ITAD integration" inactive_on_update="false" label="Customer Registration" sequence="0" value="customer_registration"/>
+                <element hint="Issue in creating new location" inactive_on_update="false" label="Create Location" sequence="1" value="create_location"/>
+                <element hint="Issue in updating location" inactive_on_update="false" label="Update Location" sequence="2" value="update_location"/>
+                <element hint="Issue in workorder submission" inactive_on_update="false" label="Submit workorder" sequence="3" value="workorder"/>
+                <element inactive_on_update="false" label="Other" sequence="4" value="other"/>
+            </choice>
+        </element>
+        <element label="Last Name" mandatory="true" max_length="50" name="last_name" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Request Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Phone Number" mandatory="true" max_length="40" name="phone_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="itad_services" label="Service Of Interest" max_length="500" name="serviceofinterest" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="-- New choice --" value="-- New choice --"/>
+                <element inactive_on_update="false" label="ITAD Services" sequence="100" value="itad_services"/>
+                <element inactive_on_update="false" label="Reverse logistics" sequence="200" value="reverse_logistics"/>
+            </choice>
+        </element>
+        <element label="Short Description" mandatory="true" max_length="200" name="short_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Domain" max_length="32" name="sys_domain" type="domain_id"/>
+        <element attributes="edge_encryption_enabled=true" label="New File Attachment" max_length="40" name="u_file_attachment_1" type="file_attachment"/>
+        <index name="index">
+            <element name="sys_domain"/>
+        </index>
+        <index name="index2">
+            <element name="company"/>
+        </index>
+    </element>
+</database>

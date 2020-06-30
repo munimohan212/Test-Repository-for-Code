@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="no_attachment=true" label="WorkOrder" max_length="40" name="x_inmis_im_itad_workorder" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;// Add your code here&#10;&#9;return gs.getUser().getCompanyID();  // return the calculated value&#10;&#10;})(current);" label="Company" max_length="40" name="company" read_only="true" reference="core_company" type="reference"/>
+        <element label="Confirmed By" max_length="40" name="confirmed_by" type="string"/>
+        <element label="Confirmed With" max_length="40" name="confirmed_with" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Dates not available" max_length="1000" name="dates_not_available" type="string"/>
+        <element label="Delivery Sent Date" max_length="40" name="delivery_sent_date" type="glide_date"/>
+        <element label="Earliest Date" mandatory="true" max_length="40" name="earliest_date" type="glide_date"/>
+        <element hint="Where in the building is the equipment located? (e.g. – 2nd floor, Dock, Room 104, etc.)" label="Equipment Location" mandatory="true" max_length="100" name="equipment_location" type="string"/>
+        <element label="Estimated Arrival Date" max_length="40" name="estimated_arrival_date" type="glide_date"/>
+        <element label="ITAD Facility" max_length="40" name="facility" read_only="true" type="string"/>
+        <element label="ITAD FacilityAddress" max_length="500" name="facility_address" read_only="true" type="string"/>
+        <element label="IM JobID" max_length="40" name="im_jobid" read_only="true" type="string"/>
+        <element label="Latest Date" mandatory="true" max_length="40" name="latest_date" type="glide_date"/>
+        <element label="LoadID" max_length="75" name="loadid" read_only="true" type="string"/>
+        <element hint="Where in the building will our crew be able to stage, count, and pack the equipment?" label="Palletizable Location" mandatory="true" max_length="40" name="location_palletize" type="string"/>
+        <element label="Misc. Items" max_length="500" name="miscellaneousbox" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Misc items-Enter Pallet count" max_length="40" name="misc_items_enter_pallet_count_manually" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Misc items-Enter Weight " max_length="40" name="misc_items_enter_weight_manually" type="integer"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="WorkOrder ID" max_length="40" name="number" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Pallet Count" max_length="40" name="pallet_count" read_only="true" type="integer"/>
+        <element label="Pickup Confirmed" max_length="40" name="pickup_confirmed" type="glide_date"/>
+        <element label="Pickup Instructions" max_length="1000" name="pickup_instructions" type="string"/>
+        <element label="Received By" max_length="1000" name="received_by" read_only="true" type="string"/>
+        <element label="Received On" max_length="40" name="received_on" read_only="true" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Scheduling Notes" max_length="1000" name="scheduling_notes" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="initial" label="State" max_length="40" name="state" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="initial" sequence="0" value="initial"/>
+                <element inactive_on_update="false" label="draft" sequence="1" value="draft"/>
+                <element inactive_on_update="false" label="submit" sequence="2" value="submit"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Status" mandatory="true" max_length="2" name="status" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.getTableName();" dynamic_default_value="b5cb83a85f220100a9ad2572f2b4773c" label="Class" max_length="80" name="sys_class_name" type="sys_class_name" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Domain" max_length="32" name="sys_domain" type="domain_id"/>
+        <element label="Time From" max_length="40" name="time_from" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Time Of Day" mandatory="true" max_length="40" name="time_of_day" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="No Preference" sequence="0" value="5125"/>
+                <element inactive_on_update="false" label="Morning (8:00 AM to Noon)" sequence="1" value="5126"/>
+                <element inactive_on_update="false" label="Afternoon (Noon to 5:00 PM)" sequence="2" value="5127"/>
+                <element inactive_on_update="false" label="After Hours Pickup" sequence="3" value="24529"/>
+            </choice>
+        </element>
+        <element label="Time To" max_length="40" name="time_to" type="string"/>
+        <element label="Tracking Number" max_length="150" name="tracking_number" type="string"/>
+        <element hint="Equipment Notes - e.g. Non-standard sizes; ability to roll; over-sized weight, etc:" label="Equipment Notes" max_length="40" name="u_equipment_notes" type="string"/>
+        <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="Assets selected for disposal from the disposal location" mandatory="true" max_length="4000" name="u_glide_list_1" reference="alm_hardware" reference_qual="javascript: 'location=' + current.u_location.location +'^sys_class_name=alm_hardware^substatus=ready_for_disposal'&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;" type="glide_list" use_reference_qualifier="advanced"/>
+        <element attributes="edge_encryption_enabled=true,no_email=true,no_sort=true,slushbucket_ref_no_expand=true" label="Pickup Contact" mandatory="true" max_length="1024" name="u_glide_list_2" reference="sys_user" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" choice="2" dynamic_creation_script="javascript:new GetFilteredLocation();" label="Disposal Location" mandatory="true" max_length="32" name="u_location" reference="x_inmis_im_itad_imitad_location" reference_qual="javascript:  new x_inmis_im_itad.GetUserLocations().getIMITADLocationDetails() + '^disposal=true'" type="reference" use_reference_qualifier="advanced">
+            <choice/>
+        </element>
+        <element label="PO Number" max_length="40" name="u_ponumber" type="string"/>
+        <element choice="1" default="itad _disposal" label="Request Type" max_length="40" name="u_requesttype" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="ITAD Disposal" sequence="0" value="itad _disposal"/>
+            </choice>
+        </element>
+        <element choice="3" default="5123" label="WorkOrder Type" max_length="40" name="u_wotype" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Pickup" sequence="0" value="5123"/>
+                <element inactive_on_update="false" label="Delivery" sequence="1" value="5124"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="draft" label="WorkOrder Status" max_length="40" name="workorder_status" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+                <element inactive_on_update="false" label="Invoiced" sequence="1" value="Invoiced"/>
+                <element inactive_on_update="false" label="Report Sent" sequence="2" value="Report Sent"/>
+                <element inactive_on_update="false" label="Requested" sequence="3" value="requested"/>
+                <element inactive_on_update="false" label="Scheduled" sequence="4" value="scheduled"/>
+                <element inactive_on_update="false" label="Received" sequence="5" value="received"/>
+                <element inactive_on_update="false" label="Processing Completed" sequence="6" value="processing_completed"/>
+                <element inactive_on_update="false" label="Closed" sequence="7" value="closed"/>
+                <element inactive_on_update="false" label="Submitted" sequence="8" value="wo_submitted"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="number"/>
+            <element name="im_jobid"/>
+        </index>
+        <index name="index2">
+            <element name="sys_domain"/>
+        </index>
+        <index name="index3">
+            <element name="company"/>
+        </index>
+        <index name="index4">
+            <element name="u_location"/>
+        </index>
+        <index name="index5">
+            <element name="sys_class_name"/>
+        </index>
+    </element>
+</database>

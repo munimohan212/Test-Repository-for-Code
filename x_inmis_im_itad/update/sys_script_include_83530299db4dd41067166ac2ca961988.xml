@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_inmis_im_itad.checkEquipmentValue</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>checkEquipmentValue</name>
+        <script><![CDATA[var checkEquipmentValue = Class.create();
+checkEquipmentValue.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    validateEquipment: function() {
+
+        var assetlist = this.getParameter('sysparm_assets').toString();
+        var array = assetlist.split(",");
+        var types = [];
+        var typesname = [];
+        var count = [];
+
+
+        for (var i = 0; i < array.length; i++) {
+            //gs.info("Reference value is: " + array[i]+"-"+i);
+            var rec = new GlideRecord('alm_asset');
+            if (rec.get(array[i])) {
+                types.push(rec.getValue('model_category'));
+                typesname.push(rec.getDisplayValue('model_category'));
+            }
+        }
+        types = types.sort();
+        //gs.info("Types are: "+types.join(','));
+        var s = 1;
+        for (i = 0; i < types.length; i++) {
+            count[i] = 0;
+            if (s == i) {
+
+            } else {
+                for (var j = 0; j < types.length; j++) {
+                    if (types[i] == types[j]) {
+                        count[i]++;
+                        s = j;
+                    }
+                }
+
+                //get equipmenttype
+                var equipmentsysid = "";
+                var equipmentvalue = "";
+                var equipid = "";
+                var grupdates11 = new GlideRecord('x_inmis_im_itad_im_mapping_model_equipment');
+                grupdates11.addQuery('mapping_model_categories', types[i]);
+                grupdates11.query();
+                if (grupdates11.next()) {
+                    equipmentsysid = grupdates11.mapping_equipment_type;
+                    equipmentvalue = grupdates11.mapping_equipment_type.getDisplayValue();
+                }
+
+                var ettable1 = new GlideRecord('x_inmis_im_itad_equipment_type');
+                ettable1.addQuery('equipmenttype', equipmentvalue);
+                ettable1.query();
+                if (ettable1.next()) {
+                    equipid = ettable1.equipmenttypeid; //16
+
+                }
+                //get equipmenttype
+                if (equipid == "") {
+                    return 'Workorder cannot be submitted, as there is model category ( ' + typesname[i] + ' ) of an asset not mapped to equipment type. Please contact ITAD administrator';
+
+                } else {
+                    continue;
+                }
+
+            }
+        }
+
+        return 'false';
+    },
+    type: 'checkEquipmentValue'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>INVOLR00</sys_created_by>
+        <sys_created_on>2020-05-27 06:59:38</sys_created_on>
+        <sys_id>83530299db4dd41067166ac2ca961988</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>checkEquipmentValue</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_include_83530299db4dd41067166ac2ca961988</sys_update_name>
+        <sys_updated_by>INVOLR00</sys_updated_by>
+        <sys_updated_on>2020-05-27 07:12:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

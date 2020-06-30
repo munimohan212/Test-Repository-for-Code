@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>u_submit</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2/>
+        <comments/>
+        <condition>current.isValidRecord()&amp;&amp; current.workorder_status =='draft'</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Submit</name>
+        <onclick>u_submit()</onclick>
+        <order>100</order>
+        <script><![CDATA[//function submit()
+//{	
+	//action.setRedirectURL(current);
+	//current.assignment_group = '';
+	//current.assigned_to = gs.getUserID();
+	//current.status='submit';
+//	current.update();
+
+//}
+function u_submit()
+{	
+	g_form.setMandatory('equipment_location', true);
+	g_form.setMandatory('location_palletize', true);
+	g_form.setMandatory('earliest_date', true);
+	g_form.setMandatory('latest_date', true);
+	g_form.setMandatory('time_of_day', true);
+	g_form.setMandatory('u_glide_list_2', true);
+	gsftSubmit(null, g_form.getFormElement(), 'u_submit');
+	
+}
+if(typeof window == 'undefined')
+   u_submit1();
+
+function u_submit1(){
+	current.state='submit';
+	action.setRedirectURL(current);
+current.assignment_group = '';
+current.assigned_to = gs.getUserID();
+
+current.update();
+}
+]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-05-06 12:56:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fc25d6f4db19374067166ac2ca96197c</sys_id>
+        <sys_mod_count>73</sys_mod_count>
+        <sys_name>Submit</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_ui_action_fc25d6f4db19374067166ac2ca96197c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-04 12:37:19</sys_updated_on>
+        <table>x_inmis_im_itad_workorder</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

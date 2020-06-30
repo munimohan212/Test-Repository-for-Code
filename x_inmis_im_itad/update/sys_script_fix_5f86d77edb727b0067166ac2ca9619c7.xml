@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description>Updates &lt;instancename&gt; in properties to automatically update the customer's instance name.</description>
+        <flush_cache>false</flush_cache>
+        <name>Update Instance Name</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>false</run_once>
+        <script><![CDATA[var instanceName = gs.getProperty('instance_name');
+var gr = new GlideRecord('sys_properties');
+gr.addActiveQuery();
+gr.addQuery('name', 'IN', 'x_inmis_im_itad.BaseURI,x_inmis_im_itad.ScheduledURI,x_inmis_im_itad.ReceivedURI,x_inmis_im_itad.ReportSentURI,x_inmis_im_itad.AttachmentURI,x_inmis_im_itad.AssetLevelAttachmentURI');
+
+gr.query();
+while(gr.next()){
+		gs.info('name '+instanceName);
+	
+	var variable = gr.getValue('value');
+	
+    var variable1 = variable.toString().replace('<instance>', instanceName).trim();  
+	
+    gr.setValue('value',variable1);
+	gr.update();
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-07-26 12:52:41</sys_created_on>
+        <sys_id>5f86d77edb727b0067166ac2ca9619c7</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Update Instance Name</sys_name>
+        <sys_package display_value="Ingram Micro IT Asset Disposition" source="x_inmis_im_itad">df95bbf0dbc17f008a521fe968961950</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Ingram Micro IT Asset Disposition">df95bbf0dbc17f008a521fe968961950</sys_scope>
+        <sys_update_name>sys_script_fix_5f86d77edb727b0067166ac2ca9619c7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-17 11:23:53</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="IMITAD Hardware" max_length="40" name="x_inmis_im_itad_imitad_hardware" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Asset Recovery" max_length="40" name="asset_recovery" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Audited By" max_length="40" name="audited_by" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Audited On" max_length="40" name="audited_on" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Audit Status" max_length="40" name="audit_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Cosmetic Grade" max_length="40" name="cosmetic_grade" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Cosmetic Reason" max_length="40" name="cosmetic_reason" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Currency" max_length="40" name="currency" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Failure Reason" max_length="400" name="failure_reason" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Hardware Assets" max_length="32" name="hardware_assets" reference="alm_hardware" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="IM AssetID" max_length="40" name="im_assetid" type="string"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="IM-ITAD Equipment Type" max_length="32" name="im_itad_equipment_type" reference="x_inmis_im_itad_im_mapping_model_equipment" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Mfg Part#" max_length="40" name="mfg_part" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Missing Notes" max_length="40" name="missing_notes" type="string"/>
+        <element label="MSRP" max_length="40" name="msrp" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Processing Fees" max_length="40" name="processing_fees" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Domain" max_length="32" name="sys_domain" type="domain_id"/>
+        <element attributes="edge_encryption_enabled=true" label="Weight" max_length="40" name="weight" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Weight Unit" max_length="40" name="weight_unit" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Workorder" max_length="40" name="workorder" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Workorder Status" max_length="40" name="workorder_status" type="string"/>
+        <index name="index">
+            <element name="hardware_assets"/>
+        </index>
+        <index name="index2">
+            <element name="sys_domain"/>
+        </index>
+        <index name="index3">
+            <element name="im_itad_equipment_type"/>
+        </index>
+    </element>
+</database>

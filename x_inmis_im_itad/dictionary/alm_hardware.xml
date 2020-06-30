@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" extends="alm_asset" label="Hardware" max_length="40" name="alm_hardware" sizeclass="904" type="collection">
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="IM-ITAD Equipment Type" max_length="32" name="x_inmis_im_itad_im_itad_equipment_type" reference="x_inmis_im_itad_im_mapping_model_equipment" type="reference"/>
+    </element>
+</database>

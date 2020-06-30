@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="IMITAD Facilities" max_length="40" name="x_inmis_im_itad_imitad_facilities" type="collection">
+        <element attributes="import_attribute_name=FacilityDescription,edge_encryption_enabled=true" label="FacilityDescription" max_length="40" name="u_facilitydescription" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=FacilityID" label="FacilityID" max_length="40" name="u_facilityid" type="integer"/>
+    </element>
+</database>
